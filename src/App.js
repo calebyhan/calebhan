@@ -1,8 +1,10 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import "./App.css";
 import CameraUI from "./CameraUI";
 import Coding from "./Coding";
 import Photography from "./Photography";
 import About from "./About";
+// import { Analytics } from "@vercel/analytics/react"
 
 function App() {
     return (
@@ -15,6 +17,7 @@ function App() {
                     <Route path="/about" element={<About />} />
                 </Routes>
             </Router>
+            {/*<Analytics />*/}
         </div>
     );
 }
