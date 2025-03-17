@@ -1,15 +1,25 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 
 const CameraUI = () => {
     const navigate = useNavigate();
 
     // Define base coordinates and dimensions as variables
-    const bodyX = 20, bodyY = 40, bodyWidth = 360, bodyHeight = 200;
-    const screenX = 50, screenY = 80, screenWidth = 210, screenHeight = 130;
-    const circleX = 300, circleY = 150, circleRadius = 25;
+    const bodyX = 20, bodyY = 20, bodyWidth = 360, bodyHeight = 200;
+    const screenX = 50, screenY = 60, screenWidth = 210, screenHeight = 130;
+    const circleX = 300, circleY = 160, circleRadius = 25;
 
-    const crossLine1X1 = 318, crossLine1Y1 = 168, crossLine1X2 = 282, crossLine1Y2 = 132;
-    const crossLine2X1 = 282, crossLine2Y1 = 168, crossLine2X2 = 318, crossLine2Y2 = 132;
+    const crossLineX1 = circleX + 18, crossLineY1 = circleY + 18, crossLineX2 = circleX - 18, crossLineY2 = circleY - 18;
+
+    React.useEffect(() => {
+        // Lock scroll when Camera UI is up
+        document.body.style.overflow = "hidden";
+
+        // Clean up to reset overflow property when component unmounts
+        return () => {
+            document.body.style.overflow = "auto";
+        };
+    }, []);
 
     return (
         <div className="relative flex justify-center items-center h-screen bg-gray-900">
@@ -33,8 +43,8 @@ const CameraUI = () => {
                 </text>
 
                 {/* Cross pattern for dividing the circle */}
-                <line x1={crossLine1X1} y1={crossLine1Y1} x2={crossLine1X2} y2={crossLine1Y2} stroke="#5A5A5A" strokeWidth="1" />
-                <line x1={crossLine2X1} y1={crossLine2Y1} x2={crossLine2X2} y2={crossLine2Y2} stroke="#5A5A5A" strokeWidth="1" />
+                <line x1={crossLineX1} y1={crossLineY1} x2={crossLineX2} y2={crossLineY2} stroke="#5A5A5A" strokeWidth="1" />
+                <line x1={crossLineX1} y1={crossLineY2} x2={crossLineX2} y2={crossLineY1} stroke="#5A5A5A" strokeWidth="1" />
 
                 {/* Additional Buttons */}
                 <circle cx="350" cy="60" r="8" fill="#6B7280" className="cursor-pointer" />
