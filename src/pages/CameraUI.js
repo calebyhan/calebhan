@@ -32,6 +32,7 @@ const CameraUI = () => {
 
                 {/* Circular Navigation Button with Emojis */}
                 <circle cx={circleX} cy={circleY} r={circleRadius} fill="#2D2D2D" stroke="#505050" strokeWidth="2" />
+
                 <text x={circleX} y={circleY - 12} fontSize="16" fill="#FFFFFF" textAnchor="middle" cursor="pointer" onClick={() => navigate("/coding")}>
                     💻
                 </text>
