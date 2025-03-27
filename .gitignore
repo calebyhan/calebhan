@@ -23,6 +23,9 @@ _testmain.go
 *.test
 *.prof
 
+scripts.py
+package-lock.json
+
 # WebStorm
 *.iml
 

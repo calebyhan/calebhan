@@ -3,3 +3,23 @@ html, body {
     margin: 0;
     overflow: hidden;
 }
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.h-screen {
+    /*height: 100vh;*/
+}
+
+.bg-gray-900 {
+    background-color: #1a202c;
+}

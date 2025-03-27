@@ -1,0 +1,71 @@
+{
+  "metadata": [
+    {
+      "file_name": "IMG_3361.JPG",
+      "camera": "Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "29.0 mm",
+      "aperture": "f/10.0",
+      "exposure": "1/400",
+      "ISO": "100",
+      "created": "March 09, 2025 15:15",
+      "location": "Surf City, NC",
+      "feature": true
+    },
+    {
+      "file_name": "IMG_3382.JPG",
+      "camera": "Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "45.0 mm",
+      "aperture": "f/6.3",
+      "exposure": "1/1250",
+      "ISO": "200",
+      "created": "March 09, 2025 15:32",
+      "location": "Surf City, NC",
+      "feature": true
+    },
+    {
+      "file_name": "IMG_3458.JPG",
+      "camera": "Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "45.0 mm",
+      "aperture": "f/9.0",
+      "exposure": "1/320",
+      "ISO": "100",
+      "created": "March 09, 2025 16:34",
+      "location": "Surf City, NC",
+      "feature": true
+    },
+    {
+      "file_name": "20240907_234338000_iOS.jpg",
+      "camera": "DJI Mini 4 Pro",
+      "lens": "N/A",
+      "focal_length": "6.72 mm",
+      "aperture": "f/1.7",
+      "exposure": "1/350",
+      "ISO": "120",
+      "created": "September 07, 2024 19:43",
+      "location": "Oak Island, NC",
+      "feature": false
+    },
+    {
+      "file_name": "20241005_223906000_iOS.jpg",
+      "camera": "DJI Mini 4 Pro",
+      "lens": "N/A",
+      "focal_length": "6.72 mm",
+      "aperture": "f/1.7",
+      "exposure": "1/60",
+      "ISO": "100",
+      "created": "October 05, 2024 18:39",
+      "location": "Lake Gaston, NC",
+      "feature": false
+    }
+  ],
+  "images": [
+    "20241005_223906000_iOS.jpg",
+    "20240907_234338000_iOS.jpg",
+    "IMG_3382.jpg",
+    "IMG_3361.jpg",
+    "IMG_3458.jpg"
+  ]
+}

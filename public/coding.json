@@ -1,0 +1,22 @@
+{
+  "projects": [
+    {
+      "name": "n-body simulations",
+      "description": "This project is a continuation of our UNC HackNC submission. This simulation relies on Newton's Law of Gravitation. Three.js is used for 3-D visualization.",
+      "link": "https://github.com/calebyhan/n-body-simulations",
+      "thumbnail": "/assets/nbodysim.png"
+    },
+    {
+      "name": "Wildfires",
+      "description": "HackDuke 2025 - Best use of Streamlit",
+      "link": "https://github.com/calebyhan/hackduke25?tab=readme-ov-file",
+      "thumbnail": "/assets/wildfires.png"
+    },
+    {
+      "name": "DiscoverAbroad",
+      "description": "Hack110 - Best Overall Web Hack",
+      "link": "https://github.com/calebyhan/hack110",
+      "thumbnail": "/assets/discoverabroad.png"
+    }
+  ]
+}
