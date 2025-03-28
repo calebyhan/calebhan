@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 
 const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, content }) => {
+    const [hoveredProject, setHoveredProject] = useState(null);
+
     const bodyX = 20, bodyY = 20, bodyWidth = 360, bodyHeight = 200;
     const screenX = 50, screenY = 60, screenWidth = 210, screenHeight = 150;
     const circleX = 300, circleY = 160, circleRadius = 25;
@@ -34,24 +36,31 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
                 </foreignObject>
             )}
 
-
-            {currentView === "coding" && (
+            {currentView === "coding" && content && (
                 <foreignObject x={screenX + 5} y={screenY + 5} width={screenWidth - 10} height={screenHeight - 10}>
-                    <div className="grid grid-cols-3 gap-2 overflow-y-scroll h-full">
-                        {content.map((project, index) => (
-                            <div key={index}
-                                 className="relative bg-gray-800 rounded-md shadow-md cursor-pointer hover:bg-gray-700"
-                                 onMouseEnter={() => onHover(project.name)}
-                                 onMouseLeave={onLeave}
-                                 onClick={() => window.open(project.link, "_blank")}
-                            >
-                                <img src={project.thumbnail} alt={project.name} className="w-full h-24 object-cover rounded-t-md" />
-                                <div className="absolute inset-0 opacity-0 hover:opacity-100 bg-black bg-opacity-70 flex flex-col justify-center items-center text-white p-2">
-                                    <div className="text-sm">{project.name}</div>
-                                    <div className="text-xs">{project.description}</div>
+                    <div style={{ height: '100%', overflowY: 'auto' }}>
+                        <div className="grid grid-cols-3 gap-2">
+                            {content.map((project, index) => (
+                                <div key={index}
+                                     className="relative bg-gray-800 rounded-md shadow-md cursor-pointer hover:bg-gray-700"
+                                     onClick={() => window.open(project.link, "_blank")}
+                                     onMouseEnter={() => setHoveredProject(project)}
+                                     onMouseLeave={() => setHoveredProject(null)}
+                                >
+                                    <img src={project.thumbnail} alt={project.name} className="w-full h-24 object-cover rounded-t-md"
+                                         style={{ maxWidth: '100%', maxHeight: '100%', display: 'block' }}/>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+                    </div>
+                </foreignObject>
+            )}
+
+            {currentView === "coding" && hoveredProject && (
+                <foreignObject x={screenX + 220} y={screenY} width={100} height={screenHeight - 10}>
+                    <div className="p-2 text-light bg-dark bg-opacity-75 rounded transition-all">
+                        <div style={{ fontSize: "4px" }}>{hoveredProject.name}</div>
+                        <div style={{ fontSize: "3px" }}>{hoveredProject.description}</div>
                     </div>
                 </foreignObject>
             )}

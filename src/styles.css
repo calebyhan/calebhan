@@ -16,10 +16,27 @@ html, body {
     align-items: center;
 }
 
-.h-screen {
-    /*height: 100vh;*/
-}
-
 .bg-gray-900 {
     background-color: #1a202c;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1E1E1E;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #5A5A5A;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+.transition-all {
+    transition: all 0.3s ease-in-out;
 }
