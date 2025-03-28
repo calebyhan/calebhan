@@ -15,7 +15,7 @@ const Home = () => {
                 const data = await res.json();
                 const featuredPhotos = data.metadata
                     .filter(item => item.feature)
-                    .map(item => ({ ...item, url: `${process.env.PUBLIC_URL}/photos/${item.file_name}` }));
+                    .map(item => ({ ...item, url: `/photos/${item.file_name}` }));
                 setPhotos(featuredPhotos);
             } catch (error) {
                 console.error("Failed to load photos:", error);
