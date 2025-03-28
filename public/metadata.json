@@ -1,7 +1,7 @@
 {
   "metadata": [
     {
-      "file_name": "IMG_3361.JPG",
+      "file_name": "img_3361.JPG",
       "camera": "Canon EOS R50",
       "lens": "RF-S18-45mm F4.5-6.3 IS STM",
       "focal_length": "29.0 mm",
@@ -13,7 +13,7 @@
       "feature": true
     },
     {
-      "file_name": "IMG_3382.JPG",
+      "file_name": "img_3382.JPG",
       "camera": "Canon EOS R50",
       "lens": "RF-S18-45mm F4.5-6.3 IS STM",
       "focal_length": "45.0 mm",
@@ -25,7 +25,7 @@
       "feature": true
     },
     {
-      "file_name": "IMG_3458.JPG",
+      "file_name": "img_3458.JPG",
       "camera": "Canon EOS R50",
       "lens": "RF-S18-45mm F4.5-6.3 IS STM",
       "focal_length": "45.0 mm",
@@ -64,8 +64,8 @@
   "images": [
     "20241005_223906000_iOS.jpg",
     "20240907_234338000_iOS.jpg",
-    "IMG_3382.jpg",
-    "IMG_3361.jpg",
-    "IMG_3458.jpg"
+    "img_3382.jpg",
+    "img_3361.jpg",
+    "img_3458.jpg"
   ]
 }

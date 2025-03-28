@@ -28,7 +28,7 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
                 <foreignObject x={screenX + 220} y={screenY} width={100} height={screenHeight - 10}>
                     <div className="p-2 text-light bg-dark bg-opacity-75 rounded">
                         <div style={{ fontSize: "3px" }}>📷 {content.camera} | {content.lens}</div>
-                        <div style={{ fontSize: "3px" }}>{content.focal_length} | {content.aperture} | {content.exposure} | ISO {content.ISO}</div>
+                        <div style={{ fontSize: "3px" }}>🎛️ {content.focal_length} | {content.aperture} | {content.exposure} | ISO {content.ISO}</div>
                         <div style={{ fontSize: "3px" }}>📍 {content.location} | {content.created}</div>
                     </div>
                 </foreignObject>
