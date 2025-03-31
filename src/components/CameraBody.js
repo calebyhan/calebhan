@@ -5,7 +5,7 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
 
     const bodyX = 20, bodyY = 20, bodyWidth = 360, bodyHeight = 200;
     const screenX = 50, screenY = 60, screenWidth = 210, screenHeight = 150;
-    const circleX = 300, circleY = 160, circleRadius = 25;
+    const circleX = 320, circleY = 175, circleRadius = 25;
     const crossLineX1 = circleX + 18, crossLineY1 = circleY + 18, crossLineX2 = circleX - 18, crossLineY2 = circleY - 18;
 
     return (
@@ -48,7 +48,7 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
                                      onMouseLeave={() => setHoveredProject(null)}
                                 >
                                     <img src={project.thumbnail} alt={project.name} className="w-full h-24 object-cover rounded-t-md"
-                                         style={{ maxWidth: '100%', maxHeight: '100%', display: 'block' }}/>
+                                         style={{ maxWidth: '100%', maxHeight: '100%', display: 'block', cursor: 'pointer' }}/>
                                 </div>
                             ))}
                         </div>
@@ -62,6 +62,64 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
                         <div style={{ fontSize: "4px" }}>{hoveredProject.name}</div>
                         <div style={{ fontSize: "3px" }}>{hoveredProject.description}</div>
                     </div>
+                </foreignObject>
+            )}
+
+            {currentView === "about" && (
+                <foreignObject x={screenX + 5} y={screenY + 5} width={screenWidth - 10} height={screenHeight - 10}>
+                    <div style={{
+                        height: '100%',
+                        overflowY: 'auto',
+                        padding: '10px',
+                        color: '#FFFFFF',
+                        fontSize: '12px',
+                        lineHeight: '1.5',
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        borderRadius: '8px'
+                    }}>
+                        <h2 style={{ fontSize: '8px', marginBottom: '8px' }}>👋 About Me</h2>
+                        <p style={{ fontSize: '5px' }}>Hey! I'm Caleb, a student at University of North Carolina at Chapel Hill (class of 2028) passionate about <strong>photography</strong> and <strong>coding</strong>. I enjoy capturing <em>landscapes and portraits</em> with my Canon EOS R50 and drones (DJI Mini 4 Pro and DJI Avata 2).</p>
+
+                        <h3 style={{ fontSize: '6px', marginTop: '12px' }}>✉️ Contact Me</h3>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginTop: '4px' }}>
+                            <a href="https://www.instagram.com/calebyhan" target="_blank" rel="noopener noreferrer"
+                               style={{ textDecoration: 'none', color: '#FFFFFF', fontSize: '5px', display: 'flex', alignItems: 'center' }}>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                                     alt="Instagram"
+                                     style={{ width: '8px', height: '8px', marginRight: '4px' }} />
+                                Instagram
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/calebyhan/" target="_blank" rel="noopener noreferrer"
+                               style={{ textDecoration: 'none', color: '#FFFFFF', fontSize: '5px', display: 'flex', alignItems: 'center' }}>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg"
+                                     alt="LinkedIn"
+                                     style={{ width: '8px', height: '8px', marginRight: '4px' }} />
+                                LinkedIn
+                            </a>
+
+                            <a href="https://github.com/calebyhan" target="_blank" rel="noopener noreferrer"
+                               style={{ textDecoration: 'none', color: '#FFFFFF', fontSize: '5px', display: 'flex', alignItems: 'center' }}>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+                                     alt="GitHub"
+                                     style={{ width: '8px', height: '8px', marginRight: '4px' }} />
+                                GitHub
+                            </a>
+
+                            <div style={{ textDecoration: 'none', color: '#FFFFFF', fontSize: '5px', display: 'flex', alignItems: 'center' }}>
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+                                     alt="Email"
+                                     style={{ width: '8px', height: '8px', marginRight: '4px' }} />
+                                calebhan (at) unc.edu
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+            )}
+
+            {currentView === "about" && (
+                <foreignObject x={screenX + 220} y={screenY} width={100} height={screenHeight - 10}>
+                    <img src={ "/assets/headshot.jpg" } alt="Headshot" style={{ width: '100%', height: '55%', borderRadius: '8px' }} />
                 </foreignObject>
             )}
 
