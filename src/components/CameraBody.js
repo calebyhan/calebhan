@@ -119,7 +119,7 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
 
             {currentView === "about" && (
                 <foreignObject x={screenX + 220} y={screenY} width={100} height={screenHeight - 10}>
-                    <img src={ "/assets/headshot.jpg" } alt="Headshot" style={{ width: '100%', height: '55%', borderRadius: '8px' }} />
+                    <img src={ "/assets/headshot.JPG" } alt="Headshot" style={{ width: '100%', height: '55%', borderRadius: '8px' }} />
                 </foreignObject>
             )}
 
