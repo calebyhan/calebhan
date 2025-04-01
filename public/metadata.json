@@ -61,7 +61,7 @@
       "feature": false
     },
     {
-      "file_name": "DJI_20250309163901_0014_D.jpg",
+      "file_name": "DJI_20250309163901_0014_D.JPG",
       "camera": "DJI Mini 4 Pro",
       "lens": "24.0 mm f/1.7",
       "focal_length": "6.72 mm",
@@ -83,15 +83,54 @@
       "created": "October 05, 2024 18:39",
       "location": "Lake Gaston, NC",
       "feature": false
+    },
+    {
+      "file_name": "IMG_3396.jpg",
+      "camera": "Canon Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "42.0 mm",
+      "aperture": "f/9.0",
+      "exposure": "1/320",
+      "ISO": "100",
+      "created": "March 09, 2025 15:41",
+      "location": "Unknown",
+      "feature": false
+    },
+    {
+      "file_name": "20241005_224410000_iOS.jpg",
+      "camera": "DJI Mini 4 Pro",
+      "lens": "24.0 mm f/1.7",
+      "focal_length": "6.72 mm",
+      "aperture": "f/1.7",
+      "exposure": "1/200",
+      "ISO": "100",
+      "created": "October 05, 2024 18:44",
+      "location": "Unknown",
+      "feature": false
+    },
+    {
+      "file_name": "IMG_2009.jpg",
+      "camera": "Canon Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "45.0 mm",
+      "aperture": "f/14.0",
+      "exposure": "1/250",
+      "ISO": "4000",
+      "created": "October 05, 2024 18:33",
+      "location": "Unknown",
+      "feature": false
     }
   ],
   "images": [
-    "IMG_3458.jpg",
-    "IMG_3382.jpg",
-    "IMG_2706.jpg",
     "20241005_223906000_iOS.jpg",
     "IMG_3361.jpg",
+    "IMG_3382.jpg",
+    "20240907_234338000_iOS.jpg",
+    "20241005_224410000_iOS.jpg",
     "DJI_20250309163901_0014_D.jpg",
-    "20240907_234338000_iOS.jpg"
+    "IMG_2706.jpg",
+    "IMG_3396.jpg",
+    "IMG_2009.jpg",
+    "IMG_3458.jpg"
   ]
 }
