@@ -1,12 +1,20 @@
 import React, {useState} from "react";
+import Masonry from "react-masonry-css";
 
 const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, content }) => {
     const [hoveredProject, setHoveredProject] = useState(null);
+    const [hoveredPhoto, setHoveredPhoto] = useState(null);
 
     const bodyX = 20, bodyY = 20, bodyWidth = 360, bodyHeight = 200;
     const screenX = 50, screenY = 60, screenWidth = 210, screenHeight = 150;
     const circleX = 320, circleY = 175, circleRadius = 25;
     const crossLineX1 = circleX + 18, crossLineY1 = circleY + 18, crossLineX2 = circleX - 18, crossLineY2 = circleY - 18;
+
+    const masonryBreakpoints = {
+        default: 3,
+        1024: 2,
+        768: 1
+    };
 
     return (
         <svg viewBox="0 0 400 300" className="w-[400px] h-[300px]" xmlns="http://www.w3.org/2000/svg">
@@ -120,6 +128,39 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
             {currentView === "about" && (
                 <foreignObject x={screenX + 220} y={screenY} width={100} height={screenHeight - 10}>
                     <img src={ "/assets/headshot.JPG" } alt="Headshot" style={{ width: '100%', height: '55%', borderRadius: '8px' }} />
+                </foreignObject>
+            )}
+
+            {currentView === "photo" && content && (
+                <foreignObject x={screenX + 5} y={screenY + 5} width={screenWidth - 10} height={screenHeight - 10}>
+                    <div style={{ height: '100%', overflowY: 'auto' }}>
+                        <div className="grid grid-cols-3 gap-2">
+                            <Masonry
+                                breakpointCols={masonryBreakpoints}
+                                className="masonry-grid"
+                                columnClassName="masonry-column"
+                            >
+                                {content.map((photo, index) => (
+                                    <div key={index} className="relative cursor-pointer"
+                                        onClick={() => window.open(photo.url, "_blank")}
+                                        onMouseEnter={() => setHoveredPhoto(photo)}
+                                        onMouseLeave={() => setHoveredPhoto(null)} >
+                                        <img src={photo.url} alt={photo.file_name} />
+                                    </div>
+                                ))}
+                            </Masonry>
+                        </div>
+                    </div>
+                </foreignObject>
+            )}
+
+            {currentView === "photo" && hoveredPhoto && (
+                <foreignObject x={screenX + 220} y={screenY} width={100} height={screenHeight - 10}>
+                    <div className="p-2 text-light bg-dark bg-opacity-75 rounded">
+                        <div style={{ fontSize: "3px" }}>📷 {hoveredPhoto.camera} | {hoveredPhoto.lens}</div>
+                        <div style={{ fontSize: "3px" }}>🎛️ {hoveredPhoto.focal_length} | {hoveredPhoto.aperture} | {hoveredPhoto.exposure} | ISO {hoveredPhoto.ISO}</div>
+                        <div style={{ fontSize: "3px" }}>📍 {hoveredPhoto.location} | {hoveredPhoto.created}</div>
+                    </div>
                 </foreignObject>
             )}
 
