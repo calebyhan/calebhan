@@ -132,30 +132,28 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
             )}
 
             {currentView === "photo" && content && (
-                <foreignObject x={screenX + 5} y={screenY + 5} width={screenWidth - 10} height={screenHeight - 10}>
+                <foreignObject x={55} y={65} width={200} height={140}>
                     <div style={{ height: '100%', overflowY: 'auto' }}>
-                        <div className="grid grid-cols-3 gap-2">
-                            <Masonry
-                                breakpointCols={masonryBreakpoints}
-                                className="masonry-grid"
-                                columnClassName="masonry-column"
-                            >
-                                {content.map((photo, index) => (
-                                    <div key={index} className="relative cursor-pointer"
-                                        onClick={() => window.open(photo.url, "_blank")}
-                                        onMouseEnter={() => setHoveredPhoto(photo)}
-                                        onMouseLeave={() => setHoveredPhoto(null)} >
-                                        <img src={photo.url} alt={photo.file_name} />
-                                    </div>
-                                ))}
-                            </Masonry>
-                        </div>
+                        <Masonry
+                            breakpointCols={masonryBreakpoints}
+                            className="masonry-grid"
+                            columnClassName="masonry-column"
+                        >
+                            {content.map((photo, index) => (
+                                <div key={index} className="relative cursor-pointer"
+                                     onClick={() => window.open(photo.url, "_blank")}
+                                     onMouseEnter={() => setHoveredPhoto(photo)}
+                                     onMouseLeave={() => setHoveredPhoto(null)} >
+                                    <img src={photo.url} alt={photo.file_name} loading="lazy" />
+                                </div>
+                            ))}
+                        </Masonry>
                     </div>
                 </foreignObject>
             )}
 
             {currentView === "photo" && hoveredPhoto && (
-                <foreignObject x={screenX + 220} y={screenY} width={100} height={screenHeight - 10}>
+                <foreignObject x={270} y={60} width={100} height={140}>
                     <div className="p-2 text-light bg-dark bg-opacity-75 rounded">
                         <div style={{ fontSize: "3px" }}>📷 {hoveredPhoto.camera} | {hoveredPhoto.lens}</div>
                         <div style={{ fontSize: "3px" }}>🎛️ {hoveredPhoto.focal_length} | {hoveredPhoto.aperture} | {hoveredPhoto.exposure} | ISO {hoveredPhoto.ISO}</div>
