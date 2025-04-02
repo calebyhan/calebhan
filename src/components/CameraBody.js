@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import Masonry from "react-masonry-css";
+import { useLanguage } from "./LanguageContext";
 
 const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, content }) => {
     const [hoveredProject, setHoveredProject] = useState(null);
     const [hoveredPhoto, setHoveredPhoto] = useState(null);
+    const { language, toggleLanguage } = useLanguage();
 
     const bodyX = 20, bodyY = 20, bodyWidth = 360, bodyHeight = 200;
     const screenX = 50, screenY = 60, screenWidth = 210, screenHeight = 150;
@@ -14,6 +16,13 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
         default: 3,
         1024: 2,
         768: 1
+    };
+
+    const labels = {
+        home: language === "en" ? "home" : "홈",
+        code: language === "en" ? "code" : "코딩",
+        about: language === "en" ? "about me" : "내 소개",
+        photos: language === "en" ? "photos" : "사진"
     };
 
     return (
@@ -85,10 +94,21 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
                         backgroundColor: 'rgba(0, 0, 0, 0.7)',
                         borderRadius: '8px'
                     }}>
-                        <h2 style={{ fontSize: '8px', marginBottom: '8px' }}>👋 About Me</h2>
-                        <p style={{ fontSize: '5px' }}>Hey! I'm Caleb, a student at University of North Carolina at Chapel Hill (class of 2028) indending to study Computer Science with minors in Physics and Neuroscience. I am passionate about <strong>photography</strong> and <strong>coding</strong>. I enjoy capturing <em>landscapes and portraits</em> with my Canon EOS R50 and drones (DJI Mini 4 Pro and DJI Avata 2).</p>
-
-                        <h3 style={{ fontSize: '6px', marginTop: '12px' }}>✉️ Contact Me</h3>
+                        <h2 style={{ fontSize: '8px', marginBottom: '8px' }}>
+                            {language === "en"
+                                ? "👋 About Me"
+                                : "👋 자기소개"}
+                        </h2>
+                        <p style={{ fontSize: '5px' }}>
+                            {language === "en"
+                                ? "Hey! I'm Caleb, a student at University of North Carolina at Chapel Hill (class of 2028) intending to study Computer Science with minors in Physics and Neuroscience. I am passionate about photography and coding. I enjoy capturing landscapes and portraits with my Canon EOS R50 and drones (DJI Mini 4 Pro and DJI Avata 2)."
+                                : "안녕하세요! 저는 미국에 있는 UNC 채플힐 대학교 (2028년 졸업 예정) 에서 컴퓨터 과학을 전공하고 물리학과 신경과학을 부전공할 예정인 한윤호 입니다. 저는 사진과 코딩에 열정을 가지고 있습니다. Canon EOS R50과 드론 (DJI Mini 4 Pro 및 DJI Avata 2) 을 사용하여 풍경 및 인물 사진을 촬영하는 것을 좋아합니다."}
+                        </p>
+                        <h3 style={{ fontSize: '6px', marginTop: '12px' }}>
+                            {language === "en"
+                                ? "✉️ Contact Me"
+                                : "✉️ 연락처"}
+                            </h3>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginTop: '4px' }}>
                             <a href="https://www.instagram.com/calebyhan" target="_blank" rel="noopener noreferrer"
                                style={{ textDecoration: 'none', color: '#FFFFFF', fontSize: '5px', display: 'flex', alignItems: 'center' }}>
@@ -172,28 +192,34 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
             <circle cx={circleX} cy={circleY} r={circleRadius} fill="#2D2D2D" stroke="#505050" strokeWidth="2" />
 
             <text x={circleX} y={circleY - 12} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover("home")} onMouseLeave={onLeave}
+                  onMouseEnter={() => onHover(labels.home)} onMouseLeave={onLeave}
                   onClick={() => onClick("")}
             >𖠿</text>
 
             <text x={circleX} y={circleY + 17} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover("code")} onMouseLeave={onLeave}
+                  onMouseEnter={() => onHover(labels.code)} onMouseLeave={onLeave}
                   onClick={() => onClick("coding")}
             >{"</>"}</text>
 
             <text x={circleX - 15} y={circleY + 1} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover("about me")} onMouseLeave={onLeave}
+                  onMouseEnter={() => onHover(labels.about)} onMouseLeave={onLeave}
                   onClick={() => onClick("about")}
             >👋</text>
 
             <text x={circleX + 15} y={circleY + 1} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover("photos")} onMouseLeave={onLeave}
+                  onMouseEnter={() => onHover(labels.photos)} onMouseLeave={onLeave}
                   onClick={() => onClick("photography")}
             >📷</text>
 
             {/* Cross Lines */}
             <line x1={crossLineX1} y1={crossLineY1} x2={crossLineX2} y2={crossLineY2} stroke="#5A5A5A" strokeWidth="1" />
             <line x1={crossLineX1} y1={crossLineY2} x2={crossLineX2} y2={crossLineY1} stroke="#5A5A5A" strokeWidth="1" />
+
+            {/* Language Toggle */}
+            <circle cx={circleX + 40} cy={circleY + 19} r={7} fill="#2D2D2D" stroke="#505050" strokeWidth="2" />
+            <text x={circleX + 40} y={circleY + 20} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
+                  onClick={toggleLanguage}
+            >{language === "en" ? "EN" : "KO"}</text>
         </svg>
     );
 };

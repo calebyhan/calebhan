@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import CameraBody from "../components/CameraBody";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "../components/LanguageContext";
 
 const Photography = () => {
-    const [viewfinderText, setViewfinderText] = useState("photos");
+    const { language } = useLanguage();
+    const [viewfinderText, setViewfinderText] = useState(language === "en"? "photos" : "사진");
     const [photos, setPhotos] = useState([]);
     const navigate = useNavigate();
-
-    const handleHover = (text) => setViewfinderText(text);
-    const handleLeave = () => setViewfinderText("photos");
-    const handleNavigation = (view) => navigate(`/${view}`);
 
     useEffect(() => {
         const fetchPhotos = async () => {
@@ -29,6 +27,14 @@ const Photography = () => {
         fetchPhotos();
     }, []);
 
+    useEffect(() => {
+        setViewfinderText(language === "en" ? "photos" : "사진");
+    }, [language]);
+
+    const handleHover = (text) => setViewfinderText(text);
+    const handleLeave = () => setViewfinderText(language === "en" ? "photos" : "사진");
+    const handleNavigation = (view) => navigate(`/${view}`);
+
     return (
         <div className="flex justify-center items-center h-screen bg-gray-900">
             <CameraBody
@@ -39,6 +45,7 @@ const Photography = () => {
                 currentView="photo"
                 content={photos}
             />
+
         </div>
     );
 };

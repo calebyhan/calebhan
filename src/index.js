@@ -12,19 +12,22 @@ import About from "./pages/About";
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { LanguageProvider } from "./components/LanguageContext";
 
 const AppRouter = () => {
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/coding" element={<Coding />} />
-                <Route path="/photography" element={<Photography />} />
-                <Route path="/about" element={<About />} />
-            </Routes>
-            <Analytics />
-            <SpeedInsights />
-        </BrowserRouter>
+        <LanguageProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/coding" element={<Coding />} />
+                    <Route path="/photography" element={<Photography />} />
+                    <Route path="/about" element={<About />} />
+                </Routes>
+                <Analytics />
+                <SpeedInsights />
+            </BrowserRouter>
+        </LanguageProvider>
     );
 };
 

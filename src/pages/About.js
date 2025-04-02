@@ -1,13 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CameraBody from "../components/CameraBody";
+import { useLanguage } from "../components/LanguageContext";
 
 const About = () => {
-    const [viewfinderText, setViewfinderText] = useState("about me");
+    const { language } = useLanguage();
+    const [viewfinderText, setViewfinderText] = useState(language === "en" ? "about me" : "내 소개");
     const navigate = useNavigate();
 
+    useEffect(() => {
+        setViewfinderText(language === "en" ? "about me" : "내 소개");
+    }, [language]);
+
     const handleHover = (text) => setViewfinderText(text);
-    const handleLeave = () => setViewfinderText("about me");
+    const handleLeave = () => setViewfinderText(language === "en" ? "about me" : "내 소개");
     const handleNavigation = (view) => navigate(`/${view}`);
 
     return (
@@ -17,7 +23,8 @@ const About = () => {
                 onHover={handleHover}
                 onLeave={handleLeave}
                 onClick={handleNavigation}
-                currentView="about"/>
+                currentView="about"
+            />
         </div>
     );
 };

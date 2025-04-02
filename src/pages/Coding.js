@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import CameraBody from "../components/CameraBody";
+import { useLanguage } from "../components/LanguageContext";
 
 const Coding = () => {
-    const [viewfinderText, setViewfinderText] = useState("my code");
+    const { language } = useLanguage();
+    const [viewfinderText, setViewfinderText] = useState(language === "en" ? "my code" : "내 코드");
     const [projects, setProjects] = useState([]);
     const navigate = useNavigate();
 
@@ -14,8 +16,12 @@ const Coding = () => {
             .catch(err => console.error("Failed to load projects:", err));
     }, []);
 
+    useEffect(() => {
+        setViewfinderText(language === "en" ? "my code" : "내 코드");
+    }, [language]);
+
     const handleHover = (text) => setViewfinderText(text);
-    const handleLeave = () => setViewfinderText("my code");
+    const handleLeave = () => setViewfinderText(language === "en" ? "my code" : "내 코드");
     const handleNavigation = (view) => navigate(`/${view}`);
 
     return (
