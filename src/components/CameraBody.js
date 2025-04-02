@@ -86,7 +86,7 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
                         borderRadius: '8px'
                     }}>
                         <h2 style={{ fontSize: '8px', marginBottom: '8px' }}>👋 About Me</h2>
-                        <p style={{ fontSize: '5px' }}>Hey! I'm Caleb, a student at University of North Carolina at Chapel Hill (class of 2028) passionate about <strong>photography</strong> and <strong>coding</strong>. I enjoy capturing <em>landscapes and portraits</em> with my Canon EOS R50 and drones (DJI Mini 4 Pro and DJI Avata 2).</p>
+                        <p style={{ fontSize: '5px' }}>Hey! I'm Caleb, a student at University of North Carolina at Chapel Hill (class of 2028) indending to study Computer Science with minors in Physics and Neuroscience. I am passionate about <strong>photography</strong> and <strong>coding</strong>. I enjoy capturing <em>landscapes and portraits</em> with my Canon EOS R50 and drones (DJI Mini 4 Pro and DJI Avata 2).</p>
 
                         <h3 style={{ fontSize: '6px', marginTop: '12px' }}>✉️ Contact Me</h3>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap', marginTop: '4px' }}>

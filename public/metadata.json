@@ -93,7 +93,19 @@
       "exposure": "1/320",
       "ISO": "100",
       "created": "March 09, 2025 15:41",
-      "location": "Unknown",
+      "location": "Surf City, NC",
+      "feature": false
+    },
+    {
+      "file_name": "DJI_20250120173102_0003_D.jpg",
+      "camera": "DJI Mini 4 Pro",
+      "lens": "24.0 mm f/1.7",
+      "focal_length": "6.72 mm",
+      "aperture": "f/1.7",
+      "exposure": "1/1600",
+      "ISO": "100",
+      "created": "January 20, 2025 17:31",
+      "location": "Chapel Hill, NC",
       "feature": false
     },
     {
@@ -105,7 +117,7 @@
       "exposure": "1/200",
       "ISO": "100",
       "created": "October 05, 2024 18:44",
-      "location": "Unknown",
+      "location": "Lake Gaston, NC",
       "feature": false
     },
     {
@@ -117,20 +129,73 @@
       "exposure": "1/250",
       "ISO": "4000",
       "created": "October 05, 2024 18:33",
-      "location": "Unknown",
+      "location": "Lake Gaston, NC",
+      "feature": true
+    },
+    {
+      "file_name": "DJI_20250120173221_0012_D.jpg",
+      "camera": "DJI Mini 4 Pro",
+      "lens": "24.0 mm f/1.7",
+      "focal_length": "6.72 mm",
+      "aperture": "f/1.7",
+      "exposure": "1/500",
+      "ISO": "110",
+      "created": "January 20, 2025 17:32",
+      "location": "Chapel Hill, NC",
+      "feature": false
+    },
+    {
+      "file_name": "IMG_0100.jpg",
+      "camera": " Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "45.0 mm",
+      "aperture": "f/6.3",
+      "exposure": "1/100",
+      "ISO": "1600",
+      "created": "August 12, 2024 00:57",
+      "location": "Farragut, TN",
+      "feature": false
+    },
+    {
+      "file_name": "IMG_0040 2024-08-12 02_10_07.jpg",
+      "camera": " Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "18.0 mm",
+      "aperture": "f/4.5",
+      "exposure": "1/15",
+      "ISO": "6400",
+      "created": "August 11, 2024 21:18",
+      "location": "Farragut, TN",
+      "feature": false
+    },
+    {
+      "file_name": "IMG_0260.jpg",
+      "camera": " Canon EOS R50",
+      "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+      "focal_length": "18.0 mm",
+      "aperture": "f/4.5",
+      "exposure": "1/80",
+      "ISO": "125",
+      "created": "August 28, 2024 19:56",
+      "location": "Chapel Hill, NC",
       "feature": false
     }
   ],
   "images": [
-    "20241005_223906000_iOS.jpg",
-    "IMG_3361.jpg",
-    "IMG_3382.jpg",
-    "20240907_234338000_iOS.jpg",
-    "20241005_224410000_iOS.jpg",
-    "DJI_20250309163901_0014_D.jpg",
     "IMG_2706.jpg",
-    "IMG_3396.jpg",
+    "IMG_3458.jpg",
+    "IMG_3361.jpg",
+    "20240907_234338000_iOS.jpg",
+    "IMG_0260.jpg",
+    "IMG_3382.jpg",
+    "20241005_223906000_iOS.jpg",
+    "DJI_20250120173221_0012_D.jpg",
+    "IMG_0040 2024-08-12 02_10_07.jpg",
+    "DJI_20250309163901_0014_D.jpg",
     "IMG_2009.jpg",
-    "IMG_3458.jpg"
+    "IMG_0100.jpg",
+    "IMG_3396.jpg",
+    "20241005_224410000_iOS.jpg",
+    "DJI_20250120173102_0003_D.jpg"
   ]
 }
