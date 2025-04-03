@@ -16,6 +16,21 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import { LanguageProvider } from "./components/LanguageContext";
 
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+        if (process.env.NODE_ENV === "production") {
+            navigator.serviceWorker
+                .register("/service-worker.js")
+                .then((registration) => {
+                    console.log("Service Worker registered with scope:", registration.scope);
+                })
+                .catch((error) => {
+                    console.error("Service Worker registration failed:", error);
+                });
+        }
+    });
+}
+
 const AppRouter = () => {
     return (
         <LanguageProvider>
