@@ -192,23 +192,27 @@ const CameraBody = ({ viewfinderText, onHover, onLeave, onClick, currentView, co
             <circle cx={circleX} cy={circleY} r={circleRadius} fill="#2D2D2D" stroke="#505050" strokeWidth="2" />
 
             <text x={circleX} y={circleY - 12} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover(labels.home)} onMouseLeave={onLeave}
-                  onClick={() => onClick("")}
+                  onMouseEnter={(e) => onHover(labels.home, e)}
+                  onMouseLeave={(e) => onLeave(e)}
+                  onClick={(e) => onClick("", e)}
             >𖠿</text>
 
             <text x={circleX} y={circleY + 17} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover(labels.code)} onMouseLeave={onLeave}
-                  onClick={() => onClick("coding")}
+                  onMouseEnter={(e) => onHover(labels.code, e)}
+                  onMouseLeave={(e) => onLeave(e)}
+                  onClick={(e) => onClick("coding", e)}
             >{"</>"}</text>
 
             <text x={circleX - 15} y={circleY + 1} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover(labels.about)} onMouseLeave={onLeave}
-                  onClick={() => onClick("about")}
+                  onMouseEnter={(e) => onHover(labels.about, e)}
+                  onMouseLeave={(e) => onLeave(e)}
+                  onClick={(e) => onClick("about", e)}
             >👋</text>
 
             <text x={circleX + 15} y={circleY + 1} fontSize="4" fill="#FFFFFF" textAnchor="middle" cursor="pointer"
-                  onMouseEnter={() => onHover(labels.photos)} onMouseLeave={onLeave}
-                  onClick={() => onClick("photography")}
+                  onMouseEnter={(e) => onHover(labels.photos, e)}
+                  onMouseLeave={(e) => onLeave(e)}
+                  onClick={(e) => onClick("photography", e)}
             >📷</text>
 
             {/* Cross Lines */}
