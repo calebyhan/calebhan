@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { animate, createTimeline, stagger, utils } from "animejs";
 
-export default function HeroScroll() {
+export default function HomeScroll() {
     const containerRef = useRef(null);
     const heroRef = useRef(null);
     const textRef = useRef(null);
@@ -15,20 +15,9 @@ export default function HeroScroll() {
     useEffect(() => {
         if (!containerRef.current || !textRef.current || !subtitleRef.current) return;
 
-        // Initial states (instant "set")
-        // utils.set(textRef.current, { opacity: 0, translateY: 50, scale: 0.8 }); // Removed text animation
         utils.set(subtitleRef.current, { opacity: 0, translateY: 30 });
         utils.set(heroRef.current, { opacity: 0 });
 
-        // Text is now displayed normally without animation
-        // const raw = textRef.current.textContent || "";
-        // textRef.current.innerHTML = raw
-        //     .split("")
-        //     .map((c) => (c === " " ? " " : `<span class="letter inline-block">${c}</span>`))
-        //     .join("");
-        // const letters = textRef.current.querySelectorAll(".letter");
-
-        // Particles
         const particles = [];
         for (let i = 0; i < 20; i++) {
             const p = document.createElement("div");
@@ -51,7 +40,6 @@ export default function HeroScroll() {
             delay: stagger(100),
         });
 
-        // Main hero entrance timeline
         const tl = createTimeline();
 
         tl.add(heroRef.current, {
@@ -59,34 +47,21 @@ export default function HeroScroll() {
             scale: [1.1, 1],
             duration: 1500,
         })
-            // .add(
-            //     letters,
-            //     {
-            //         opacity: [0, 1],
-            //         translateY: [50, 0],
-            //         rotateZ: [180, 0],
-            //         duration: 800,
-            //         delay: stagger(100),
-            //     },
-            //     700
-            // ) // Removed letter animation
-            .add(
-                subtitleRef.current,
-                {
-                    opacity: [0, 1],
-                    translateY: [30, 0],
-                    duration: 800,
-                },
-                900
-            );
+        .add(
+            subtitleRef.current,
+            {
+                opacity: [0, 1],
+                translateY: [30, 0],
+                duration: 800,
+            },
+            900
+        );
 
-        // Scroll transforms
         const handleScroll = () => {
             const denom = document.documentElement.scrollHeight - window.innerHeight || 1;
             const scrollPercent = window.scrollY / denom;
             const heroProgress = Math.min(scrollPercent * 2, 1);
 
-            // Fade out scroll indicator quickly (within first 100px of scroll)
             const scrollIndicatorFade = Math.max(0, 1 - (window.scrollY / 100));
             setScrollIndicatorOpacity(scrollIndicatorFade);
 
@@ -94,13 +69,6 @@ export default function HeroScroll() {
                 scale: 1 + heroProgress * 0.6,
                 opacity: 1 - heroProgress * 0.8,
             });
-
-            // Keep text visible during scroll
-            // utils.set(textRef.current, {
-            //     scale: 1 + heroProgress * 0.4,
-            //     rotateX: heroProgress * 10,
-            //     opacity: 1 - heroProgress * 0.9,
-            // });
 
             utils.set(subtitleRef.current, {
                 translateY: heroProgress * -50,
@@ -113,31 +81,10 @@ export default function HeroScroll() {
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
-            // Clean up particles
             particlesAnim.pause?.();
             particles.forEach((p) => p.remove());
         };
     }, []);
-
-    // const handleTextHover = () => {
-    //     const letters = textRef.current?.querySelectorAll(".letter");
-    //     if (!letters?.length) return;
-
-    //     animate(letters, {
-    //         scale: [1, 1.2],
-    //         rotateZ: () => utils.random(-10, 10),
-    //         duration: 300,
-    //         easing: "easeOutElastic(1, .6)",
-    //         complete: () => {
-    //             animate(letters, {
-    //                 scale: 1,
-    //                 rotateZ: 0,
-    //                 duration: 600,
-    //                 easing: "easeOutElastic(1, .8)",
-    //             });
-    //         },
-    //     });
-    // }; // Removed hover animation
 
     return (
         <section ref={containerRef} className="relative h-[150vh] overflow-hidden">
@@ -183,7 +130,6 @@ export default function HeroScroll() {
                             style={{ opacity: scrollIndicatorOpacity }}
                         >
                             <div className="flex flex-col items-center space-y-2">
-                                {/* Mouse-like scroll container */}
                                 <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center relative">
                                     <div
                                         className="w-1 h-3 bg-white/80 rounded-full mt-2"
@@ -191,7 +137,6 @@ export default function HeroScroll() {
                                     />
                                 </div>
                                 
-                                {/* Down arrow */}
                                 <div className="w-4 h-4 border-r-2 border-b-2 border-white/60 transform rotate-[45deg] animate-pulse" />
                             </div>
                             <p className="text-white/60 text-sm mt-3 text-center">Scroll</p>
