@@ -261,7 +261,7 @@ export default function About() {
                         onMouseEnter={handleSkillCardHover}
                         onMouseLeave={handleSkillCardLeave}
                     >
-                        <h3 className="text-2xl md:text-3xl font-semibold text-blue-400 antialiased">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-white antialiased">
                             Development
                         </h3>
                         <p className="text-gray-300 text-lg leading-relaxed antialiased">
@@ -271,7 +271,7 @@ export default function About() {
                                 href="https://github.com/calebyhan" 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="text-blue-400 hover:text-blue-300 underline decoration-blue-400/50 hover:decoration-blue-300 underline-offset-2 transition-colors duration-200"
+                                className="text-white hover:text-blue-300 underline decoration-blue-400/50 hover:decoration-blue-300 underline-offset-2 transition-colors duration-200"
                             >
                                 GitHub
                             </a> for what I&apos;m currently working on!
@@ -288,7 +288,7 @@ export default function About() {
                         onMouseEnter={handleSkillCardHover}
                         onMouseLeave={handleSkillCardLeave}
                     >
-                        <h3 className="text-2xl md:text-3xl font-semibold text-cyan-400 antialiased">
+                        <h3 className="text-2xl md:text-3xl font-semibold text-white antialiased">
                             Photography
                         </h3>
                         <p className="text-gray-300 text-lg leading-relaxed antialiased">
@@ -316,12 +316,13 @@ export default function About() {
                             onMouseEnter={handleProjectCardHover}
                             onMouseLeave={handleProjectCardLeave}
                         >
-                            <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-blue-400 antialiased">
-                                Web Application
+                            <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white antialiased">
+                                Vitalscope
                             </h3>
                             <p className="text-gray-300 mb-6 text-lg leading-relaxed antialiased">
-                                A full-stack application built with Next.js and modern web technologies. 
-                                Features include user authentication, real-time updates, and responsive design.
+                                A full-stack application built with Next.js and Supabase to help connect high school
+                                students with practitioners for shadowing opportunities. Features include user
+                                authentication, synced calendar features, and administrator analytics dashboards.
                             </p>
                             <div className="flex flex-wrap gap-3">
                                 <span className="px-4 py-2 bg-blue-600/20 border border-blue-400/30 text-blue-300 text-sm rounded-full">React</span>
@@ -335,7 +336,7 @@ export default function About() {
                             onMouseEnter={handleProjectCardHover}
                             onMouseLeave={handleProjectCardLeave}
                         >
-                            <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-cyan-400 antialiased">
+                            <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white antialiased">
                                 Scandinavia
                             </h3>
                             <p className="text-gray-300 mb-6 text-lg leading-relaxed antialiased">
@@ -429,7 +430,13 @@ export default function About() {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                 </svg>
                             </div>
-                            <span className="text-sm font-medium text-cyan-400 group-hover:text-cyan-300">Email</span>
+                            <span className="text-sm font-medium text-cyan-400 group-hover:text-cyan-300">
+                                Email<br />
+                                <span className="text-[10px] font-normal text-cyan-400 group-hover:text-cyan-300">
+                                    calebhan (at) unc.edu
+                                </span>
+                            </span>
+
                         </a>
                     </div>
                 </div>
