@@ -156,21 +156,32 @@ export function cosineSimilarity(a, b) {
 }
 
 async function getQueryEmbedding(query) {
-  if (!embedModel) {
-    const { pipeline, env } = await import('@xenova/transformers');
+  try {
+    if (!embedModel) {
+      const { pipeline, env } = await import('@xenova/transformers');
 
-    // Configure to use HuggingFace CDN (fixes 404 errors in Next.js)
-    env.allowLocalModels = false;
-    env.useBrowserCache = true;
+      // Configure to use HuggingFace CDN (fixes 404 errors in Next.js)
+      env.allowLocalModels = false;
+      env.useBrowserCache = true;
 
-    // UPGRADED: Using multilingual-e5-small for better semantic quality
-    // IMPORTANT: This MUST match the model used in scripts/process-photos.js
-    // If you change this model, you must regenerate embeddings.json AND clear browser cache!
-    embedModel = await pipeline('feature-extraction', 'Xenova/multilingual-e5-small');
+      // UPGRADED: Using multilingual-e5-small for better semantic quality
+      // IMPORTANT: This MUST match the model used in scripts/process-photos.js
+      // If you change this model, you must regenerate embeddings.json AND clear browser cache!
+      embedModel = await pipeline('feature-extraction', 'Xenova/multilingual-e5-small');
+    }
+
+    const result = await embedModel(query, { pooling: 'mean', normalize: true });
+
+    if (!result || !result.data) {
+      console.error('Embedding model returned invalid result');
+      return null;
+    }
+
+    return Array.from(result.data);
+  } catch (error) {
+    console.error('Error generating query embedding:', error);
+    return null;
   }
-
-  const result = await embedModel(query, { pooling: 'mean', normalize: true });
-  return Array.from(result.data);
 }
 
 export async function searchPhotos(query, filters, allPhotos) {
@@ -211,7 +222,7 @@ export async function searchPhotos(query, filters, allPhotos) {
 
   // TIER 3: Hybrid BM25 + Semantic search (if query provided)
   if (query && query.trim()) {
-    const embeddings = await fetch('/data/embeddings.json').then(r => r.json());
+    const embeddings = await fetch('/data/embeddings.json').then(r => r.json()).catch(() => ({}));
 
     // Expand the query with related terms for better matching
     const expandedQuery = expandQuery(query);
@@ -220,11 +231,23 @@ export async function searchPhotos(query, filters, allPhotos) {
     // ==========================
     // STEP 1: Semantic Search (multilingual-e5-small embeddings)
     // ==========================
-    const semanticResults = results.map(photo => ({
-      ...photo,
-      semanticScore: cosineSimilarity(queryEmbedding, embeddings[photo.id])
-    }))
-    .sort((a, b) => b.semanticScore - a.semanticScore);
+    let semanticResults = [];
+
+    if (queryEmbedding && Object.keys(embeddings).length > 0) {
+      // Semantic search is available
+      semanticResults = results.map(photo => ({
+        ...photo,
+        semanticScore: embeddings[photo.id] ? cosineSimilarity(queryEmbedding, embeddings[photo.id]) : 0
+      }))
+      .sort((a, b) => b.semanticScore - a.semanticScore);
+    } else {
+      // Fallback: semantic search not available, use dummy scores
+      console.warn('Semantic search unavailable, using BM25-only mode');
+      semanticResults = results.map(photo => ({
+        ...photo,
+        semanticScore: 0
+      }));
+    }
 
     // ==========================
     // STEP 2: BM25 Keyword Search
@@ -237,21 +260,21 @@ export async function searchPhotos(query, filters, allPhotos) {
       const parts = [];
 
       // Natural caption (3x weight)
-      if (photo.naturalCaption) {
+      if (photo.naturalCaption && typeof photo.naturalCaption === 'string') {
         parts.push(photo.naturalCaption);
         parts.push(photo.naturalCaption);
         parts.push(photo.naturalCaption);
       }
 
       // AI tags (2x weight)
-      if (photo.aiTags) {
+      if (photo.aiTags && Array.isArray(photo.aiTags)) {
         const tags = photo.aiTags.join(' ');
         parts.push(tags);
         parts.push(tags);
       }
 
       // Manual tags (3x weight - highest priority)
-      if (photo.manualTags) {
+      if (photo.manualTags && Array.isArray(photo.manualTags)) {
         const tags = photo.manualTags.join(' ');
         parts.push(tags);
         parts.push(tags);
@@ -269,9 +292,9 @@ export async function searchPhotos(query, filters, allPhotos) {
       }
 
       return {
-        id: photo.id,
+        id: photo.id || '',
         photo,
-        searchText: parts.join(' ')
+        searchText: parts.join(' ') || ' ' // Ensure non-empty string
       };
     });
 

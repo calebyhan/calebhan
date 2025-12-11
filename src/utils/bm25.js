@@ -8,13 +8,22 @@ export class BM25 {
     this.k1 = k1; // Term frequency saturation parameter (1.2-2.0 typical)
     this.b = b;   // Length normalization parameter (0.75 typical)
 
-    this.documents = documents;
-    this.docCount = documents.length;
+    this.documents = documents || [];
+    this.docCount = this.documents.length;
+
+    // Handle edge case of empty documents
+    if (this.docCount === 0) {
+      this.corpus = [];
+      this.docLengths = [];
+      this.avgDocLength = 0;
+      this.idf = new Map();
+      return;
+    }
 
     // Preprocess documents
-    this.corpus = documents.map(doc => this.tokenize(doc.searchText || ''));
+    this.corpus = this.documents.map(doc => this.tokenize(doc?.searchText || ''));
     this.docLengths = this.corpus.map(tokens => tokens.length);
-    this.avgDocLength = this.docLengths.reduce((a, b) => a + b, 0) / this.docCount;
+    this.avgDocLength = this.docLengths.reduce((a, b) => a + b, 0) / this.docCount || 0;
 
     // Calculate IDF (Inverse Document Frequency) for each term
     this.idf = this.calculateIDF();
@@ -24,6 +33,9 @@ export class BM25 {
    * Tokenize text into normalized terms
    */
   tokenize(text) {
+    if (!text || typeof text !== 'string') {
+      return [];
+    }
     return text
       .toLowerCase()
       .replace(/[^\w\s]/g, ' ') // Remove punctuation
@@ -96,7 +108,7 @@ export class BM25 {
   search(query, topK = 10) {
     const queryTokens = this.tokenize(query);
 
-    if (queryTokens.length === 0) {
+    if (queryTokens.length === 0 || this.docCount === 0) {
       return [];
     }
 
