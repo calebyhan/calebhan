@@ -15,32 +15,24 @@ const LocationPicker = dynamic(() => import("@/components/LocationPicker"), {
 });
 
 export default function AdminPage() {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [password, setPassword] = useState("");
   const [photos, setPhotos] = useState([]);
   const [selectedPhotos, setSelectedPhotos] = useState(new Set());
   const [editingPhoto, setEditingPhoto] = useState(null);
   const [filter, setFilter] = useState("all");
   const [saving, setSaving] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [showGeocodeConfirm, setShowGeocodeConfirm] = useState(false);
+  const [geocodeCount, setGeocodeCount] = useState(0);
+  const [geocodeProgress, setGeocodeProgress] = useState({ current: 0, total: 0 });
+  const [showTripDropdown, setShowTripDropdown] = useState(false);
+  const [tripSearchQuery, setTripSearchQuery] = useState("");
 
   useEffect(() => {
-    if (authenticated) {
-      fetch("/data/photos.json")
-        .then(res => res.json())
-        .then(data => setPhotos(data))
-        .catch(err => console.error("Failed to load photos:", err));
-    }
-  }, [authenticated]);
-
-  const handleLogin = (e) => {
-    e.preventDefault();
-    if (password === "admin123") {
-      setAuthenticated(true);
-    } else {
-      alert("Incorrect password");
-    }
-  };
+    fetch("/data/photos.json")
+      .then(res => res.json())
+      .then(data => setPhotos(data))
+      .catch(err => console.error("Failed to load photos:", err));
+  }, []);
 
   const handlePhotoClick = (photo) => {
     setEditingPhoto({ ...photo });
@@ -127,6 +119,102 @@ export default function AdminPage() {
     }
   };
 
+  const handleBulkAutoGeocode = () => {
+    const photosWithGPS = photos.filter(p => p.location?.lat && p.location?.lng);
+
+    if (photosWithGPS.length === 0) {
+      alert(`No photos with GPS coordinates found.\n\nTotal photos: ${photos.length}`);
+      return;
+    }
+
+    setGeocodeCount(photosWithGPS.length);
+    setShowGeocodeConfirm(true);
+  };
+
+  const executeBulkGeocode = async () => {
+    setShowGeocodeConfirm(false);
+    const photosWithGPS = photos.filter(p => p.location?.lat && p.location?.lng);
+
+    setSaving(true);
+    setGeocodeProgress({ current: 0, total: photosWithGPS.length });
+    let updatedPhotos = [...photos];
+    let successCount = 0;
+    let errorCount = 0;
+
+    for (let i = 0; i < photosWithGPS.length; i++) {
+      const photo = photosWithGPS[i];
+      setGeocodeProgress({ current: i + 1, total: photosWithGPS.length });
+
+      try {
+        const { lat, lng } = photo.location;
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`,
+          {
+            headers: {
+              'User-Agent': 'PhotoGalleryAdmin/1.0'
+            }
+          }
+        );
+
+        if (response.ok) {
+          const data = await response.json();
+          const address = data.address || {};
+
+          // Update photo in the array
+          const photoIndex = updatedPhotos.findIndex(p => p.id === photo.id);
+          if (photoIndex !== -1) {
+            updatedPhotos[photoIndex] = {
+              ...updatedPhotos[photoIndex],
+              location: {
+                ...updatedPhotos[photoIndex].location,
+                country: address.country || updatedPhotos[photoIndex].location.country,
+                state: address.state || updatedPhotos[photoIndex].location.state,
+              }
+            };
+            successCount++;
+          }
+        } else {
+          errorCount++;
+        }
+
+        // Rate limiting: wait 1.2 seconds between requests
+        if (i < photosWithGPS.length - 1) {
+          await new Promise(resolve => setTimeout(resolve, 1200));
+        }
+      } catch (err) {
+        console.error(`Geocoding error for photo ${photo.id}:`, err);
+        errorCount++;
+      }
+    }
+
+    // Save all updates
+    try {
+      const response = await fetch("/api/admin/save-photos", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ photos: updatedPhotos })
+      });
+
+      if (response.ok) {
+        setPhotos(updatedPhotos);
+        setGeocodeProgress({ current: 0, total: 0 });
+        alert(
+          `Bulk auto-geocoding complete!\n\n` +
+          `✓ Success: ${successCount}\n` +
+          `✗ Errors: ${errorCount}`
+        );
+      } else {
+        alert("Failed to save changes");
+      }
+    } catch (err) {
+      console.error("Save error:", err);
+      alert("Error saving changes");
+    } finally {
+      setSaving(false);
+      setGeocodeProgress({ current: 0, total: 0 });
+    }
+  };
+
   const handleBulkEdit = async (field, value) => {
     setSaving(true);
     try {
@@ -171,40 +259,93 @@ export default function AdminPage() {
   const filteredPhotos = photos.filter(p => {
     if (filter === "no-location") return !p.location || !p.location.lat || !p.location.lng;
     if (filter === "no-state") return !p.location?.state;
-    if (filter === "no-trip") return !p.trip;
+    if (filter === "no-trip") return !p.trip || p.trip === "Uncategorized";
     return true;
   });
 
-  if (!authenticated) {
-    return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center">
-        <form onSubmit={handleLogin} className="bg-gray-900 p-8 rounded-lg border border-gray-800">
-          <h1 className="text-2xl font-bold mb-4">Admin Access</h1>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            placeholder="Enter password"
-            className="w-full px-4 py-2 bg-black/30 border border-gray-700 rounded-lg text-white mb-4"
-          />
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-cyan-600 text-white rounded-lg hover:bg-cyan-700"
-          >
-            Login
-          </button>
-        </form>
-      </div>
-    );
-  }
+  // Get unique trips for dropdown
+  const uniqueTrips = [...new Set(
+    photos
+      .map(p => p.trip)
+      .filter(t => t && t !== "Uncategorized")
+  )].sort();
+
+  // Filter trips based on search query
+  const filteredTrips = uniqueTrips.filter(trip =>
+    trip.toLowerCase().includes(tripSearchQuery.toLowerCase())
+  );
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
+      {/* Geocode Confirmation Modal */}
+      {showGeocodeConfirm && (
+        <div className="fixed inset-0 bg-black/95 flex items-center justify-center z-50">
+          <div className="bg-gray-900 rounded-lg p-6 max-w-md border border-gray-800">
+            <h2 className="text-xl font-bold mb-4">Confirm Auto-Geocoding</h2>
+            <p className="text-gray-300 mb-2">
+              Auto-geocode <span className="text-cyan-400 font-semibold">{geocodeCount}</span> photos with GPS coordinates?
+            </p>
+            <p className="text-sm text-gray-400 mb-6">
+              This will take about {Math.ceil(geocodeCount * 1.2)} seconds due to rate limiting (1 request/second).
+            </p>
+            <div className="flex gap-3">
+              <button
+                onClick={executeBulkGeocode}
+                className="flex-1 px-4 py-2 bg-green-900/30 border border-green-700 text-green-400 rounded-lg hover:bg-green-900/50"
+              >
+                Start Geocoding
+              </button>
+              <button
+                onClick={() => setShowGeocodeConfirm(false)}
+                className="flex-1 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Progress Modal */}
+      {geocodeProgress.total > 0 && (
+        <div className="fixed inset-0 bg-black/95 flex items-center justify-center z-50">
+          <div className="bg-gray-900 rounded-lg p-6 max-w-md w-full border border-gray-800">
+            <h2 className="text-xl font-bold mb-4">Geocoding in Progress...</h2>
+            <p className="text-gray-300 mb-4">
+              Processing photo {geocodeProgress.current} of {geocodeProgress.total}
+            </p>
+
+            {/* Progress Bar */}
+            <div className="w-full bg-gray-800 rounded-full h-4 mb-2 overflow-hidden">
+              <div
+                className="bg-gradient-to-r from-green-600 to-cyan-600 h-full transition-all duration-300 flex items-center justify-center text-xs font-semibold"
+                style={{ width: `${(geocodeProgress.current / geocodeProgress.total) * 100}%` }}
+              >
+                {Math.round((geocodeProgress.current / geocodeProgress.total) * 100)}%
+              </div>
+            </div>
+
+            <p className="text-sm text-gray-400 text-center mt-2">
+              Please wait, this may take a few minutes...
+            </p>
+          </div>
+        </div>
+      )}
+
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-3xl font-bold">Photo Admin</h1>
-          <div className="px-3 py-1 bg-yellow-900/30 border border-yellow-700 text-yellow-400 rounded text-xs">
-            DEV ONLY
+          <div className="flex items-center gap-3">
+            <button
+              onClick={handleBulkAutoGeocode}
+              disabled={saving}
+              className="px-4 py-2 bg-green-900/30 border border-green-700 text-green-400 rounded-lg hover:bg-green-900/50 disabled:opacity-50 text-sm"
+            >
+              Auto-Geocode All GPS Photos
+            </button>
+            <div className="px-3 py-1 bg-yellow-900/30 border border-yellow-700 text-yellow-400 rounded text-xs">
+              DEV ONLY
+            </div>
           </div>
         </div>
 
@@ -248,7 +389,7 @@ export default function AdminPage() {
                 : "bg-gray-800 text-gray-300 hover:bg-gray-700"
             }`}
           >
-            No Trip ({photos.filter(p => !p.trip).length})
+            No Trip ({photos.filter(p => !p.trip || p.trip === "Uncategorized").length})
           </button>
         </div>
 
@@ -537,14 +678,67 @@ export default function AdminPage() {
                     <h3 className="text-sm font-semibold text-gray-300 mb-2">Other Metadata</h3>
 
                     <div className="space-y-2">
-                      <div>
+                      <div className="relative">
                         <label className="block text-xs text-gray-400 mb-1">Trip</label>
                         <input
                           type="text"
                           value={editingPhoto.trip || ""}
-                          onChange={(e) => setEditingPhoto({ ...editingPhoto, trip: e.target.value })}
+                          onChange={(e) => {
+                            setEditingPhoto({ ...editingPhoto, trip: e.target.value });
+                            setTripSearchQuery(e.target.value);
+                            setShowTripDropdown(true);
+                          }}
+                          onFocus={() => {
+                            setTripSearchQuery(editingPhoto.trip || "");
+                            setShowTripDropdown(true);
+                          }}
+                          onBlur={() => {
+                            // Delay to allow click on dropdown items
+                            setTimeout(() => setShowTripDropdown(false), 200);
+                          }}
+                          placeholder="Type to search or create new..."
                           className="w-full px-3 py-1.5 bg-black/30 border border-gray-700 rounded text-white text-sm"
                         />
+
+                        {/* Dropdown */}
+                        {showTripDropdown && (
+                          <div className="absolute z-10 w-full mt-1 bg-gray-800 border border-gray-700 rounded-lg shadow-lg max-h-48 overflow-y-auto">
+                            {filteredTrips.length > 0 ? (
+                              <>
+                                {filteredTrips.map((trip) => (
+                                  <button
+                                    key={trip}
+                                    type="button"
+                                    onClick={() => {
+                                      setEditingPhoto({ ...editingPhoto, trip });
+                                      setShowTripDropdown(false);
+                                      setTripSearchQuery("");
+                                    }}
+                                    className="w-full text-left px-3 py-2 hover:bg-gray-700 text-white text-sm border-b border-gray-700/50 last:border-b-0"
+                                  >
+                                    {trip}
+                                  </button>
+                                ))}
+                              </>
+                            ) : tripSearchQuery && tripSearchQuery !== "Uncategorized" ? (
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  setEditingPhoto({ ...editingPhoto, trip: tripSearchQuery });
+                                  setShowTripDropdown(false);
+                                  setTripSearchQuery("");
+                                }}
+                                className="w-full text-left px-3 py-2 hover:bg-gray-700 text-cyan-400 text-sm"
+                              >
+                                + Create "{tripSearchQuery}"
+                              </button>
+                            ) : (
+                              <div className="px-3 py-2 text-gray-500 text-sm">
+                                {uniqueTrips.length === 0 ? "No existing trips" : "No matches found"}
+                              </div>
+                            )}
+                          </div>
+                        )}
                       </div>
 
                       <div>

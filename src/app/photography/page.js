@@ -17,9 +17,10 @@ export default function PhotographyPage() {
     trip: null,
     dateRange: null,
     country: null,
-    iso: [100, 12800],
-    aperture: [1.4, 22],
-    shutterSpeed: [1/8000, 30],
+    iso: [100, 6400],
+    aperture: [1.7, 22],
+    shutterSpeed: [0.00025, 0.067],
+    focalLength: [6, 105],
   });
 
   // Load photos on mount

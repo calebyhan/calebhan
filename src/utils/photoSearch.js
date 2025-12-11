@@ -184,6 +184,28 @@ async function getQueryEmbedding(query) {
   }
 }
 
+// Seeded random number generator for consistent shuffling per session
+let shuffleSeed = Date.now();
+
+// Fisher-Yates shuffle algorithm with seed
+function seededShuffle(array, seed) {
+  const arr = [...array];
+  let currentSeed = seed;
+
+  // Simple seeded random number generator
+  function seededRandom() {
+    currentSeed = (currentSeed * 9301 + 49297) % 233280;
+    return currentSeed / 233280;
+  }
+
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(seededRandom() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+
+  return arr;
+}
+
 export async function searchPhotos(query, filters, allPhotos) {
   let results = [...allPhotos];
 
@@ -197,7 +219,13 @@ export async function searchPhotos(query, filters, allPhotos) {
   }
 
   if (filters.country) {
-    results = results.filter(p => p.location?.country === filters.country);
+    // Check if this is a state or country filter
+    // If it matches a state, filter by state; otherwise filter by country
+    results = results.filter(p => {
+      if (!p.location) return false;
+      // Try matching as state first, then fall back to country
+      return p.location.state === filters.country || p.location.country === filters.country;
+    });
   }
 
   if (filters.dateRange) {
@@ -217,6 +245,18 @@ export async function searchPhotos(query, filters, allPhotos) {
   if (filters.aperture) {
     results = results.filter(p =>
       p.aperture && p.aperture >= filters.aperture[0] && p.aperture <= filters.aperture[1]
+    );
+  }
+
+  if (filters.shutterSpeed) {
+    results = results.filter(p =>
+      p.shutterSpeed && p.shutterSpeed >= filters.shutterSpeed[0] && p.shutterSpeed <= filters.shutterSpeed[1]
+    );
+  }
+
+  if (filters.focalLength) {
+    results = results.filter(p =>
+      p.focalLength && p.focalLength >= filters.focalLength[0] && p.focalLength <= filters.focalLength[1]
     );
   }
 
@@ -365,6 +405,10 @@ export async function searchPhotos(query, filters, allPhotos) {
     } else {
       console.log(`Search "${query}" found no matches`);
     }
+  } else {
+    // No search query - add some randomness to the ordering
+    // Use seeded shuffle for consistency within a session
+    results = seededShuffle(results, shuffleSeed);
   }
 
   return results;

@@ -26,23 +26,12 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
     <aside
       className="w-80 bg-gray-900/30 border-r border-gray-800/50 p-6 overflow-y-auto h-[calc(100vh-4rem)] sticky top-16"
       style={{
-        scrollbarWidth: 'thin',
-        scrollbarColor: 'rgba(55, 65, 81, 0.5) rgba(17, 24, 39, 0.5)'
+        scrollbarWidth: 'none'
       }}
     >
       <style jsx>{`
         aside::-webkit-scrollbar {
-          width: 6px;
-        }
-        aside::-webkit-scrollbar-track {
-          background: rgba(17, 24, 39, 0.5);
-        }
-        aside::-webkit-scrollbar-thumb {
-          background: rgba(55, 65, 81, 0.5);
-          border-radius: 3px;
-        }
-        aside::-webkit-scrollbar-thumb:hover {
-          background: rgba(75, 85, 99, 0.7);
+          display: none;
         }
       `}</style>
       <h2 className="text-2xl font-bold mb-4">Filters</h2>
@@ -59,7 +48,7 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
         />
         <div className="flex items-start gap-1.5 mt-1">
           <p className="text-xs text-gray-500 flex-1">
-            Try &quot;sunset&quot;, &quot;mountains&quot;, etc.
+            Try &quot;sunset&quot;, &quot;beach&quot;, etc.
           </p>
           <div className="group relative flex-shrink-0">
             <svg
@@ -158,8 +147,11 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
               camera: null,
               trip: null,
               country: null,
-              iso: [100, 12800],
-              aperture: [1.4, 22],
+              dateRange: null,
+              iso: [100, 6400],
+              aperture: [1.7, 22],
+              shutterSpeed: [0.00025, 0.067],
+              focalLength: [6, 105],
             });
             setSearchQuery('');
           }}
@@ -175,21 +167,207 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
 
       {/* Advanced Filters */}
       {showAdvanced && (
-        <div className="space-y-3 mt-4 pt-4 border-t border-gray-800/50">
+        <div className="space-y-6 mt-4 pt-4 border-t border-gray-800/50">
           {/* ISO Range */}
           <div>
-            <label className="block text-xs font-medium mb-1 text-gray-400">
-              ISO: {filters.iso[0]} - {filters.iso[1]}
-            </label>
-            <p className="text-[10px] text-gray-500">Range sliders coming soon...</p>
+            <div className="flex justify-between items-center mb-3">
+              <label className="text-xs font-medium text-gray-400">ISO</label>
+              <span className="text-xs font-mono text-cyan-400">{filters.iso[0]} - {filters.iso[1]}</span>
+            </div>
+            <div className="relative h-6 flex items-center">
+              {/* Background track */}
+              <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
+              {/* Filled range track */}
+              <div
+                className="absolute h-1.5 bg-gradient-to-r from-cyan-500/80 to-cyan-400/80 rounded-full"
+                style={{
+                  left: `${((filters.iso[0] - 100) / (6400 - 100)) * 100}%`,
+                  right: `${100 - ((filters.iso[1] - 100) / (6400 - 100)) * 100}%`
+                }}
+              ></div>
+              {/* Min handle slider */}
+              <input
+                type="range"
+                min="100"
+                max="6400"
+                step="100"
+                value={filters.iso[0]}
+                onChange={(e) => {
+                  const newMin = parseInt(e.target.value);
+                  if (newMin <= filters.iso[1]) {
+                    setFilters({ ...filters, iso: [newMin, filters.iso[1]] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+              {/* Max handle slider */}
+              <input
+                type="range"
+                min="100"
+                max="6400"
+                step="100"
+                value={filters.iso[1]}
+                onChange={(e) => {
+                  const newMax = parseInt(e.target.value);
+                  if (newMax >= filters.iso[0]) {
+                    setFilters({ ...filters, iso: [filters.iso[0], newMax] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+            </div>
           </div>
 
           {/* Aperture Range */}
           <div>
-            <label className="block text-xs font-medium mb-1 text-gray-400">
-              Aperture: f/{filters.aperture[0]} - f/{filters.aperture[1]}
-            </label>
-            <p className="text-[10px] text-gray-500">Range sliders coming soon...</p>
+            <div className="flex justify-between items-center mb-3">
+              <label className="text-xs font-medium text-gray-400">Aperture</label>
+              <span className="text-xs font-mono text-cyan-400">f/{filters.aperture[0]} - f/{filters.aperture[1]}</span>
+            </div>
+            <div className="relative h-6 flex items-center">
+              {/* Background track */}
+              <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
+              {/* Filled range track */}
+              <div
+                className="absolute h-1.5 bg-gradient-to-r from-cyan-500/80 to-cyan-400/80 rounded-full"
+                style={{
+                  left: `${((filters.aperture[0] - 1.7) / (22 - 1.7)) * 100}%`,
+                  right: `${100 - ((filters.aperture[1] - 1.7) / (22 - 1.7)) * 100}%`
+                }}
+              ></div>
+              {/* Min handle slider */}
+              <input
+                type="range"
+                min="1.7"
+                max="22"
+                step="0.1"
+                value={filters.aperture[0]}
+                onChange={(e) => {
+                  const newMin = parseFloat(e.target.value);
+                  if (newMin <= filters.aperture[1]) {
+                    setFilters({ ...filters, aperture: [newMin, filters.aperture[1]] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+              {/* Max handle slider */}
+              <input
+                type="range"
+                min="1.7"
+                max="22"
+                step="0.1"
+                value={filters.aperture[1]}
+                onChange={(e) => {
+                  const newMax = parseFloat(e.target.value);
+                  if (newMax >= filters.aperture[0]) {
+                    setFilters({ ...filters, aperture: [filters.aperture[0], newMax] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+            </div>
+          </div>
+
+          {/* Shutter Speed Range */}
+          <div>
+            <div className="flex justify-between items-center mb-3">
+              <label className="text-xs font-medium text-gray-400">Shutter Speed</label>
+              <span className="text-xs font-mono text-cyan-400">
+                {filters.shutterSpeed[0] < 1 ? `1/${Math.round(1/filters.shutterSpeed[0])}s` : `${filters.shutterSpeed[0]}s`} - {filters.shutterSpeed[1] < 1 ? `1/${Math.round(1/filters.shutterSpeed[1])}s` : `${filters.shutterSpeed[1]}s`}
+              </span>
+            </div>
+            <div className="relative h-6 flex items-center">
+              {/* Background track */}
+              <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
+              {/* Filled range track */}
+              <div
+                className="absolute h-1.5 bg-gradient-to-r from-cyan-500/80 to-cyan-400/80 rounded-full"
+                style={{
+                  left: `${((filters.shutterSpeed[0] - 0.00025) / (0.067 - 0.00025)) * 100}%`,
+                  right: `${100 - ((filters.shutterSpeed[1] - 0.00025) / (0.067 - 0.00025)) * 100}%`
+                }}
+              ></div>
+              {/* Min handle slider */}
+              <input
+                type="range"
+                min="0.00025"
+                max="0.067"
+                step="0.001"
+                value={filters.shutterSpeed[0]}
+                onChange={(e) => {
+                  const newMin = parseFloat(e.target.value);
+                  if (newMin <= filters.shutterSpeed[1]) {
+                    setFilters({ ...filters, shutterSpeed: [newMin, filters.shutterSpeed[1]] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+              {/* Max handle slider */}
+              <input
+                type="range"
+                min="0.00025"
+                max="0.067"
+                step="0.001"
+                value={filters.shutterSpeed[1]}
+                onChange={(e) => {
+                  const newMax = parseFloat(e.target.value);
+                  if (newMax >= filters.shutterSpeed[0]) {
+                    setFilters({ ...filters, shutterSpeed: [filters.shutterSpeed[0], newMax] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+            </div>
+          </div>
+
+          {/* Focal Length Range */}
+          <div>
+            <div className="flex justify-between items-center mb-3">
+              <label className="text-xs font-medium text-gray-400">Focal Length</label>
+              <span className="text-xs font-mono text-cyan-400">{filters.focalLength[0]}mm - {filters.focalLength[1]}mm</span>
+            </div>
+            <div className="relative h-6 flex items-center">
+              {/* Background track */}
+              <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
+              {/* Filled range track */}
+              <div
+                className="absolute h-1.5 bg-gradient-to-r from-cyan-500/80 to-cyan-400/80 rounded-full"
+                style={{
+                  left: `${((filters.focalLength[0] - 6) / (105 - 6)) * 100}%`,
+                  right: `${100 - ((filters.focalLength[1] - 6) / (105 - 6)) * 100}%`
+                }}
+              ></div>
+              {/* Min handle slider */}
+              <input
+                type="range"
+                min="6"
+                max="105"
+                step="1"
+                value={filters.focalLength[0]}
+                onChange={(e) => {
+                  const newMin = parseFloat(e.target.value);
+                  if (newMin <= filters.focalLength[1]) {
+                    setFilters({ ...filters, focalLength: [newMin, filters.focalLength[1]] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+              {/* Max handle slider */}
+              <input
+                type="range"
+                min="6"
+                max="105"
+                step="1"
+                value={filters.focalLength[1]}
+                onChange={(e) => {
+                  const newMax = parseFloat(e.target.value);
+                  if (newMax >= filters.focalLength[0]) {
+                    setFilters({ ...filters, focalLength: [filters.focalLength[0], newMax] });
+                  }
+                }}
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+              />
+            </div>
           </div>
         </div>
       )}

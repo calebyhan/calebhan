@@ -17,7 +17,7 @@
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "NC Beaches",
     "aiCaption": "HDR, sunset",
     "aiTags": [
       "HDR",
@@ -36,7 +36,8 @@
     "naturalCaption": "a sunset over a beach with a lighthouse",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.147Z"
   },
   {
     "id": "20241005_223906000_iOS.jpg",
@@ -56,7 +57,7 @@
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "KASA MT",
     "aiCaption": "kayaking, aerial view",
     "aiTags": [
       "kayaking",
@@ -75,7 +76,8 @@
     "naturalCaption": "a kite is flying through the air",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.183Z"
   },
   {
     "id": "20241005_224410000_iOS.jpg",
@@ -95,7 +97,7 @@
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "KASA MT",
     "aiCaption": "kayaking",
     "aiTags": [
       "kayaking"
@@ -109,7 +111,8 @@
     "naturalCaption": "people are in the water on a raft",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.198Z"
   },
   {
     "id": "DJI_20250120173102_0003_D.jpg",
@@ -129,7 +132,7 @@
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "UNC",
     "aiCaption": "sunrise, sunset",
     "aiTags": [
       "sunrise",
@@ -148,7 +151,8 @@
     "naturalCaption": "a sunset with a person standing on a balcony",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.213Z"
   },
   {
     "id": "DJI_20250120173221_0012_D.jpg",
@@ -168,14 +172,15 @@
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "UNC",
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
     "naturalCaption": "a city with a large building and a large building",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.230Z"
   },
   {
     "id": "DJI_20250309163901_0014_D.JPG",
@@ -195,7 +200,7 @@
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "NC Beaches",
     "aiCaption": "sandy beach, beach, coast, ocean",
     "aiTags": [
       "sandy beach",
@@ -224,7 +229,57 @@
     "naturalCaption": "a beach with a few people on it",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.244Z"
+  },
+  {
+    "id": "DJI_20250605105944_0006_D.jpg",
+    "path": "/photos/DJI_20250605105944_0006_D.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "DJI Mini 4 Pro",
+    "lens": "24.0 mm f/1.7",
+    "iso": 200,
+    "aperture": 1.7,
+    "shutterSpeed": 0.0003333333333333333,
+    "focalLength": 6.72,
+    "date": "2025-06-05T14:59:44.000Z",
+    "location": {
+      "lat": 59.411217111666666,
+      "lng": 18.351508305,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "aerial view, lake, drone photography, aerial",
+    "aiTags": [
+      "aerial view",
+      "lake",
+      "drone photography",
+      "aerial"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "aerial view",
+        "score": 0.340223103761673
+      },
+      {
+        "label": "lake",
+        "score": 0.0830136239528656
+      },
+      {
+        "label": "drone photography",
+        "score": 0.07148854434490204
+      },
+      {
+        "label": "aerial",
+        "score": 0.06798987090587616
+      }
+    ],
+    "naturalCaption": "a large body of water with a large group of birds",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.259Z"
   },
   {
     "id": "IMG_0040 2024-08-12 02_10_07.jpg",
@@ -239,8 +294,8 @@
     "focalLength": 18,
     "date": "2024-08-12T01:18:13.000Z",
     "location": {
-      "lat": 35.87648,
-      "lng": -84.207205,
+      "lat": 35.86422913333333,
+      "lng": -84.22461433333334,
       "country": "United States",
       "state": "Tennessee"
     },
@@ -268,7 +323,8 @@
     "naturalCaption": "a dark night with a single bright light",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.277Z"
   },
   {
     "id": "IMG_0100.jpg",
@@ -283,8 +339,8 @@
     "focalLength": 45,
     "date": "2024-08-12T04:57:48.000Z",
     "location": {
-      "lng": -84.206991,
-      "lat": 35.87648,
+      "lat": 35.864464733333335,
+      "lng": -84.22558341666667,
       "country": "United States",
       "state": "Tennessee"
     },
@@ -312,7 +368,8 @@
     "naturalCaption": "a man walking on a sidewalk with a white object",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.291Z"
   },
   {
     "id": "IMG_0260.jpg",
@@ -327,19 +384,20 @@
     "focalLength": 18,
     "date": "2024-08-28T23:56:54.000Z",
     "location": {
-      "lat": 35.906261,
-      "lng": -79.046476,
+      "lat": 35.90668973333333,
+      "lng": -79.0460819,
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "UNC",
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
     "naturalCaption": "a lone horse stands in the middle of a field",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:12.304Z"
   },
   {
     "id": "IMG_2009.jpg",
@@ -354,12 +412,12 @@
     "focalLength": 45,
     "date": "2024-10-05T22:33:42.000Z",
     "location": {
-      "lat": 36.509588,
-      "lng": -78.014427,
+      "lat": 36.50952483333333,
+      "lng": -78.01447263333333,
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "KASA MT",
     "aiCaption": "lake, fishing boat, pond",
     "aiTags": [
       "lake",
@@ -383,7 +441,8 @@
     "naturalCaption": "a bird is flying over a body of water",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:19.742Z"
   },
   {
     "id": "IMG_2706.jpg",
@@ -398,12 +457,12 @@
     "focalLength": 42,
     "date": "2025-01-22T05:27:46.000Z",
     "location": {
-      "lng": -79.044345,
-      "lat": 35.903614,
+      "lat": 35.90359253333333,
+      "lng": -79.04436286666666,
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "UNC",
     "aiCaption": "lamp post, traffic light",
     "aiTags": [
       "lamp post",
@@ -422,7 +481,8 @@
     "naturalCaption": "a red stoplight at night with a building",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:19.750Z"
   },
   {
     "id": "IMG_3361.jpg",
@@ -437,12 +497,12 @@
     "focalLength": 29,
     "date": "2025-03-09T19:15:36.000Z",
     "location": {
-      "lat": 34.411912,
-      "lng": -77.566321,
+      "lat": 34.41222208333333,
+      "lng": -77.56565855,
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "NC Beaches",
     "aiCaption": "sandy beach, beach, coast, coastline",
     "aiTags": [
       "sandy beach",
@@ -471,7 +531,8 @@
     "naturalCaption": "a beach with a couple of people on it",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.077Z"
   },
   {
     "id": "IMG_3382.jpg",
@@ -486,12 +547,12 @@
     "focalLength": 45,
     "date": "2025-03-09T19:32:23.000Z",
     "location": {
-      "lng": -77.566321,
-      "lat": 34.411912,
+      "lat": 34.41222208333333,
+      "lng": -77.56565855,
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "NC Beaches",
     "aiCaption": "sandy beach, sand dunes, beach",
     "aiTags": [
       "sandy beach",
@@ -515,7 +576,8 @@
     "naturalCaption": "a dog walking on the beach with a man",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.090Z"
   },
   {
     "id": "IMG_3396.jpg",
@@ -530,12 +592,12 @@
     "focalLength": 42,
     "date": "2025-03-09T19:41:30.000Z",
     "location": {
-      "lng": -77.566321,
-      "lat": 34.411912,
+      "lat": 34.41222208333333,
+      "lng": -77.56565855,
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "NC Beaches",
     "aiCaption": "sandy beach, beach, sand",
     "aiTags": [
       "sandy beach",
@@ -559,7 +621,8 @@
     "naturalCaption": "a bird standing on a beach near the water",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.097Z"
   },
   {
     "id": "IMG_3458.jpg",
@@ -574,12 +637,12 @@
     "focalLength": 45,
     "date": "2025-03-09T20:34:50.000Z",
     "location": {
-      "lng": -77.566321,
-      "lat": 34.411912,
+      "lat": 34.41222208333333,
+      "lng": -77.56565855,
       "country": "United States",
       "state": "North Carolina"
     },
-    "trip": "Uncategorized",
+    "trip": "NC Beaches",
     "aiCaption": "seagull, sandy beach",
     "aiTags": [
       "seagull",
@@ -598,7 +661,191 @@
     "naturalCaption": "a kite is flying over the beach",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.104Z"
+  },
+  {
+    "id": "IMG_4908.jpg",
+    "path": "/photos/IMG_4908.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 320,
+    "aperture": 22,
+    "shutterSpeed": 0.0125,
+    "focalLength": 45,
+    "date": "2025-05-24T10:34:37.000Z",
+    "location": {
+      "lat": 59.90739478166667,
+      "lng": 10.735716695,
+      "country": "Norway"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a bench in a grassy area near a tree",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.112Z"
+  },
+  {
+    "id": "IMG_4913.jpg",
+    "path": "/photos/IMG_4913.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 640,
+    "aperture": 22,
+    "shutterSpeed": 0.01,
+    "focalLength": 45,
+    "date": "2025-05-24T10:58:04.000Z",
+    "location": {
+      "lat": 59.90806565166667,
+      "lng": 10.735773741666666,
+      "country": "Norway"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "building, house",
+    "aiTags": [
+      "building",
+      "house"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "building",
+        "score": 0.09375815838575363
+      },
+      {
+        "label": "house",
+        "score": 0.079892098903656
+      }
+    ],
+    "naturalCaption": "a tree is in the middle of a large building",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.118Z"
+  },
+  {
+    "id": "IMG_5007.jpg",
+    "path": "/photos/IMG_5007.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 4.5,
+    "shutterSpeed": 0.004,
+    "focalLength": 20,
+    "date": "2025-06-05T11:56:14.000Z",
+    "location": {
+      "lat": 59.40100094666667,
+      "lng": 18.34931434,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "trees, reflection",
+    "aiTags": [
+      "trees",
+      "reflection"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "trees",
+        "score": 0.0821782723069191
+      },
+      {
+        "label": "reflection",
+        "score": 0.07059377431869507
+      }
+    ],
+    "naturalCaption": "a window sill with a large window with plants",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.125Z"
+  },
+  {
+    "id": "IMG_5013.jpg",
+    "path": "/photos/IMG_5013.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 6.3,
+    "shutterSpeed": 0.0015625,
+    "focalLength": 45,
+    "date": "2025-06-05T12:50:41.000Z",
+    "location": {
+      "lat": 59.40537390833333,
+      "lng": 18.350363423333334,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "lake, house",
+    "aiTags": [
+      "lake",
+      "house"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.09163302183151245
+      },
+      {
+        "label": "house",
+        "score": 0.06394917517900467
+      }
+    ],
+    "naturalCaption": "a small red building with a red roof",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.134Z"
+  },
+  {
+    "id": "IMG_5014.jpg",
+    "path": "/photos/IMG_5014.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 5.6,
+    "shutterSpeed": 0.0015625,
+    "focalLength": 32,
+    "date": "2025-06-05T12:51:04.000Z",
+    "location": {
+      "lat": 59.40451701166667,
+      "lng": 18.349628056666667,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "cycling, bicycle",
+    "aiTags": [
+      "cycling",
+      "bicycle"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "cycling",
+        "score": 0.24584607779979706
+      },
+      {
+        "label": "bicycle",
+        "score": 0.16428343951702118
+      }
+    ],
+    "naturalCaption": "a bicycle is parked outside a window with a red handlebar",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.140Z"
   },
   {
     "id": "IMG_5052.jpg",
@@ -641,6 +888,581 @@
     "naturalCaption": "a boat is going down the river near a forest",
     "manualTags": [],
     "hasManualOverride": false,
-    "replaceAI": false
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.150Z"
+  },
+  {
+    "id": "IMG_5057.jpg",
+    "path": "/photos/IMG_5057.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 6.3,
+    "shutterSpeed": 0.005,
+    "focalLength": 45,
+    "date": "2025-06-05T15:52:28.000Z",
+    "location": {
+      "lat": 59.40197139666667,
+      "lng": 18.35562374,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "water, lake, ocean, swimming",
+    "aiTags": [
+      "water",
+      "lake",
+      "ocean",
+      "swimming"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "water",
+        "score": 0.16704650223255157
+      },
+      {
+        "label": "lake",
+        "score": 0.08585509657859802
+      },
+      {
+        "label": "ocean",
+        "score": 0.06378456950187683
+      },
+      {
+        "label": "swimming",
+        "score": 0.06373908370733261
+      }
+    ],
+    "naturalCaption": "a person is standing on a surfboard in the water",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.159Z"
+  },
+  {
+    "id": "IMG_5067.jpg",
+    "path": "/photos/IMG_5067.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 6.3,
+    "shutterSpeed": 0.002,
+    "focalLength": 34,
+    "date": "2025-06-06T09:39:08.000Z",
+    "location": {
+      "lat": 59.331725141666666,
+      "lng": 18.07136213,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "monument, statue, park",
+    "aiTags": [
+      "monument",
+      "statue",
+      "park"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "monument",
+        "score": 0.1164994016289711
+      },
+      {
+        "label": "statue",
+        "score": 0.08218280971050262
+      },
+      {
+        "label": "park",
+        "score": 0.06579737365245819
+      }
+    ],
+    "naturalCaption": "a man sitting on a bench next to a statue of a man on a horse",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.166Z"
+  },
+  {
+    "id": "IMG_5092.jpg",
+    "path": "/photos/IMG_5092.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 6.3,
+    "shutterSpeed": 0.0025,
+    "focalLength": 45,
+    "date": "2025-06-12T10:02:52.000Z",
+    "location": {
+      "lat": 59.29180760333333,
+      "lng": 18.116221893333332,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "garden",
+    "aiTags": [
+      "garden"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "garden",
+        "score": 0.08398254215717316
+      }
+    ],
+    "naturalCaption": "a bench is near a fence and a tree",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.176Z"
+  },
+  {
+    "id": "IMG_5127.jpg",
+    "path": "/photos/IMG_5127.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 5.6,
+    "shutterSpeed": 0.002,
+    "focalLength": 21,
+    "date": "2025-06-16T13:17:21.000Z",
+    "location": {
+      "lat": 55.68563840833333,
+      "lng": 12.577401568333332,
+      "country": "Denmark",
+      "state": "Capital Region of Denmark"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "HDR",
+    "aiTags": [
+      "HDR"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "HDR",
+        "score": 0.09370521456003189
+      }
+    ],
+    "naturalCaption": "a large building with a large window",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.184Z"
+  },
+  {
+    "id": "IMG_5153.jpg",
+    "path": "/photos/IMG_5153.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 5.6,
+    "shutterSpeed": 0.0008,
+    "focalLength": 31,
+    "date": "2025-06-24T15:50:55.000Z",
+    "location": {
+      "lat": 51.513611346666664,
+      "lng": -0.09778045833333333,
+      "country": "United Kingdom",
+      "state": "England"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "HDR, architecture",
+    "aiTags": [
+      "HDR",
+      "architecture"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "HDR",
+        "score": 0.12575572729110718
+      },
+      {
+        "label": "architecture",
+        "score": 0.08817089349031448
+      }
+    ],
+    "naturalCaption": "a large building with a clock on top",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.190Z"
+  },
+  {
+    "id": "IMG_5157.jpg",
+    "path": "/photos/IMG_5157.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 5.6,
+    "shutterSpeed": 0.002,
+    "focalLength": 37,
+    "date": "2025-06-24T18:59:21.000Z",
+    "location": {
+      "lat": 51.500964345,
+      "lng": -0.12629517666666665,
+      "country": "United Kingdom",
+      "state": "England"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "tower",
+    "aiTags": [
+      "tower"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "tower",
+        "score": 0.08862894773483276
+      }
+    ],
+    "naturalCaption": "a large building with a large clock on it",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.197Z"
+  },
+  {
+    "id": "IMG_5161.jpg",
+    "path": "/photos/IMG_5161.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 6.3,
+    "shutterSpeed": 0.003125,
+    "focalLength": 45,
+    "date": "2025-06-24T19:10:19.000Z",
+    "location": {
+      "lat": 51.50606283166667,
+      "lng": -0.12277594333333333,
+      "country": "United Kingdom",
+      "state": "England"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a large fountain with a large group of people standing in it",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.203Z"
+  },
+  {
+    "id": "IMG_1381.jpg",
+    "path": "/photos/IMG_1381.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 100,
+    "aperture": 7.1,
+    "shutterSpeed": 0.002,
+    "focalLength": 105,
+    "date": "2025-09-20T15:39:33.000Z",
+    "location": {
+      "lat": 36.206858413333336,
+      "lng": -75.76113232833333,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "NC Beaches",
+    "aiCaption": "swimming, sandy beach, beach, dog",
+    "aiTags": [
+      "swimming",
+      "sandy beach",
+      "beach",
+      "dog"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "swimming",
+        "score": 0.12046347558498383
+      },
+      {
+        "label": "sandy beach",
+        "score": 0.11306140571832657
+      },
+      {
+        "label": "beach",
+        "score": 0.10228849947452545
+      },
+      {
+        "label": "dog",
+        "score": 0.06594222784042358
+      }
+    ],
+    "naturalCaption": "a herd of sheep are laying on the beach",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:14.008Z"
+  },
+  {
+    "id": "IMG_1402.jpg",
+    "path": "/photos/IMG_1402.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 100,
+    "aperture": 7.1,
+    "shutterSpeed": 0.002,
+    "focalLength": 105,
+    "date": "2025-09-20T22:25:07.000Z",
+    "location": {
+      "lat": 36.206858413333336,
+      "lng": -75.76113232833333,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "NC Beaches",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a house with a building and a street",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:15.398Z"
+  },
+  {
+    "id": "IMG_1424.jpg",
+    "path": "/photos/IMG_1424.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 400,
+    "aperture": 11,
+    "shutterSpeed": 0.00625,
+    "focalLength": 105,
+    "date": "2025-09-20T22:36:17.000Z",
+    "location": {
+      "lat": 36.206858413333336,
+      "lng": -75.76113232833333,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "NC Beaches",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "two people standing on a beach near the water",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:16.885Z"
+  },
+  {
+    "id": "IMG_1445.jpg",
+    "path": "/photos/IMG_1445.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 320,
+    "aperture": 11,
+    "shutterSpeed": 0.00625,
+    "focalLength": 105,
+    "date": "2025-09-20T22:37:24.000Z",
+    "location": {
+      "lat": 36.206858413333336,
+      "lng": -75.76113232833333,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "NC Beaches",
+    "aiCaption": "sand dunes, sandy beach, beach, boardwalk",
+    "aiTags": [
+      "sand dunes",
+      "sandy beach",
+      "beach",
+      "boardwalk"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sand dunes",
+        "score": 0.09918510913848877
+      },
+      {
+        "label": "sandy beach",
+        "score": 0.0868976041674614
+      },
+      {
+        "label": "beach",
+        "score": 0.07737977802753448
+      },
+      {
+        "label": "boardwalk",
+        "score": 0.06056233495473862
+      }
+    ],
+    "naturalCaption": "people sitting on a hill",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:18.251Z"
+  },
+  {
+    "id": "IMG_1536.jpg",
+    "path": "/photos/IMG_1536.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 400,
+    "aperture": 7.1,
+    "shutterSpeed": 0.00625,
+    "focalLength": 105,
+    "date": "2025-09-20T22:44:33.000Z",
+    "location": {
+      "lat": 36.206858413333336,
+      "lng": -75.76113232833333,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "NC Beaches",
+    "aiCaption": "sandy beach, beach, seagull",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "seagull"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.1478874832391739
+      },
+      {
+        "label": "beach",
+        "score": 0.13037016987800598
+      },
+      {
+        "label": "seagull",
+        "score": 0.07033881545066833
+      }
+    ],
+    "naturalCaption": "a beach with a couple of people on it",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:19.735Z"
+  },
+  {
+    "id": "IMG_3183.jpg",
+    "path": "/photos/IMG_3183.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 200,
+    "aperture": 7.1,
+    "shutterSpeed": 0.00625,
+    "focalLength": 105,
+    "date": "2025-10-04T22:49:51.000Z",
+    "location": {
+      "lat": 35.262413705,
+      "lng": -80.10115647666667,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "KASA MT",
+    "aiCaption": "lake, harbor",
+    "aiTags": [
+      "lake",
+      "harbor"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.1114676222205162
+      },
+      {
+        "label": "harbor",
+        "score": 0.07210644334554672
+      }
+    ],
+    "naturalCaption": "a person on a surf board in the water",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:21.068Z"
+  },
+  {
+    "id": "IMG_3215.jpg",
+    "path": "/photos/IMG_3215.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 640,
+    "aperture": 7.1,
+    "shutterSpeed": 0.00625,
+    "focalLength": 105,
+    "date": "2025-10-04T22:55:58.000Z",
+    "location": {
+      "lat": 35.262413705,
+      "lng": -80.10115647666667,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "KASA MT",
+    "aiCaption": "fishing boat, boat",
+    "aiTags": [
+      "fishing boat",
+      "boat"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "fishing boat",
+        "score": 0.17404304444789886
+      },
+      {
+        "label": "boat",
+        "score": 0.06268209218978882
+      }
+    ],
+    "naturalCaption": "a small boat is in the water near a large body of water",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:22.615Z"
+  },
+  {
+    "id": "IMG_3218.jpg",
+    "path": "/photos/IMG_3218.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 250,
+    "aperture": 7.1,
+    "shutterSpeed": 0.0125,
+    "focalLength": 70,
+    "date": "2025-10-04T22:57:14.000Z",
+    "location": {
+      "lat": 35.262413705,
+      "lng": -80.10115647666667,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "KASA MT",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "two people standing on a pier looking at the water",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-11T07:49:24.067Z"
   }
 ]

@@ -5,8 +5,7 @@
 ## Access
 
 - **Development**: http://localhost:3001/admin
-- **Production**: Redirects to homepage (blocked by middleware)
-- **Password**: `admin123`
+- **Production**: Redirects to homepage (blocked by proxy)
 
 ## Features
 
@@ -20,7 +19,6 @@
 
 The `/admin` route is protected by:
 1. **Proxy** ([src/proxy.js](../../proxy.js)) - Blocks access in production
-2. **Password protection** - Simple password check in development
 
 ## Deployment
 

@@ -193,45 +193,90 @@ function needsNewCaption(filePath, file, cache) {
 }
 
 async function processPhotos() {
-  console.log('🚀 Starting photo processing...');
+  console.log('🚀 Starting incremental photo processing...');
 
-  // Initialize text embedding model (runs once) - Using multilingual-e5-small for better quality
-  console.log('📦 Loading text embedding model (384-dim, better quality)...');
-  const embedModel = await pipeline('feature-extraction', 'Xenova/multilingual-e5-small');
-
-  // Initialize CLIP for zero-shot image classification - UPGRADED to patch16
-  console.log('🎨 Loading CLIP vision model (patch16 - finer details)...');
-  const clipModel = await pipeline('zero-shot-image-classification', 'Xenova/clip-vit-base-patch16');
-
-  // Initialize image captioning model for natural language descriptions
-  console.log('💬 Loading image captioning model...');
-  const captionModel = await pipeline('image-to-text', 'Xenova/vit-gpt2-image-captioning');
-
-  const photos = [];
-  const embeddings = {};
   const photoDir = path.join(__dirname, '../public/photos');
   const dataDir = path.join(__dirname, '../public/data');
-  
+
   // Ensure output directory exists
   if (!fs.existsSync(dataDir)) {
     fs.mkdirSync(dataDir, { recursive: true });
   }
-  
+
+  // Load existing data
+  const photosPath = path.join(dataDir, 'photos.json');
+  const embeddingsPath = path.join(dataDir, 'embeddings.json');
+
+  let existingPhotos = [];
+  let existingEmbeddings = {};
+
+  if (fs.existsSync(photosPath)) {
+    console.log('📖 Loading existing photos.json...');
+    existingPhotos = JSON.parse(fs.readFileSync(photosPath, 'utf8'));
+  }
+
+  if (fs.existsSync(embeddingsPath)) {
+    console.log('📖 Loading existing embeddings.json...');
+    existingEmbeddings = JSON.parse(fs.readFileSync(embeddingsPath, 'utf8'));
+  }
+
   // Load caption cache
   const captionCache = loadCaptionCache(dataDir);
-  let captionsGenerated = 0;
-  let captionsCached = 0;
+
+  // Build lookup of existing photos by ID
+  const existingPhotosMap = new Map(existingPhotos.map(p => [p.id, p]));
 
   const files = fs.readdirSync(photoDir)
     .filter(f => /\.(jpg|jpeg|png|JPG|JPEG|PNG)$/i.test(f));
 
-  console.log(`📸 Found ${files.length} photos`);
+  console.log(`📸 Found ${files.length} photos in directory`);
+
+  // Determine which photos need processing
+  const filesToProcess = [];
+  const filesUpToDate = [];
+
+  for (const file of files) {
+    const filePath = path.join(photoDir, file);
+    const stats = fs.statSync(filePath);
+    const existingPhoto = existingPhotosMap.get(file);
+
+    // Process if: new file OR file was modified OR missing embedding
+    if (!existingPhoto ||
+        !existingPhoto.lastProcessed ||
+        stats.mtimeMs > new Date(existingPhoto.lastProcessed).getTime() ||
+        !existingEmbeddings[file]) {
+      filesToProcess.push(file);
+    } else {
+      filesUpToDate.push(file);
+    }
+  }
+
+  console.log(`✨ ${filesToProcess.length} new/modified photos to process`);
+  console.log(`✓ ${filesUpToDate.length} photos already up-to-date`);
   console.log('');
 
-  for (const [index, file] of files.entries()) {
+  // If nothing to process, we're done!
+  if (filesToProcess.length === 0) {
+    console.log('🎉 All photos are already processed and up-to-date!');
+    return;
+  }
+
+  // Initialize AI models (only if needed)
+  console.log('📦 Loading AI models...');
+  const embedModel = await pipeline('feature-extraction', 'Xenova/multilingual-e5-small');
+  const clipModel = await pipeline('zero-shot-image-classification', 'Xenova/clip-vit-base-patch16');
+  const captionModel = await pipeline('image-to-text', 'Xenova/vit-gpt2-image-captioning');
+
+  let captionsGenerated = 0;
+  let captionsCached = 0;
+
+  // Process only the files that need updating
+  console.log('');
+
+  for (const [index, file] of filesToProcess.entries()) {
     const filePath = path.join(photoDir, file);
 
-    console.log(`[${index + 1}/${files.length}] ${file}`);
+    console.log(`[${index + 1}/${filesToProcess.length}] ${file}`);
 
     // Extract EXIF data
     const exif = await exifr.parse(filePath, {
@@ -241,11 +286,28 @@ async function processPhotos() {
     });
 
     // Extract GPS coordinates if available
-    const location = exif?.latitude && exif?.longitude ? {
-      lat: exif.latitude,
-      lng: exif.longitude,
-      country: determineCountry(exif.latitude, exif.longitude)
-    } : null;
+    // Preserve existing location data (especially manually-set state/country) if GPS coords haven't changed
+    const existingLocation = existingPhotosMap.get(file)?.location;
+    let location = null;
+
+    if (exif?.latitude && exif?.longitude) {
+      // Check if GPS coordinates are the same as existing
+      const gpsChanged = !existingLocation ||
+                        existingLocation.lat !== exif.latitude ||
+                        existingLocation.lng !== exif.longitude;
+
+      if (gpsChanged) {
+        // GPS changed or new photo - auto-detect country
+        location = {
+          lat: exif.latitude,
+          lng: exif.longitude,
+          country: determineCountry(exif.latitude, exif.longitude)
+        };
+      } else {
+        // GPS unchanged - preserve existing location data (keeps manual edits)
+        location = existingLocation;
+      }
+    }
     
     // Generate or retrieve AI tags using CLIP and natural language caption
     let aiTags = [];
@@ -327,9 +389,9 @@ async function processPhotos() {
       // Location
       location,
 
-      // Manual categorization
-      trip: determineTrip(exif?.DateTimeOriginal),
-      
+      // Manual categorization - preserve existing trip if already set, otherwise determine from date
+      trip: existingPhotosMap.get(file)?.trip || determineTrip(exif?.DateTimeOriginal),
+
       // AI-generated tags from CLIP
       aiCaption: aiTags.join(', '), // For compatibility
       aiTags: aiTags,
@@ -342,9 +404,13 @@ async function processPhotos() {
       manualTags: MANUAL_OVERRIDES[file]?.tags || [],
       hasManualOverride: !!MANUAL_OVERRIDES[file],
       replaceAI: MANUAL_OVERRIDES[file]?.replaceAI || false,
+
+      // Processing timestamp
+      lastProcessed: new Date().toISOString(),
     };
 
-    photos.push(photoData);
+    // Update existing photo or add new one
+    existingPhotosMap.set(file, photoData);
 
     // Generate semantic description for AI search (tags + natural caption with confidence-based weighting)
     const description = generateDescription(photoData, aiTagsWithScores, naturalCaption);
@@ -355,7 +421,19 @@ async function processPhotos() {
       normalize: true
     });
 
-    embeddings[file] = Array.from(result.data);
+    // Update embeddings
+    existingEmbeddings[file] = Array.from(result.data);
+  }
+
+  // Merge all photos (existing + newly processed)
+  const allPhotos = Array.from(existingPhotosMap.values());
+
+  // Remove embeddings for photos that no longer exist
+  const currentFileSet = new Set(files);
+  for (const photoId of Object.keys(existingEmbeddings)) {
+    if (!currentFileSet.has(photoId)) {
+      delete existingEmbeddings[photoId];
+    }
   }
 
   // Save caption cache
@@ -364,16 +442,17 @@ async function processPhotos() {
   // Save outputs
   fs.writeFileSync(
     path.join(dataDir, 'photos.json'),
-    JSON.stringify(photos, null, 2)
+    JSON.stringify(allPhotos, null, 2)
   );
   fs.writeFileSync(
     path.join(dataDir, 'embeddings.json'),
-    JSON.stringify(embeddings)
+    JSON.stringify(existingEmbeddings)
   );
 
   console.log('');
   console.log('='.repeat(80));
-  console.log(`✅ Successfully processed ${photos.length} photos`);
+  console.log(`✅ Successfully processed ${filesToProcess.length} new/modified photos`);
+  console.log(`📊 Total photos: ${allPhotos.length}`);
   console.log(`📊 Metadata saved to public/data/photos.json`);
   console.log(`🧠 Embeddings saved to public/data/embeddings.json`);
   console.log(`💾 Captions saved to public/data/captions.json`);

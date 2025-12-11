@@ -1,11 +1,22 @@
 "use client";
 
 import { useState } from "react";
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import { ComposableMap, Geographies, Geography, ZoomableGroup } from "react-simple-maps";
 
 // TopoJSON data URLs
 const worldGeoUrl = "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json";
 const usaStatesGeoUrl = "https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json";
+
+// Map between GeoJSON country names and our photo data country names
+const COUNTRY_NAME_MAP = {
+  "United States of America": "United States",
+  // Add more mappings as needed
+};
+
+// Convert GeoJSON country name to our photo data country name
+function normalizeCountryName(geoName) {
+  return COUNTRY_NAME_MAP[geoName] || geoName;
+}
 
 export default function CountryMap({ selectedCountry, onSelectCountry, countries, states }) {
   // Check if there are any US photos
@@ -14,15 +25,39 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
   // Default to USA States if US photos exist, otherwise World
   const [mapMode, setMapMode] = useState(hasUSPhotos ? "usa" : "world");
 
+  // Zoom state for world map
+  const [zoom, setZoom] = useState(1);
+  const [center, setCenter] = useState([0, 20]);
+
   // Use states array if provided, otherwise empty
   const availableStates = states || [];
+
+  // Reset zoom when switching map modes
+  const handleMapModeChange = (mode) => {
+    setMapMode(mode);
+    setZoom(1);
+    setCenter([0, 20]);
+  };
+
+  const handleZoomIn = () => {
+    if (zoom < 4) setZoom(zoom * 1.5);
+  };
+
+  const handleZoomOut = () => {
+    if (zoom > 1) setZoom(zoom / 1.5);
+  };
+
+  const handleResetZoom = () => {
+    setZoom(1);
+    setCenter([0, 20]);
+  };
 
   return (
     <div className="bg-black/30 border border-gray-700/50 rounded-lg p-4">
       {/* Map Mode Toggle */}
       <div className="flex gap-2 mb-3">
         <button
-          onClick={() => setMapMode("usa")}
+          onClick={() => handleMapModeChange("usa")}
           disabled={!hasUSPhotos}
           className={`flex-1 px-3 py-1.5 text-xs rounded transition-colors ${
             mapMode === "usa"
@@ -35,7 +70,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
           USA States
         </button>
         <button
-          onClick={() => setMapMode("world")}
+          onClick={() => handleMapModeChange("world")}
           className={`flex-1 px-3 py-1.5 text-xs rounded transition-colors ${
             mapMode === "world"
               ? "bg-cyan-600/30 border border-cyan-400/50 text-cyan-300"
@@ -45,6 +80,40 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
           World
         </button>
       </div>
+
+      {/* Zoom Controls - Only show for World mode */}
+      {mapMode === "world" && (
+        <div className="flex gap-2 mb-3">
+          <button
+            onClick={handleZoomIn}
+            disabled={zoom >= 4}
+            className="flex-1 px-3 py-1.5 text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            title="Zoom In"
+          >
+            <svg className="w-3.5 h-3.5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <button
+            onClick={handleZoomOut}
+            disabled={zoom <= 1}
+            className="flex-1 px-3 py-1.5 text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            title="Zoom Out"
+          >
+            <svg className="w-3.5 h-3.5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+            </svg>
+          </button>
+          <button
+            onClick={handleResetZoom}
+            disabled={zoom === 1}
+            className="flex-1 px-3 py-1.5 text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            title="Reset View"
+          >
+            Reset
+          </button>
+        </div>
+      )}
 
       {mapMode === "world" ? (
         <ComposableMap
@@ -60,10 +129,21 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
             backgroundColor: "rgba(0, 0, 0, 0.4)"
           }}
         >
-          <Geographies geography={worldGeoUrl}>
+          <ZoomableGroup
+            zoom={zoom}
+            center={center}
+            onMoveEnd={({ coordinates, zoom: newZoom }) => {
+              setCenter(coordinates);
+              setZoom(newZoom);
+            }}
+            minZoom={1}
+            maxZoom={4}
+          >
+            <Geographies geography={worldGeoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
-                const countryName = geo.properties.name;
+                const geoCountryName = geo.properties.name;
+                const countryName = normalizeCountryName(geoCountryName);
                 const isAvailable = countries.includes(countryName);
                 const isSelected = selectedCountry === countryName;
 
@@ -107,7 +187,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
                     }}
                   >
                     <title>
-                      {countryName}
+                      {geoCountryName}
                       {isAvailable ? " (click to filter)" : " (no photos)"}
                     </title>
                   </Geography>
@@ -115,6 +195,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
               })
             }
           </Geographies>
+          </ZoomableGroup>
         </ComposableMap>
       ) : (
         <ComposableMap
@@ -246,7 +327,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
       <p className="text-[10px] text-gray-500 text-center mt-3">
         {mapMode === "usa"
           ? "Click a state to filter photos by location"
-          : "Click countries on the map to filter photos by location"}
+          : "Click countries to filter • Drag to pan • Scroll to zoom"}
       </p>
     </div>
   );

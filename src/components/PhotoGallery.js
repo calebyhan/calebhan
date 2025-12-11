@@ -178,31 +178,6 @@ export default function PhotoGallery({ photos }) {
                 </div>
               )}
 
-              {/* AI Caption */}
-              {selectedPhoto.naturalCaption && (
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-400 mb-2">Description</h4>
-                  <p className="text-white text-sm">{selectedPhoto.naturalCaption}</p>
-                </div>
-              )}
-
-              {/* AI Tags */}
-              {selectedPhoto.aiTags && selectedPhoto.aiTags.length > 0 && (
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-gray-400 mb-2">Tags</h4>
-                  <div className="flex flex-wrap gap-1.5">
-                    {selectedPhoto.aiTags.slice(0, 10).map((tag, idx) => (
-                      <span
-                        key={idx}
-                        className="px-2 py-0.5 text-xs bg-cyan-900/30 border border-cyan-700/50 text-cyan-300 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-
               <p className="text-xs text-gray-500 text-center mt-6">
                 Click outside or press ESC to close
               </p>
