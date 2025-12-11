@@ -4,7 +4,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-white font-bold text-xl">
-            Caleb Han
+            <a href="/">
+              Caleb Han
+            </a>
           </div>
           <div className="flex space-x-8">
             <a href="/code" className="text-white hover:text-gray-300 transition-colors">

@@ -14,7 +14,8 @@
     "location": {
       "lat": 33.912865,
       "lng": -78.1469,
-      "country": "United States"
+      "country": "United States",
+      "state": "North Carolina"
     },
     "trip": "Uncategorized",
     "aiCaption": "HDR, sunset",
@@ -52,7 +53,8 @@
     "location": {
       "lat": 36.511541,
       "lng": -78.013258,
-      "country": "United States"
+      "country": "United States",
+      "state": "North Carolina"
     },
     "trip": "Uncategorized",
     "aiCaption": "kayaking, aerial view",
@@ -90,7 +92,8 @@
     "location": {
       "lat": 36.511323,
       "lng": -78.013752,
-      "country": "United States"
+      "country": "United States",
+      "state": "North Carolina"
     },
     "trip": "Uncategorized",
     "aiCaption": "kayaking",
@@ -123,7 +126,8 @@
     "location": {
       "lat": 35.90323,
       "lng": -79.046798,
-      "country": "United States"
+      "country": "United States",
+      "state": "North Carolina"
     },
     "trip": "Uncategorized",
     "aiCaption": "sunrise, sunset",
@@ -161,7 +165,8 @@
     "location": {
       "lat": 35.903235,
       "lng": -79.046788,
-      "country": "United States"
+      "country": "United States",
+      "state": "North Carolina"
     },
     "trip": "Uncategorized",
     "aiCaption": "",
@@ -187,7 +192,8 @@
     "location": {
       "lat": 34.411711,
       "lng": -77.566236,
-      "country": "United States"
+      "country": "United States",
+      "state": "North Carolina"
     },
     "trip": "Uncategorized",
     "aiCaption": "sandy beach, beach, coast, ocean",
@@ -232,7 +238,12 @@
     "shutterSpeed": 0.06666666666666667,
     "focalLength": 18,
     "date": "2024-08-12T01:18:13.000Z",
-    "location": null,
+    "location": {
+      "lat": 35.87648,
+      "lng": -84.207205,
+      "country": "United States",
+      "state": "Tennessee"
+    },
     "trip": "Uncategorized",
     "aiCaption": "moonlight, HDR, nighttime",
     "aiTags": [
@@ -271,7 +282,12 @@
     "shutterSpeed": 0.01,
     "focalLength": 45,
     "date": "2024-08-12T04:57:48.000Z",
-    "location": null,
+    "location": {
+      "lng": -84.206991,
+      "lat": 35.87648,
+      "country": "United States",
+      "state": "Tennessee"
+    },
     "trip": "Uncategorized",
     "aiCaption": "tennis court, silhouette, shadow",
     "aiTags": [
@@ -310,7 +326,12 @@
     "shutterSpeed": 0.0125,
     "focalLength": 18,
     "date": "2024-08-28T23:56:54.000Z",
-    "location": null,
+    "location": {
+      "lat": 35.906261,
+      "lng": -79.046476,
+      "country": "United States",
+      "state": "North Carolina"
+    },
     "trip": "Uncategorized",
     "aiCaption": "",
     "aiTags": [],
@@ -332,7 +353,12 @@
     "shutterSpeed": 0.004,
     "focalLength": 45,
     "date": "2024-10-05T22:33:42.000Z",
-    "location": null,
+    "location": {
+      "lat": 36.509588,
+      "lng": -78.014427,
+      "country": "United States",
+      "state": "North Carolina"
+    },
     "trip": "Uncategorized",
     "aiCaption": "lake, fishing boat, pond",
     "aiTags": [
@@ -371,7 +397,12 @@
     "shutterSpeed": 0.016666666666666666,
     "focalLength": 42,
     "date": "2025-01-22T05:27:46.000Z",
-    "location": null,
+    "location": {
+      "lng": -79.044345,
+      "lat": 35.903614,
+      "country": "United States",
+      "state": "North Carolina"
+    },
     "trip": "Uncategorized",
     "aiCaption": "lamp post, traffic light",
     "aiTags": [
@@ -405,7 +436,12 @@
     "shutterSpeed": 0.0025,
     "focalLength": 29,
     "date": "2025-03-09T19:15:36.000Z",
-    "location": null,
+    "location": {
+      "lat": 34.411912,
+      "lng": -77.566321,
+      "country": "United States",
+      "state": "North Carolina"
+    },
     "trip": "Uncategorized",
     "aiCaption": "sandy beach, beach, coast, coastline",
     "aiTags": [
@@ -449,7 +485,12 @@
     "shutterSpeed": 0.0008,
     "focalLength": 45,
     "date": "2025-03-09T19:32:23.000Z",
-    "location": null,
+    "location": {
+      "lng": -77.566321,
+      "lat": 34.411912,
+      "country": "United States",
+      "state": "North Carolina"
+    },
     "trip": "Uncategorized",
     "aiCaption": "sandy beach, sand dunes, beach",
     "aiTags": [
@@ -488,7 +529,12 @@
     "shutterSpeed": 0.003125,
     "focalLength": 42,
     "date": "2025-03-09T19:41:30.000Z",
-    "location": null,
+    "location": {
+      "lng": -77.566321,
+      "lat": 34.411912,
+      "country": "United States",
+      "state": "North Carolina"
+    },
     "trip": "Uncategorized",
     "aiCaption": "sandy beach, beach, sand",
     "aiTags": [
@@ -527,7 +573,12 @@
     "shutterSpeed": 0.003125,
     "focalLength": 45,
     "date": "2025-03-09T20:34:50.000Z",
-    "location": null,
+    "location": {
+      "lng": -77.566321,
+      "lat": 34.411912,
+      "country": "United States",
+      "state": "North Carolina"
+    },
     "trip": "Uncategorized",
     "aiCaption": "seagull, sandy beach",
     "aiTags": [

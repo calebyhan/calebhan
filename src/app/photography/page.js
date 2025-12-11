@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import PhotoGallery from "@/components/PhotoGallery";
 import FilterPanel from "@/components/FilterPanel";
+import Navbar from "@/components/Navbar";
 import { searchPhotos } from "@/utils/photoSearch";
 
 export default function PhotographyPage() {
@@ -64,7 +65,8 @@ export default function PhotographyPage() {
 
   return (
     <div className="min-h-screen bg-black text-white">
-      <div className="flex">
+      <Navbar />
+      <div className="flex pt-16">
         {/* Filter Sidebar */}
         <FilterPanel
           filters={filters}
