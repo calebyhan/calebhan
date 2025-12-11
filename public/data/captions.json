@@ -1,0 +1,343 @@
+{
+  "20240907_234338000_iOS.jpg": {
+    "aiCaption": "HDR, sunset",
+    "aiTags": [
+      "HDR",
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "HDR",
+        "score": 0.11174747347831726
+      },
+      {
+        "label": "sunset",
+        "score": 0.08486136049032211
+      }
+    ],
+    "naturalCaption": "a sunset over a beach with a lighthouse",
+    "lastModified": 1756343153755.28,
+    "generatedAt": "2025-12-11T03:20:03.780Z"
+  },
+  "20241005_223906000_iOS.jpg": {
+    "aiCaption": "kayaking, aerial view",
+    "aiTags": [
+      "kayaking",
+      "aerial view"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "kayaking",
+        "score": 0.1873684823513031
+      },
+      {
+        "label": "aerial view",
+        "score": 0.17775796353816986
+      }
+    ],
+    "naturalCaption": "a kite is flying through the air",
+    "lastModified": 1756343153761.1016,
+    "generatedAt": "2025-12-11T03:20:05.384Z"
+  },
+  "20241005_224410000_iOS.jpg": {
+    "aiCaption": "kayaking",
+    "aiTags": [
+      "kayaking"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "kayaking",
+        "score": 0.33427342772483826
+      }
+    ],
+    "naturalCaption": "people are in the water on a raft",
+    "lastModified": 1756343153774.8005,
+    "generatedAt": "2025-12-11T03:20:06.882Z"
+  },
+  "DJI_20250120173102_0003_D.jpg": {
+    "aiCaption": "sunrise, sunset",
+    "aiTags": [
+      "sunrise",
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunrise",
+        "score": 0.20087209343910217
+      },
+      {
+        "label": "sunset",
+        "score": 0.1998528689146042
+      }
+    ],
+    "naturalCaption": "a sunset with a person standing on a balcony",
+    "lastModified": 1756343153801.288,
+    "generatedAt": "2025-12-11T03:20:08.346Z"
+  },
+  "DJI_20250120173221_0012_D.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a city with a large building and a large building",
+    "lastModified": 1756343153816.4358,
+    "generatedAt": "2025-12-11T03:20:10.034Z"
+  },
+  "DJI_20250309163901_0014_D.JPG": {
+    "aiCaption": "sandy beach, beach, coast, ocean",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "coast",
+      "ocean"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.11443063616752625
+      },
+      {
+        "label": "beach",
+        "score": 0.11035437881946564
+      },
+      {
+        "label": "coast",
+        "score": 0.07879874855279922
+      },
+      {
+        "label": "ocean",
+        "score": 0.07802063226699829
+      }
+    ],
+    "naturalCaption": "a beach with a few people on it",
+    "lastModified": 1756343153822.199,
+    "generatedAt": "2025-12-11T03:20:11.208Z"
+  },
+  "IMG_0040 2024-08-12 02_10_07.jpg": {
+    "aiCaption": "moonlight, HDR, nighttime",
+    "aiTags": [
+      "moonlight",
+      "HDR",
+      "nighttime"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "moonlight",
+        "score": 0.27896490693092346
+      },
+      {
+        "label": "HDR",
+        "score": 0.07096045464277267
+      },
+      {
+        "label": "nighttime",
+        "score": 0.06970405578613281
+      }
+    ],
+    "naturalCaption": "a dark night with a single bright light",
+    "lastModified": 1756343153832.1392,
+    "generatedAt": "2025-12-11T03:20:12.539Z"
+  },
+  "IMG_0100.jpg": {
+    "aiCaption": "tennis court, silhouette, shadow",
+    "aiTags": [
+      "tennis court",
+      "silhouette",
+      "shadow"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "tennis court",
+        "score": 0.3039385974407196
+      },
+      {
+        "label": "silhouette",
+        "score": 0.08311676234006882
+      },
+      {
+        "label": "shadow",
+        "score": 0.07108959555625916
+      }
+    ],
+    "naturalCaption": "a man walking on a sidewalk with a white object",
+    "lastModified": 1756343153834.2583,
+    "generatedAt": "2025-12-11T03:20:13.862Z"
+  },
+  "IMG_0260.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a lone horse stands in the middle of a field",
+    "lastModified": 1757280304908.9612,
+    "generatedAt": "2025-12-11T03:20:15.336Z"
+  },
+  "IMG_2009.jpg": {
+    "aiCaption": "lake, fishing boat, pond",
+    "aiTags": [
+      "lake",
+      "fishing boat",
+      "pond"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.16623322665691376
+      },
+      {
+        "label": "fishing boat",
+        "score": 0.11205291002988815
+      },
+      {
+        "label": "pond",
+        "score": 0.06222935765981674
+      }
+    ],
+    "naturalCaption": "a bird is flying over a body of water",
+    "lastModified": 1756343153861.886,
+    "generatedAt": "2025-12-11T03:20:16.776Z"
+  },
+  "IMG_2706.jpg": {
+    "aiCaption": "lamp post, traffic light",
+    "aiTags": [
+      "lamp post",
+      "traffic light"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lamp post",
+        "score": 0.08108478784561157
+      },
+      {
+        "label": "traffic light",
+        "score": 0.06838176399469376
+      }
+    ],
+    "naturalCaption": "a red stoplight at night with a building",
+    "lastModified": 1756343153873.4285,
+    "generatedAt": "2025-12-11T03:20:18.234Z"
+  },
+  "IMG_3361.jpg": {
+    "aiCaption": "sandy beach, beach, coast, coastline",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "coast",
+      "coastline"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.18894974887371063
+      },
+      {
+        "label": "beach",
+        "score": 0.10304712504148483
+      },
+      {
+        "label": "coast",
+        "score": 0.08299834281206131
+      },
+      {
+        "label": "coastline",
+        "score": 0.060285743325948715
+      }
+    ],
+    "naturalCaption": "a beach with a couple of people on it",
+    "lastModified": 1756343153874.3035,
+    "generatedAt": "2025-12-11T03:20:19.486Z"
+  },
+  "IMG_3382.jpg": {
+    "aiCaption": "sandy beach, sand dunes, beach",
+    "aiTags": [
+      "sandy beach",
+      "sand dunes",
+      "beach"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.14602459967136383
+      },
+      {
+        "label": "sand dunes",
+        "score": 0.10217227041721344
+      },
+      {
+        "label": "beach",
+        "score": 0.09263970702886581
+      }
+    ],
+    "naturalCaption": "a dog walking on the beach with a man",
+    "lastModified": 1756343153876.9795,
+    "generatedAt": "2025-12-11T03:20:20.732Z"
+  },
+  "IMG_3396.jpg": {
+    "aiCaption": "sandy beach, beach, sand",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "sand"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.16486680507659912
+      },
+      {
+        "label": "beach",
+        "score": 0.08526334166526794
+      },
+      {
+        "label": "sand",
+        "score": 0.0618550106883049
+      }
+    ],
+    "naturalCaption": "a bird standing on a beach near the water",
+    "lastModified": 1756343153893.2314,
+    "generatedAt": "2025-12-11T03:20:22.188Z"
+  },
+  "IMG_3458.jpg": {
+    "aiCaption": "seagull, sandy beach",
+    "aiTags": [
+      "seagull",
+      "sandy beach"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "seagull",
+        "score": 0.12733754515647888
+      },
+      {
+        "label": "sandy beach",
+        "score": 0.06278682500123978
+      }
+    ],
+    "naturalCaption": "a kite is flying over the beach",
+    "lastModified": 1756343153893.817,
+    "generatedAt": "2025-12-11T03:20:23.354Z"
+  },
+  "IMG_5052.jpg": {
+    "aiCaption": "lake, fishing boat, pond",
+    "aiTags": [
+      "lake",
+      "fishing boat",
+      "pond"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.37869706749916077
+      },
+      {
+        "label": "fishing boat",
+        "score": 0.08810291439294815
+      },
+      {
+        "label": "pond",
+        "score": 0.08510772138834
+      }
+    ],
+    "naturalCaption": "a boat is going down the river near a forest",
+    "lastModified": 1765394063212.0054,
+    "generatedAt": "2025-12-11T03:20:24.996Z"
+  }
+}

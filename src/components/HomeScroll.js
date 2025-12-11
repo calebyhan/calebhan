@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { animate, createTimeline, stagger, utils } from "animejs";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 export default function HomeScroll() {
     const containerRef = useRef(null);
@@ -11,9 +12,18 @@ export default function HomeScroll() {
     const particlesRef = useRef(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [scrollIndicatorOpacity, setScrollIndicatorOpacity] = useState(1);
+    const prefersReducedMotion = usePrefersReducedMotion();
 
     useEffect(() => {
         if (!containerRef.current || !textRef.current || !subtitleRef.current) return;
+
+        if (prefersReducedMotion) {
+            // Show content immediately without animations
+            utils.set(heroRef.current, { opacity: 1 });
+            utils.set(subtitleRef.current, { opacity: 1, translateY: 0 });
+            setIsLoaded(true);
+            return;
+        }
 
         utils.set(subtitleRef.current, { opacity: 0, translateY: 30 });
         utils.set(heroRef.current, { opacity: 0 });
@@ -60,7 +70,7 @@ export default function HomeScroll() {
         const handleScroll = () => {
             const denom = document.documentElement.scrollHeight - window.innerHeight || 1;
             const scrollPercent = window.scrollY / denom;
-            const heroProgress = Math.min(scrollPercent * 2, 1);
+            const heroProgress = Math.min(scrollPercent * 2.5, 1);
 
             const scrollIndicatorFade = Math.max(0, 1 - (window.scrollY / 100));
             setScrollIndicatorOpacity(scrollIndicatorFade);
@@ -84,7 +94,7 @@ export default function HomeScroll() {
             particlesAnim.pause?.();
             particles.forEach((p) => p.remove());
         };
-    }, []);
+    }, [prefersReducedMotion]);
 
     return (
         <section ref={containerRef} className="relative h-[150vh] overflow-hidden">
@@ -95,7 +105,7 @@ export default function HomeScroll() {
                     ref={heroRef}
                     className="absolute inset-0 opacity-0"
                     style={{
-                        backgroundImage: "url(/photos/home.jpg)",
+                        backgroundImage: "url(/img/home.jpg)",
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",

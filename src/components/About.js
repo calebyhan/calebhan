@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import { animate, createTimeline, utils, stagger } from "animejs";
 import Image from "next/image";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 export default function About() {
     const sectionRef = useRef(null);
@@ -16,6 +17,153 @@ export default function About() {
         projects: false,
         contact: false
     });
+    const [emailCopied, setEmailCopied] = useState(false);
+    const prefersReducedMotion = usePrefersReducedMotion();
+
+    const animateAboutSection = useCallback(() => {
+        if (prefersReducedMotion) {
+            // Show immediately without animation
+            utils.set(aboutRef.current.querySelector('h2'), { opacity: 1, translateY: 0, scale: 1 });
+            utils.set(aboutRef.current.querySelector('p'), { opacity: 1, translateY: 0 });
+            utils.set(aboutRef.current.querySelector('div.relative'), { opacity: 1, scale: 1, rotateY: 0 });
+            return;
+        }
+
+        const tl = createTimeline();
+
+        tl.add(aboutRef.current.querySelector('h2'), {
+            opacity: [0, 1],
+            translateY: [50, 0],
+            scale: [0.8, 1],
+            duration: 1000
+        })
+        .add(aboutRef.current.querySelector('p'), {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            duration: 800
+        }, 400)
+        .add(aboutRef.current.querySelector('div.relative'), {
+            opacity: [0, 1],
+            scale: [0.8, 1],
+            rotateY: [90, 0],
+            duration: 1000
+        }, 600);
+    }, [prefersReducedMotion]);
+
+    const animateSkillsSection = useCallback(() => {
+        const skillCards = skillsRef.current.querySelectorAll('.skill-card');
+        const tags = skillsRef.current.querySelectorAll('.skill-tag');
+
+        if (prefersReducedMotion) {
+            // Show immediately without animation
+            utils.set(skillCards, { opacity: 1, translateY: 0, rotateX: 0, scale: 1 });
+            utils.set(tags, { opacity: 1, scale: 1, rotateZ: 0 });
+            return;
+        }
+
+        utils.set(skillCards, {
+            opacity: 0,
+            translateY: 50,
+            rotateX: 45
+        });
+
+        animate(skillCards, {
+            opacity: [0, 1],
+            translateY: [50, 0],
+            rotateX: [45, 0],
+            scale: [0.8, 1],
+            duration: 800,
+            delay: stagger(200),
+            easing: 'easeOutElastic(1, .8)'
+        });
+
+        setTimeout(() => {
+            animate(tags, {
+                scale: [0, 1],
+                opacity: [0, 1],
+                rotateZ: [180, 0],
+                duration: 600,
+                delay: stagger(50, {start: 300}),
+                easing: 'easeOutBack(1.7)'
+            });
+        }, 400);
+    }, [prefersReducedMotion]);
+
+    const animateProjectsSection = useCallback(() => {
+        const projectTitle = projectsRef.current.querySelector('h2');
+        const projectCards = projectsRef.current.querySelectorAll('.project-card');
+
+        if (prefersReducedMotion) {
+            // Show immediately without animation
+            utils.set(projectCards, { opacity: 1, scale: 1, rotateY: 0 });
+            return;
+        }
+
+        const titleText = projectTitle.textContent;
+        projectTitle.innerHTML = titleText.split('').map(char =>
+            char === ' ' ? ' ' : `<span class="project-letter inline-block">${char}</span>`
+        ).join('');
+
+        animate('.project-letter', {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            rotateY: [90, 0],
+            duration: 600,
+            delay: stagger(50),
+            easing: 'easeOutBack(1.7)'
+        });
+
+        utils.set(projectCards, {
+            opacity: 0,
+            scale: 0.3,
+            rotateY: 180
+        });
+
+        animate(projectCards, {
+            opacity: [0, 1],
+            scale: [0.3, 1],
+            rotateY: [180, 0],
+            duration: 1000,
+            delay: stagger(300, {start: 500}),
+            easing: 'easeOutElastic(1, .6)'
+        });
+    }, [prefersReducedMotion]);
+
+    const animateContactSection = useCallback(() => {
+        const contactTitle = contactRef.current.querySelector('h2');
+        const contactSubtitle = contactRef.current.querySelector('p');
+        const socialLinks = contactRef.current.querySelectorAll('.contact-button');
+
+        if (prefersReducedMotion) {
+            // Show immediately without animation
+            utils.set(contactTitle, { opacity: 1, translateY: 0, scale: 1 });
+            utils.set(contactSubtitle, { opacity: 1, translateY: 0 });
+            utils.set(socialLinks, { opacity: 1, translateY: 0, scale: 1, rotateY: 0 });
+            return;
+        }
+
+        const tl = createTimeline();
+
+        tl.add(contactTitle, {
+            opacity: [0, 1],
+            translateY: [40, 0],
+            scale: [0.9, 1],
+            duration: 800
+        })
+        .add(contactSubtitle, {
+            opacity: [0, 1],
+            translateY: [20, 0],
+            duration: 600
+        }, 200)
+        .add(socialLinks, {
+            opacity: [0, 1],
+            translateY: [30, 0],
+            scale: [0.8, 1],
+            rotateY: [90, 0],
+            duration: 700,
+            delay: stagger(100)
+        }, 400);
+    }, [prefersReducedMotion]);
 
     useEffect(() => {
         const observer = new IntersectionObserver(
@@ -23,7 +171,7 @@ export default function About() {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         const target = entry.target;
-                        
+
                         if (target === aboutRef.current && !hasAnimated.about) {
                             animateAboutSection();
                             setHasAnimated(prev => ({ ...prev, about: true }));
@@ -51,123 +199,7 @@ export default function About() {
         });
 
         return () => observer.disconnect();
-    }, [hasAnimated]);
-
-    const animateAboutSection = () => {
-        const tl = createTimeline();
-
-        tl.add(aboutRef.current.querySelector('h2'), {
-            opacity: [0, 1],
-            translateY: [50, 0],
-            scale: [0.8, 1],
-            duration: 1000
-        })
-        .add(aboutRef.current.querySelector('p'), {
-            opacity: [0, 1],
-            translateY: [30, 0],
-            duration: 800
-        }, 400)
-        .add(aboutRef.current.querySelector('div.relative'), {
-            opacity: [0, 1],
-            scale: [0.8, 1],
-            rotateY: [90, 0],
-            duration: 1000
-        }, 600);
-    };
-
-    const animateSkillsSection = () => {
-        const skillCards = skillsRef.current.querySelectorAll('.skill-card');
-        
-        utils.set(skillCards, {
-            opacity: 0,
-            translateY: 50,
-            rotateX: 45
-        });
-
-        animate(skillCards, {
-            opacity: [0, 1],
-            translateY: [50, 0],
-            rotateX: [45, 0],
-            scale: [0.8, 1],
-            duration: 800,
-            delay: stagger(200),
-            easing: 'easeOutElastic(1, .8)'
-        });
-
-        setTimeout(() => {
-            const tags = skillsRef.current.querySelectorAll('.skill-tag');
-            animate(tags, {
-                scale: [0, 1],
-                opacity: [0, 1],
-                rotateZ: [180, 0],
-                duration: 600,
-                delay: stagger(50, {start: 300}),
-                easing: 'easeOutBack(1.7)'
-            });
-        }, 400);
-    };
-
-    const animateProjectsSection = () => {
-        const projectTitle = projectsRef.current.querySelector('h2');
-        const projectCards = projectsRef.current.querySelectorAll('.project-card');
-
-        const titleText = projectTitle.textContent;
-        projectTitle.innerHTML = titleText.split('').map(char => 
-            char === ' ' ? ' ' : `<span class="project-letter inline-block">${char}</span>`
-        ).join('');
-
-        animate('.project-letter', {
-            opacity: [0, 1],
-            translateY: [30, 0],
-            rotateY: [90, 0],
-            duration: 600,
-            delay: stagger(50),
-            easing: 'easeOutBack(1.7)'
-        });
-
-        utils.set(projectCards, {
-            opacity: 0,
-            scale: 0.3,
-            rotateY: 180
-        });
-
-        animate(projectCards, {
-            opacity: [0, 1],
-            scale: [0.3, 1],
-            rotateY: [180, 0],
-            duration: 1000,
-            delay: stagger(300, {start: 500}),
-            easing: 'easeOutElastic(1, .6)'
-        });
-    };
-
-    const animateContactSection = () => {
-        const contactTitle = contactRef.current.querySelector('h2');
-        const contactSubtitle = contactRef.current.querySelector('p');
-        const socialLinks = contactRef.current.querySelectorAll('.contact-button');
-
-        const tl = createTimeline();
-
-        tl.add(contactTitle, {
-            opacity: [0, 1],
-            translateY: [40, 0],
-            scale: [0.9, 1],
-            duration: 800
-        })
-        .add(contactSubtitle, {
-            opacity: [0, 1],
-            translateY: [20, 0],
-            duration: 600
-        }, 200)
-        .add(socialLinks, {
-            opacity: [0, 1],
-            translateY: [30, 0],
-            scale: [0.8, 1],
-            rotateY: [90, 0],
-            duration: 700,
-            delay: stagger(100)
-        }, 400);
-    };
+    }, [hasAnimated, animateAboutSection, animateContactSection, animateProjectsSection, animateSkillsSection]);
 
     const handleSkillCardHover = (e) => {
         animate(e.currentTarget, {
@@ -220,6 +252,25 @@ export default function About() {
         });
     };
 
+    const handleCopyEmail = async () => {
+        try {
+            await navigator.clipboard.writeText('calebhan@unc.edu');
+            setEmailCopied(true);
+            setTimeout(() => setEmailCopied(false), 2000);
+        } catch (err) {
+            console.error('Failed to copy email:', err);
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = 'calebhan@unc.edu';
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            setEmailCopied(true);
+            setTimeout(() => setEmailCopied(false), 2000);
+        }
+    };
+
     return (
         <section 
             ref={sectionRef}
@@ -246,7 +297,7 @@ export default function About() {
                     <div className="flex justify-center mb-8">
                         <div className="relative w-48 h-48 md:w-56 md:h-56 opacity-0 group overflow-hidden rounded-full">
                             <Image
-                                src="/photos/headshot.JPG"
+                                src="/img/headshot.JPG"
                                 alt="Caleb Han headshot"
                                 fill
                                 className="rounded-full object-cover border-4 border-gray-700/50 shadow-2xl transition-transform duration-300 ease-out group-hover:scale-150"
@@ -421,23 +472,29 @@ export default function About() {
                         </a>
 
                         {/* Email */}
-                        <a 
-                            href="mailto:calebhan@unc.edu"
-                            className="contact-button group flex flex-col items-center p-6 bg-gray-900/30 border border-gray-700/50 rounded-xl hover:border-cyan-400/50 hover:bg-cyan-900/20 transition-all duration-300 opacity-0"
+                        <button
+                            onClick={handleCopyEmail}
+                            className="contact-button group flex flex-col items-center p-6 bg-gray-900/30 border border-gray-700/50 rounded-xl hover:border-cyan-400/50 hover:bg-cyan-900/20 transition-all duration-300 opacity-0 relative"
                         >
                             <div className="w-12 h-12 mb-3 flex items-center justify-center bg-cyan-600/20 rounded-lg group-hover:bg-cyan-500/30 transition-colors">
-                                <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
+                                {emailCopied ? (
+                                    <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7"/>
+                                    </svg>
+                                ) : (
+                                    <svg className="w-6 h-6 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                )}
                             </div>
                             <span className="text-sm font-medium text-cyan-400 group-hover:text-cyan-300">
-                                Email<br />
-                                <span className="text-[10px] font-normal text-cyan-400 group-hover:text-cyan-300">
-                                    calebhan (at) unc.edu
-                                </span>
+                                {emailCopied ? 'Copied!' : 'Copy Email'}
                             </span>
 
-                        </a>
+                            <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-[10px] text-cyan-300/0 group-hover:text-cyan-300/100 transition-all duration-200 whitespace-nowrap">
+                                calebhan@unc.edu
+                            </span>
+                        </button>
                     </div>
                 </div>
             </div>

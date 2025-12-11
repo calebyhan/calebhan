@@ -1,0 +1,595 @@
+[
+  {
+    "id": "20240907_234338000_iOS.jpg",
+    "path": "/photos/20240907_234338000_iOS.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "DJI Mini 4 Pro",
+    "lens": "24.0 mm f/1.7",
+    "iso": 120,
+    "aperture": 1.7,
+    "shutterSpeed": 0.002857142857142857,
+    "focalLength": 6.72,
+    "date": "2024-09-07T23:43:38.000Z",
+    "location": {
+      "lat": 33.912865,
+      "lng": -78.1469,
+      "country": "United States"
+    },
+    "trip": "Uncategorized",
+    "aiCaption": "HDR, sunset",
+    "aiTags": [
+      "HDR",
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "HDR",
+        "score": 0.11174747347831726
+      },
+      {
+        "label": "sunset",
+        "score": 0.08486136049032211
+      }
+    ],
+    "naturalCaption": "a sunset over a beach with a lighthouse",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "20241005_223906000_iOS.jpg",
+    "path": "/photos/20241005_223906000_iOS.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "DJI Mini 4 Pro",
+    "lens": "24.0 mm f/1.7",
+    "iso": 100,
+    "aperture": 1.7,
+    "shutterSpeed": 0.016666666666666666,
+    "focalLength": 6.72,
+    "date": "2024-10-05T22:39:07.000Z",
+    "location": {
+      "lat": 36.511541,
+      "lng": -78.013258,
+      "country": "United States"
+    },
+    "trip": "Uncategorized",
+    "aiCaption": "kayaking, aerial view",
+    "aiTags": [
+      "kayaking",
+      "aerial view"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "kayaking",
+        "score": 0.1873684823513031
+      },
+      {
+        "label": "aerial view",
+        "score": 0.17775796353816986
+      }
+    ],
+    "naturalCaption": "a kite is flying through the air",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "20241005_224410000_iOS.jpg",
+    "path": "/photos/20241005_224410000_iOS.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "DJI Mini 4 Pro",
+    "lens": "24.0 mm f/1.7",
+    "iso": 100,
+    "aperture": 1.7,
+    "shutterSpeed": 0.005,
+    "focalLength": 6.72,
+    "date": "2024-10-05T22:44:10.000Z",
+    "location": {
+      "lat": 36.511323,
+      "lng": -78.013752,
+      "country": "United States"
+    },
+    "trip": "Uncategorized",
+    "aiCaption": "kayaking",
+    "aiTags": [
+      "kayaking"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "kayaking",
+        "score": 0.33427342772483826
+      }
+    ],
+    "naturalCaption": "people are in the water on a raft",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "DJI_20250120173102_0003_D.jpg",
+    "path": "/photos/DJI_20250120173102_0003_D.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "DJI Mini 4 Pro",
+    "lens": "24.0 mm f/1.7",
+    "iso": 100,
+    "aperture": 1.7,
+    "shutterSpeed": 0.000625,
+    "focalLength": 6.72,
+    "date": "2025-01-20T22:31:02.000Z",
+    "location": {
+      "lat": 35.90323,
+      "lng": -79.046798,
+      "country": "United States"
+    },
+    "trip": "Uncategorized",
+    "aiCaption": "sunrise, sunset",
+    "aiTags": [
+      "sunrise",
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunrise",
+        "score": 0.20087209343910217
+      },
+      {
+        "label": "sunset",
+        "score": 0.1998528689146042
+      }
+    ],
+    "naturalCaption": "a sunset with a person standing on a balcony",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "DJI_20250120173221_0012_D.jpg",
+    "path": "/photos/DJI_20250120173221_0012_D.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "DJI Mini 4 Pro",
+    "lens": "24.0 mm f/1.7",
+    "iso": 110,
+    "aperture": 1.7,
+    "shutterSpeed": 0.002,
+    "focalLength": 6.72,
+    "date": "2025-01-20T22:32:21.000Z",
+    "location": {
+      "lat": 35.903235,
+      "lng": -79.046788,
+      "country": "United States"
+    },
+    "trip": "Uncategorized",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a city with a large building and a large building",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "DJI_20250309163901_0014_D.JPG",
+    "path": "/photos/DJI_20250309163901_0014_D.JPG",
+    "width": 1920,
+    "height": 1080,
+    "camera": "DJI Mini 4 Pro",
+    "lens": "24.0 mm f/1.7",
+    "iso": 100,
+    "aperture": 1.7,
+    "shutterSpeed": 0.00025,
+    "focalLength": 6.72,
+    "date": "2025-03-09T20:39:01.000Z",
+    "location": {
+      "lat": 34.411711,
+      "lng": -77.566236,
+      "country": "United States"
+    },
+    "trip": "Uncategorized",
+    "aiCaption": "sandy beach, beach, coast, ocean",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "coast",
+      "ocean"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.11443063616752625
+      },
+      {
+        "label": "beach",
+        "score": 0.11035437881946564
+      },
+      {
+        "label": "coast",
+        "score": 0.07879874855279922
+      },
+      {
+        "label": "ocean",
+        "score": 0.07802063226699829
+      }
+    ],
+    "naturalCaption": "a beach with a few people on it",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_0040 2024-08-12 02_10_07.jpg",
+    "path": "/photos/IMG_0040 2024-08-12 02_10_07.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 6400,
+    "aperture": 4.5,
+    "shutterSpeed": 0.06666666666666667,
+    "focalLength": 18,
+    "date": "2024-08-12T01:18:13.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "moonlight, HDR, nighttime",
+    "aiTags": [
+      "moonlight",
+      "HDR",
+      "nighttime"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "moonlight",
+        "score": 0.27896490693092346
+      },
+      {
+        "label": "HDR",
+        "score": 0.07096045464277267
+      },
+      {
+        "label": "nighttime",
+        "score": 0.06970405578613281
+      }
+    ],
+    "naturalCaption": "a dark night with a single bright light",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_0100.jpg",
+    "path": "/photos/IMG_0100.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 1600,
+    "aperture": 6.3,
+    "shutterSpeed": 0.01,
+    "focalLength": 45,
+    "date": "2024-08-12T04:57:48.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "tennis court, silhouette, shadow",
+    "aiTags": [
+      "tennis court",
+      "silhouette",
+      "shadow"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "tennis court",
+        "score": 0.3039385974407196
+      },
+      {
+        "label": "silhouette",
+        "score": 0.08311676234006882
+      },
+      {
+        "label": "shadow",
+        "score": 0.07108959555625916
+      }
+    ],
+    "naturalCaption": "a man walking on a sidewalk with a white object",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_0260.jpg",
+    "path": "/photos/IMG_0260.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 125,
+    "aperture": 4.5,
+    "shutterSpeed": 0.0125,
+    "focalLength": 18,
+    "date": "2024-08-28T23:56:54.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a lone horse stands in the middle of a field",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_2009.jpg",
+    "path": "/photos/IMG_2009.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 4000,
+    "aperture": 14,
+    "shutterSpeed": 0.004,
+    "focalLength": 45,
+    "date": "2024-10-05T22:33:42.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "lake, fishing boat, pond",
+    "aiTags": [
+      "lake",
+      "fishing boat",
+      "pond"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.16623322665691376
+      },
+      {
+        "label": "fishing boat",
+        "score": 0.11205291002988815
+      },
+      {
+        "label": "pond",
+        "score": 0.06222935765981674
+      }
+    ],
+    "naturalCaption": "a bird is flying over a body of water",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_2706.jpg",
+    "path": "/photos/IMG_2706.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 6400,
+    "aperture": 6.3,
+    "shutterSpeed": 0.016666666666666666,
+    "focalLength": 42,
+    "date": "2025-01-22T05:27:46.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "lamp post, traffic light",
+    "aiTags": [
+      "lamp post",
+      "traffic light"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lamp post",
+        "score": 0.08108478784561157
+      },
+      {
+        "label": "traffic light",
+        "score": 0.06838176399469376
+      }
+    ],
+    "naturalCaption": "a red stoplight at night with a building",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_3361.jpg",
+    "path": "/photos/IMG_3361.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 10,
+    "shutterSpeed": 0.0025,
+    "focalLength": 29,
+    "date": "2025-03-09T19:15:36.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "sandy beach, beach, coast, coastline",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "coast",
+      "coastline"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.18894974887371063
+      },
+      {
+        "label": "beach",
+        "score": 0.10304712504148483
+      },
+      {
+        "label": "coast",
+        "score": 0.08299834281206131
+      },
+      {
+        "label": "coastline",
+        "score": 0.060285743325948715
+      }
+    ],
+    "naturalCaption": "a beach with a couple of people on it",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_3382.jpg",
+    "path": "/photos/IMG_3382.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 200,
+    "aperture": 6.3,
+    "shutterSpeed": 0.0008,
+    "focalLength": 45,
+    "date": "2025-03-09T19:32:23.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "sandy beach, sand dunes, beach",
+    "aiTags": [
+      "sandy beach",
+      "sand dunes",
+      "beach"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.14602459967136383
+      },
+      {
+        "label": "sand dunes",
+        "score": 0.10217227041721344
+      },
+      {
+        "label": "beach",
+        "score": 0.09263970702886581
+      }
+    ],
+    "naturalCaption": "a dog walking on the beach with a man",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_3396.jpg",
+    "path": "/photos/IMG_3396.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 9,
+    "shutterSpeed": 0.003125,
+    "focalLength": 42,
+    "date": "2025-03-09T19:41:30.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "sandy beach, beach, sand",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "sand"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.16486680507659912
+      },
+      {
+        "label": "beach",
+        "score": 0.08526334166526794
+      },
+      {
+        "label": "sand",
+        "score": 0.0618550106883049
+      }
+    ],
+    "naturalCaption": "a bird standing on a beach near the water",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_3458.jpg",
+    "path": "/photos/IMG_3458.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 9,
+    "shutterSpeed": 0.003125,
+    "focalLength": 45,
+    "date": "2025-03-09T20:34:50.000Z",
+    "location": null,
+    "trip": "Uncategorized",
+    "aiCaption": "seagull, sandy beach",
+    "aiTags": [
+      "seagull",
+      "sandy beach"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "seagull",
+        "score": 0.12733754515647888
+      },
+      {
+        "label": "sandy beach",
+        "score": 0.06278682500123978
+      }
+    ],
+    "naturalCaption": "a kite is flying over the beach",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  },
+  {
+    "id": "IMG_5052.jpg",
+    "path": "/photos/IMG_5052.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R50",
+    "lens": "RF-S18-45mm F4.5-6.3 IS STM",
+    "iso": 100,
+    "aperture": 6.3,
+    "shutterSpeed": 0.005,
+    "focalLength": 45,
+    "date": "2025-06-05T15:14:54.000Z",
+    "location": {
+      "lat": 59.40657,
+      "lng": 18.347118333333334,
+      "country": "Sweden"
+    },
+    "trip": "Scandinavia 2025",
+    "aiCaption": "lake, fishing boat, pond",
+    "aiTags": [
+      "lake",
+      "fishing boat",
+      "pond"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.37869706749916077
+      },
+      {
+        "label": "fishing boat",
+        "score": 0.08810291439294815
+      },
+      {
+        "label": "pond",
+        "score": 0.08510772138834
+      }
+    ],
+    "naturalCaption": "a boat is going down the river near a forest",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false
+  }
+]

@@ -3,7 +3,6 @@
 import Navbar from "@/components/Navbar";
 import HomeScroll from "@/components/HomeScroll";
 import About from "@/components/About";
-import ScrollDrawScene from "../components/ScrollDrawScene";
 
 export default function Home() {
     return (
@@ -13,8 +12,6 @@ export default function Home() {
             <HomeScroll />
             
             <About />
-            
-            <ScrollDrawScene />
         </div>
     );
 }
