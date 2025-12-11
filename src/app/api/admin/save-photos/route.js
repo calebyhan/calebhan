@@ -3,6 +3,14 @@ import fs from "fs/promises";
 import path from "path";
 
 export async function POST(request) {
+  // Block this endpoint in production
+  if (process.env.NODE_ENV === "production") {
+    return NextResponse.json(
+      { error: "Admin endpoints are disabled in production" },
+      { status: 403 }
+    );
+  }
+
   try {
     const { photos } = await request.json();
 
