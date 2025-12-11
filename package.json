@@ -15,8 +15,14 @@
     "next": "15.5.2",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "react-simple-maps": "^3.0.0",
+    "react-simple-maps": "^4.0.0-beta.6",
     "yet-another-react-lightbox": "^3.27.0"
+  },
+  "overrides": {
+    "react-simple-maps": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
