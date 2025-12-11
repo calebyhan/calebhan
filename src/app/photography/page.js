@@ -12,6 +12,7 @@ export default function PhotographyPage() {
   const [loading, setLoading] = useState(true);
   const [searching, setSearching] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [filterPanelOpen, setFilterPanelOpen] = useState(false);
   const [filters, setFilters] = useState({
     camera: null,
     trip: null,
@@ -75,11 +76,27 @@ export default function PhotographyPage() {
           searchQuery={searchQuery}
           setSearchQuery={setSearchQuery}
           photos={photos}
+          isOpen={filterPanelOpen}
+          setIsOpen={setFilterPanelOpen}
         />
 
         {/* Main Gallery */}
-        <main className="flex-1 p-8">
-          <div className="mb-8">
+        <main className="flex-1 p-4 md:p-6 lg:p-8">
+          <div className="mb-6 md:mb-8">
+            {/* Mobile filter button */}
+            <div className="flex items-center gap-3 mb-4 lg:hidden">
+              <button
+                onClick={() => setFilterPanelOpen(true)}
+                className="flex items-center gap-2 px-4 py-2 bg-cyan-600/20 border border-cyan-400/50 text-cyan-300 rounded-lg hover:bg-cyan-600/30 transition-colors"
+                aria-label="Open filters"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                </svg>
+                <span className="font-medium">Filters</span>
+              </button>
+            </div>
+
             <h1 className="text-4xl md:text-5xl font-bold mb-2">Photography</h1>
             <p className="text-gray-400">
               {searching ? (

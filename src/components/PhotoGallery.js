@@ -56,7 +56,7 @@ export default function PhotoGallery({ photos }) {
   return (
     <>
       {/* Masonry Grid */}
-      <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
+      <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-4 gap-2 md:gap-4 space-y-2 md:space-y-4">
         {photos.map((photo, index) => (
           <div
             key={photo.id}
@@ -84,21 +84,21 @@ export default function PhotoGallery({ photos }) {
 
       {/* Photo Modal */}
       {selectedPhoto && (
-        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
-          <div ref={modalRef} className="max-w-7xl w-full flex flex-col lg:flex-row gap-6 max-h-[90vh]">
+        <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-2 md:p-4 overflow-y-auto">
+          <div ref={modalRef} className="max-w-7xl w-full flex flex-col lg:flex-row gap-4 md:gap-6 my-auto max-h-[96vh] lg:max-h-[90vh]">
             {/* Photo */}
-            <div className="flex-1 flex items-center justify-center">
+            <div className="flex-1 flex items-center justify-center min-h-0">
               <Image
                 src={selectedPhoto.path}
                 alt={selectedPhoto.id}
                 width={selectedPhoto.width}
                 height={selectedPhoto.height}
-                className="max-w-full max-h-[80vh] w-auto h-auto object-contain"
+                className="max-w-full max-h-[50vh] lg:max-h-[80vh] w-auto h-auto object-contain"
               />
             </div>
 
             {/* Photo Details Sidebar */}
-            <div className="lg:w-80 bg-gray-900/50 rounded-lg p-6 overflow-y-auto">
+            <div className="lg:w-80 bg-gray-900/50 rounded-lg p-4 lg:p-6 overflow-y-auto max-h-[40vh] lg:max-h-full">
               <h3 className="text-xl font-bold mb-4">Photo Details</h3>
 
               {/* Camera Info */}

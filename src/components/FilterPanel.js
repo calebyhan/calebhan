@@ -1,9 +1,72 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import CountryMap from "./CountryMap";
 
-export default function FilterPanel({ filters, setFilters, searchQuery, setSearchQuery, photos }) {
+// Custom Dropdown Component
+function CustomDropdown({ value, onChange, options, placeholder, label }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  const selectedOption = options.find(opt => opt.value === value);
+
+  return (
+    <div ref={dropdownRef} className="relative">
+      <label className="block text-sm font-medium mb-2">{label}</label>
+      <button
+        type="button"
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full px-3 py-2.5 md:py-2 bg-black/30 border border-gray-700/50 rounded-lg text-white text-base md:text-sm focus:outline-none focus:border-cyan-400/50 transition-colors hover:border-gray-600/50 flex items-center justify-between min-h-[44px] md:min-h-0"
+      >
+        <span className={selectedOption ? 'text-white' : 'text-gray-500'}>
+          {selectedOption ? selectedOption.label : placeholder}
+        </span>
+        <svg
+          className={`w-5 h-5 md:w-4 md:h-4 text-gray-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+
+      {isOpen && (
+        <div className="absolute z-50 w-full mt-2 bg-gray-900/95 backdrop-blur-lg border border-gray-700/70 rounded-lg shadow-xl max-h-60 overflow-y-auto">
+          {options.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              onClick={() => {
+                onChange(option.value);
+                setIsOpen(false);
+              }}
+              className={`w-full px-3 py-2.5 md:py-2 text-left text-base md:text-sm transition-colors min-h-[44px] md:min-h-0 ${
+                option.value === value
+                  ? 'bg-cyan-600/30 text-cyan-300'
+                  : 'text-white hover:bg-gray-800/50'
+              }`}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+export default function FilterPanel({ filters, setFilters, searchQuery, setSearchQuery, photos, isOpen, setIsOpen }) {
   const [showAdvanced, setShowAdvanced] = useState(false);
 
   // Extract unique values for dropdowns
@@ -23,28 +86,56 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
   )];
 
   return (
-    <aside
-      className="w-80 bg-gray-900/30 border-r border-gray-800/50 p-6 overflow-y-auto h-[calc(100vh-4rem)] sticky top-16"
-      style={{
-        scrollbarWidth: 'none'
-      }}
-    >
-      <style jsx>{`
-        aside::-webkit-scrollbar {
-          display: none;
-        }
-      `}</style>
-      <h2 className="text-2xl font-bold mb-4">Filters</h2>
+    <>
+      {/* Mobile backdrop */}
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/60 z-40 lg:hidden"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
+
+      <aside
+        className={`
+          fixed lg:sticky top-16 left-0 z-50 lg:z-auto
+          w-80 bg-gray-900/70 backdrop-blur-lg border-r border-gray-800/70 p-6
+          overflow-y-auto h-[calc(100vh-4rem)]
+          transition-transform duration-300 ease-in-out
+          ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+        `}
+        style={{
+          scrollbarWidth: 'none'
+        }}
+      >
+        <style jsx>{`
+          aside::-webkit-scrollbar {
+            display: none;
+          }
+        `}</style>
+
+        {/* Close button for mobile */}
+        <div className="flex items-center justify-between mb-4 lg:mb-0">
+          <h2 className="text-xl md:text-2xl font-bold">Filters</h2>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="lg:hidden p-2 hover:bg-gray-800/50 rounded-lg transition-colors"
+            aria-label="Close filters"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
 
       {/* AI Search */}
       <div className="mb-4">
-        <label className="block text-sm font-medium mb-2">Search</label>
+        <label className="block text-sm md:text-sm font-medium mb-2">Search</label>
         <input
           type="text"
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Describe what you're looking for..."
-          className="w-full px-3 py-2 bg-black/30 border border-gray-700/50 rounded-lg text-white text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-400/50"
+          className="w-full px-3 py-2.5 md:py-2 bg-black/30 border border-gray-700/50 rounded-lg text-white text-base md:text-sm placeholder-gray-500 focus:outline-none focus:border-cyan-400/50"
         />
         <div className="flex items-start gap-1.5 mt-1">
           <p className="text-xs text-gray-500 flex-1">
@@ -92,37 +183,35 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
         </div>
       )}
 
-      {/* Device Filter */}
+      {/* Camera Filter */}
       {cameras.length > 0 && (
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Camera</label>
-          <select
-            value={filters.camera || ''}
-            onChange={(e) => setFilters({ ...filters, camera: e.target.value || null })}
-            className="w-full px-3 py-2 bg-black/30 border border-gray-700/50 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-400/50"
-          >
-            <option value="">All Cameras</option>
-            {cameras.map(camera => (
-              <option key={camera} value={camera}>{camera}</option>
-            ))}
-          </select>
+          <CustomDropdown
+            label="Camera"
+            value={filters.camera}
+            onChange={(value) => setFilters({ ...filters, camera: value === '' ? null : value })}
+            options={[
+              { value: '', label: 'All Cameras' },
+              ...cameras.map(camera => ({ value: camera, label: camera }))
+            ]}
+            placeholder="All Cameras"
+          />
         </div>
       )}
 
       {/* Trip Filter */}
       {trips.length > 0 && (
         <div className="mb-4">
-          <label className="block text-sm font-medium mb-2">Trip</label>
-          <select
-            value={filters.trip || ''}
-            onChange={(e) => setFilters({ ...filters, trip: e.target.value || null })}
-            className="w-full px-3 py-2 bg-black/30 border border-gray-700/50 rounded-lg text-white text-sm focus:outline-none focus:border-cyan-400/50"
-          >
-            <option value="">All Trips</option>
-            {trips.map(trip => (
-              <option key={trip} value={trip}>{trip}</option>
-            ))}
-          </select>
+          <CustomDropdown
+            label="Trip"
+            value={filters.trip}
+            onChange={(value) => setFilters({ ...filters, trip: value === '' ? null : value })}
+            options={[
+              { value: '', label: 'All Trips' },
+              ...trips.map(trip => ({ value: trip, label: trip }))
+            ]}
+            placeholder="All Trips"
+          />
         </div>
       )}
 
@@ -131,13 +220,13 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
         {/* Advanced Filters Toggle */}
         <button
           onClick={() => setShowAdvanced(!showAdvanced)}
-          className="flex-1 px-3 py-2 bg-gray-800/50 border border-gray-700/50 rounded-lg text-white hover:bg-gray-700/50 transition-colors flex items-center justify-center gap-2"
+          className="flex-1 px-3 py-2.5 md:py-2 bg-gray-800/50 border border-gray-700/50 rounded-lg text-white hover:bg-gray-700/50 transition-colors flex items-center justify-center gap-2 min-h-[44px] md:min-h-0"
           title="Advanced Filters"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
           </svg>
-          <span className="text-sm">{showAdvanced ? 'Hide' : 'Show'}</span>
+          <span className="text-base md:text-sm font-medium">{showAdvanced ? 'Hide' : 'Show'}</span>
         </button>
 
         {/* Clear Filters */}
@@ -155,26 +244,26 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
             });
             setSearchQuery('');
           }}
-          className="flex-1 px-3 py-2 border border-red-400/50 text-red-400 rounded-lg hover:bg-red-900/20 transition-colors flex items-center justify-center gap-2"
+          className="flex-1 px-3 py-2.5 md:py-2 border border-red-400/50 text-red-400 rounded-lg hover:bg-red-900/20 transition-colors flex items-center justify-center gap-2 min-h-[44px] md:min-h-0"
           title="Clear All Filters"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-5 h-5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
           </svg>
-          <span className="text-sm">Clear</span>
+          <span className="text-base md:text-sm font-medium">Clear</span>
         </button>
       </div>
 
       {/* Advanced Filters */}
       {showAdvanced && (
-        <div className="space-y-6 mt-4 pt-4 border-t border-gray-800/50">
+        <div className="space-y-8 md:space-y-6 mt-4 pt-4 border-t border-gray-800/50">
           {/* ISO Range */}
           <div>
-            <div className="flex justify-between items-center mb-3">
-              <label className="text-xs font-medium text-gray-400">ISO</label>
-              <span className="text-xs font-mono text-cyan-400">{filters.iso[0]} - {filters.iso[1]}</span>
+            <div className="flex justify-between items-center mb-4 md:mb-3">
+              <label className="text-sm md:text-xs font-medium text-gray-400">ISO</label>
+              <span className="text-sm md:text-xs font-mono text-cyan-400">{filters.iso[0]} - {filters.iso[1]}</span>
             </div>
-            <div className="relative h-6 flex items-center">
+            <div className="relative h-8 md:h-6 flex items-center">
               {/* Background track */}
               <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
               {/* Filled range track */}
@@ -198,7 +287,7 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, iso: [newMin, filters.iso[1]] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
               {/* Max handle slider */}
               <input
@@ -213,18 +302,18 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, iso: [filters.iso[0], newMax] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
             </div>
           </div>
 
           {/* Aperture Range */}
           <div>
-            <div className="flex justify-between items-center mb-3">
-              <label className="text-xs font-medium text-gray-400">Aperture</label>
-              <span className="text-xs font-mono text-cyan-400">f/{filters.aperture[0]} - f/{filters.aperture[1]}</span>
+            <div className="flex justify-between items-center mb-4 md:mb-3">
+              <label className="text-sm md:text-xs font-medium text-gray-400">Aperture</label>
+              <span className="text-sm md:text-xs font-mono text-cyan-400">f/{filters.aperture[0]} - f/{filters.aperture[1]}</span>
             </div>
-            <div className="relative h-6 flex items-center">
+            <div className="relative h-8 md:h-6 flex items-center">
               {/* Background track */}
               <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
               {/* Filled range track */}
@@ -248,7 +337,7 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, aperture: [newMin, filters.aperture[1]] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
               {/* Max handle slider */}
               <input
@@ -263,20 +352,20 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, aperture: [filters.aperture[0], newMax] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
             </div>
           </div>
 
           {/* Shutter Speed Range */}
           <div>
-            <div className="flex justify-between items-center mb-3">
-              <label className="text-xs font-medium text-gray-400">Shutter Speed</label>
-              <span className="text-xs font-mono text-cyan-400">
+            <div className="flex justify-between items-center mb-4 md:mb-3">
+              <label className="text-sm md:text-xs font-medium text-gray-400">Shutter Speed</label>
+              <span className="text-sm md:text-xs font-mono text-cyan-400">
                 {filters.shutterSpeed[0] < 1 ? `1/${Math.round(1/filters.shutterSpeed[0])}s` : `${filters.shutterSpeed[0]}s`} - {filters.shutterSpeed[1] < 1 ? `1/${Math.round(1/filters.shutterSpeed[1])}s` : `${filters.shutterSpeed[1]}s`}
               </span>
             </div>
-            <div className="relative h-6 flex items-center">
+            <div className="relative h-8 md:h-6 flex items-center">
               {/* Background track */}
               <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
               {/* Filled range track */}
@@ -300,7 +389,7 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, shutterSpeed: [newMin, filters.shutterSpeed[1]] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
               {/* Max handle slider */}
               <input
@@ -315,18 +404,18 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, shutterSpeed: [filters.shutterSpeed[0], newMax] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
             </div>
           </div>
 
           {/* Focal Length Range */}
           <div>
-            <div className="flex justify-between items-center mb-3">
-              <label className="text-xs font-medium text-gray-400">Focal Length</label>
-              <span className="text-xs font-mono text-cyan-400">{filters.focalLength[0]}mm - {filters.focalLength[1]}mm</span>
+            <div className="flex justify-between items-center mb-4 md:mb-3">
+              <label className="text-sm md:text-xs font-medium text-gray-400">Focal Length</label>
+              <span className="text-sm md:text-xs font-mono text-cyan-400">{filters.focalLength[0]}mm - {filters.focalLength[1]}mm</span>
             </div>
-            <div className="relative h-6 flex items-center">
+            <div className="relative h-8 md:h-6 flex items-center">
               {/* Background track */}
               <div className="absolute w-full h-1.5 bg-gray-800/50 rounded-full"></div>
               {/* Filled range track */}
@@ -350,7 +439,7 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, focalLength: [newMin, filters.focalLength[1]] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
               {/* Max handle slider */}
               <input
@@ -365,12 +454,13 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
                     setFilters({ ...filters, focalLength: [filters.focalLength[0], newMax] });
                   }
                 }}
-                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-5 [&::-moz-range-thumb]:h-5 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
+                className="absolute w-full appearance-none bg-transparent cursor-pointer z-20 [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-7 [&::-webkit-slider-thumb]:h-7 md:[&::-webkit-slider-thumb]:w-5 md:[&::-webkit-slider-thumb]:h-5 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-cyan-500 [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-gray-900 [&::-webkit-slider-thumb]:cursor-grab [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-webkit-slider-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:appearance-none [&::-moz-range-thumb]:w-7 [&::-moz-range-thumb]:h-7 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-cyan-500 [&::-moz-range-thumb]:border-2 [&::-moz-range-thumb]:border-gray-900 [&::-moz-range-thumb]:cursor-grab [&::-moz-range-thumb]:hover:scale-110 [&::-moz-range-thumb]:transition-transform [&::-moz-range-thumb]:active:cursor-grabbing [&::-moz-range-thumb]:border-0"
               />
             </div>
           </div>
         </div>
       )}
     </aside>
+    </>
   );
 }
