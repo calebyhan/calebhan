@@ -1,0 +1,272 @@
+[
+  {
+    "id": "ai-portfolio-search",
+    "title": "AI-Powered Portfolio Search",
+    "tagline": "Semantic search for photography portfolio using ML embeddings",
+    "description": "Built a sophisticated search system for my photography portfolio that understands natural language queries. Uses Xenova's multilingual-e5-small model to generate embeddings for photos, combining semantic search with BM25 keyword matching through reciprocal rank fusion.\n\nThe system processes metadata (location, tags, camera settings) into searchable vectors, allowing queries like 'sunset beaches' or 'urban architecture' to find relevant photos beyond simple keyword matching. Implemented client-side for instant results with no backend dependencies.\n\nKey technical challenges included optimizing embedding generation for ~1000 photos, implementing efficient cosine similarity search in the browser, and balancing semantic vs keyword relevance through tuned RRF weights.",
+    "featured": true,
+    "featuredRank": 1,
+    "featuredLabel": "Most Technically Complex",
+    "techStack": ["react", "nextjs", "javascript", "openai", "ml"],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebhan/portfolio",
+      "live": "https://calebhan.com/photography",
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/ai-search/thumb.png",
+      "screenshots": [
+        "/projects/ai-search/screen1.png",
+        "/projects/ai-search/screen2.png"
+      ]
+    },
+    "metadata": {
+      "year": 2024,
+      "status": "active",
+      "complexity": "high"
+    }
+  },
+  {
+    "id": "interactive-badge-system",
+    "title": "Interactive Tech Badge Field",
+    "tagline": "Mouse-reactive parallax badge system with depth layering",
+    "description": "Created an engaging tech stack visualization using mouse parallax effects and depth-based layering. Each badge floats independently with different parallax intensities based on a configurable depth value, creating a 3D-like effect.\n\nImplemented using anime.js for smooth floating animations and custom mouse tracking for parallax calculations. The system includes click-to-filter functionality that smoothly transitions between states and auto-scrolls to filtered results.\n\nOptimized for performance with requestAnimationFrame-based position updates and CSS transform GPU acceleration. Fully accessible with keyboard navigation and respects prefers-reduced-motion settings.",
+    "featured": true,
+    "featuredRank": 2,
+    "featuredLabel": "Most Interactive",
+    "techStack": ["react", "nextjs", "javascript", "animejs"],
+    "category": "frontend",
+    "links": {
+      "github": "https://github.com/calebhan/portfolio",
+      "live": "https://calebhan.com/code",
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/badge-field/thumb.png",
+      "screenshots": [
+        "/projects/badge-field/screen1.png"
+      ]
+    },
+    "metadata": {
+      "year": 2024,
+      "status": "active",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "photo-location-admin",
+    "title": "Photography Admin Dashboard",
+    "tagline": "Secure admin panel for managing photo metadata and locations",
+    "description": "Built a protected admin interface for managing photography portfolio metadata. Features authentication-based route protection, bulk metadata editing, and an interactive map for assigning GPS coordinates to photos.\n\nImplemented secure admin routes with middleware-based authentication and CSRF protection. The dashboard includes real-time preview of metadata changes, batch operations for tagging multiple photos, and validation to ensure data integrity.\n\nDesigned with a focus on efficient workflows - common operations like adding tags or updating locations can be done in seconds across multiple photos. Includes undo functionality and automatic backup of changes.",
+    "featured": true,
+    "featuredRank": 3,
+    "featuredLabel": "Best UX Design",
+    "techStack": ["react", "nextjs", "javascript", "nodejs"],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebhan/portfolio",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/admin-panel/thumb.png",
+      "screenshots": [
+        "/projects/admin-panel/screen1.png",
+        "/projects/admin-panel/screen2.png"
+      ]
+    },
+    "metadata": {
+      "year": 2024,
+      "status": "active",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "realtime-chat-app",
+    "title": "Real-time Chat Application",
+    "tagline": "WebSocket-based chat with presence detection and message history",
+    "description": "Developed a full-stack real-time messaging application using WebSockets for instant message delivery. Features include user presence detection, typing indicators, message history with pagination, and emoji reactions.\n\nBuilt with Node.js and Socket.io on the backend, PostgreSQL for message persistence, and React for a responsive frontend. Implemented connection pooling and message queueing to handle high concurrent user loads.\n\nKey features include end-to-end message encryption, file sharing with drag-and-drop, user authentication with JWT tokens, and mobile-responsive design. Handles network disconnections gracefully with automatic reconnection and message synchronization.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["react", "nodejs", "postgresql", "socketio", "jwt"],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebhan/chat-app",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/chat/thumb.png",
+      "screenshots": [
+        "/projects/chat/screen1.png",
+        "/projects/chat/screen2.png",
+        "/projects/chat/screen3.png"
+      ]
+    },
+    "metadata": {
+      "year": 2024,
+      "status": "active",
+      "complexity": "high"
+    }
+  },
+  {
+    "id": "task-automation-bot",
+    "title": "Python Task Automation Framework",
+    "tagline": "Flexible automation framework for repetitive workflows",
+    "description": "Created a Python-based automation framework for handling repetitive tasks like data processing, file organization, and API interactions. Uses a plugin architecture allowing custom task definitions with minimal boilerplate.\n\nIncludes scheduling capabilities using APScheduler, error handling with automatic retries, and logging to track execution history. The framework can run tasks in parallel using multiprocessing for CPU-bound operations and asyncio for I/O-bound tasks.\n\nConfigurable through YAML files with support for environment-based configurations. Includes built-in plugins for common tasks like CSV processing, email notifications, and webhook triggers.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["python", "asyncio", "yaml"],
+    "category": "backend",
+    "links": {
+      "github": "https://github.com/calebhan/automation-framework",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/automation/thumb.png",
+      "screenshots": []
+    },
+    "metadata": {
+      "year": 2023,
+      "status": "active",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "weather-dashboard",
+    "title": "Weather Analytics Dashboard",
+    "tagline": "Interactive weather visualization with historical data analysis",
+    "description": "Built a comprehensive weather dashboard that aggregates data from multiple APIs to provide detailed weather analytics and forecasts. Features interactive charts showing temperature trends, precipitation patterns, and wind patterns over time.\n\nImplemented using React with D3.js for data visualizations, allowing users to explore weather patterns across different time ranges and locations. Includes predictive analytics using historical data to identify seasonal trends.\n\nOptimized API usage with intelligent caching and request batching. Supports multiple locations with saved preferences, weather alerts, and comparison views to analyze weather differences across regions.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["react", "d3js", "javascript", "api"],
+    "category": "frontend",
+    "links": {
+      "github": "https://github.com/calebhan/weather-dashboard",
+      "live": "https://weather.calebhan.com",
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/weather/thumb.png",
+      "screenshots": [
+        "/projects/weather/screen1.png"
+      ]
+    },
+    "metadata": {
+      "year": 2023,
+      "status": "archived",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "ml-sentiment-analyzer",
+    "title": "Sentiment Analysis API",
+    "tagline": "REST API for analyzing text sentiment using transformer models",
+    "description": "Developed a high-performance sentiment analysis API using pre-trained transformer models. The service analyzes text input and returns sentiment scores (positive, negative, neutral) along with confidence levels and key phrases.\n\nBuilt with FastAPI for async request handling and HuggingFace Transformers for the ML models. Implemented model caching and batched inference to optimize throughput, achieving sub-100ms response times for typical requests.\n\nIncludes support for multiple languages, custom fine-tuning endpoints for domain-specific sentiment analysis, and detailed analytics showing sentiment distribution over time. Deployed using Docker with auto-scaling based on load.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["python", "fastapi", "ml", "docker", "transformers"],
+    "category": "ai",
+    "links": {
+      "github": "https://github.com/calebhan/sentiment-api",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/sentiment/thumb.png",
+      "screenshots": []
+    },
+    "metadata": {
+      "year": 2024,
+      "status": "active",
+      "complexity": "high"
+    }
+  },
+  {
+    "id": "recipe-manager",
+    "title": "Smart Recipe Manager",
+    "tagline": "Recipe organization app with AI-powered meal planning",
+    "description": "Created a recipe management application that helps users organize recipes, plan meals, and generate shopping lists. Uses AI to suggest recipes based on available ingredients and dietary preferences.\n\nBuilt with Next.js and MongoDB for flexible recipe storage. The AI meal planner uses GPT-4 to generate weekly meal plans considering nutritional balance, ingredient overlap to minimize waste, and user preferences.\n\nFeatures include recipe import from URLs with automatic parsing, nutritional information calculation, serving size adjustment, and ingredient substitution suggestions. Mobile-responsive design optimized for kitchen use.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["react", "nextjs", "mongodb", "openai", "javascript"],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebhan/recipe-manager",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/recipes/thumb.png",
+      "screenshots": [
+        "/projects/recipes/screen1.png",
+        "/projects/recipes/screen2.png"
+      ]
+    },
+    "metadata": {
+      "year": 2024,
+      "status": "active",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "code-snippet-manager",
+    "title": "Developer Code Snippet Library",
+    "tagline": "Personal knowledge base for code snippets with fuzzy search",
+    "description": "Built a personal code snippet manager for organizing and quickly retrieving reusable code patterns. Features syntax highlighting for 50+ languages, tag-based organization, and fuzzy search to find snippets fast.\n\nImplemented using Electron for cross-platform desktop support with a local-first architecture. All data is stored in SQLite with full-text search capabilities. Includes VS Code extension for quick snippet insertion.\n\nSupports snippet templates with variable interpolation, version history for tracking changes, and export/import for sharing collections. Global keyboard shortcuts allow accessing snippets from any application.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["electron", "javascript", "sqlite", "vscode-extension"],
+    "category": "tools",
+    "links": {
+      "github": "https://github.com/calebhan/snippet-manager",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/snippets/thumb.png",
+      "screenshots": []
+    },
+    "metadata": {
+      "year": 2023,
+      "status": "active",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "portfolio-website",
+    "title": "Personal Portfolio Website",
+    "tagline": "Modern portfolio showcasing photography and development work",
+    "description": "Designed and built this portfolio website to showcase my photography and development projects. Features a clean, minimal design with smooth animations and transitions that enhance the user experience without overwhelming content.\n\nImplemented with Next.js for optimal performance with static site generation and image optimization. Uses anime.js for scroll-triggered animations and Intersection Observer for lazy loading. Achieved 100/100 Lighthouse scores across all metrics.\n\nIncludes advanced features like AI-powered search, interactive tech visualizations, and adaptive layouts that work seamlessly across devices. Built with accessibility in mind, supporting keyboard navigation and respecting user motion preferences.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["react", "nextjs", "javascript", "tailwind"],
+    "category": "frontend",
+    "links": {
+      "github": "https://github.com/calebhan/portfolio",
+      "live": "https://calebhan.com",
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/portfolio/thumb.png",
+      "screenshots": [
+        "/projects/portfolio/screen1.png",
+        "/projects/portfolio/screen2.png"
+      ]
+    },
+    "metadata": {
+      "year": 2024,
+      "status": "active",
+      "complexity": "high"
+    }
+  }
+]

@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { animate, createTimeline, utils, stagger } from "animejs";
 import Image from "next/image";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
+import SVGScrollReveal from "./SVGScrollReveal";
 
 export default function About() {
     const sectionRef = useRef(null);
@@ -272,17 +273,21 @@ export default function About() {
     };
 
     return (
-        <section 
-            ref={sectionRef}
-            className="min-h-screen bg-black text-white py-24 relative overflow-hidden"
-        >
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/4 left-10 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" />
-                <div className="absolute top-1/3 right-20 w-1 h-1 bg-cyan-400/40 rounded-full animate-bounce" />
-                <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-purple-400/20 rounded-full animate-ping" />
-            </div>
+        <>
+            {/* Hero section - completely separate, no gap */}
+            <SVGScrollReveal />
 
-            <div className="mx-auto max-w-4xl px-6 space-y-24">
+            <section
+                ref={sectionRef}
+                className="min-h-screen bg-black text-white relative overflow-hidden"
+            >
+                <div className="absolute inset-0 pointer-events-none">
+                    <div className="absolute top-1/4 left-10 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" />
+                    <div className="absolute top-1/3 right-20 w-1 h-1 bg-cyan-400/40 rounded-full animate-bounce" />
+                    <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-purple-400/20 rounded-full animate-ping" />
+                </div>
+
+                <div className="mx-auto max-w-4xl px-6 space-y-24 py-24">
                 <div ref={aboutRef} className="text-center">
                     <h2 className="text-4xl md:text-5xl font-bold mb-6 antialiased opacity-0">
                         About Me
@@ -497,7 +502,8 @@ export default function About() {
                         </button>
                     </div>
                 </div>
-            </div>
-        </section>
+                </div>
+            </section>
+        </>
     );
 }
