@@ -257,7 +257,6 @@ export default function AdminPage() {
   };
 
   const filteredPhotos = photos.filter(p => {
-    if (filter === "no-location") return !p.location || !p.location.lat || !p.location.lng;
     if (filter === "no-state") return !p.location?.state;
     if (filter === "no-trip") return !p.trip || p.trip === "Uncategorized";
     return true;
@@ -360,16 +359,6 @@ export default function AdminPage() {
             }`}
           >
             All ({photos.length})
-          </button>
-          <button
-            onClick={() => setFilter("no-location")}
-            className={`px-4 py-2 rounded-lg ${
-              filter === "no-location"
-                ? "bg-cyan-600 text-white"
-                : "bg-gray-800 text-gray-300 hover:bg-gray-700"
-            }`}
-          >
-            No Location ({photos.filter(p => !p.location || !p.location.lat).length})
           </button>
           <button
             onClick={() => setFilter("no-state")}

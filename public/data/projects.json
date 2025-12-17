@@ -28,111 +28,111 @@
     }
   },
   {
-    "id": "interactive-badge-system",
-    "title": "Interactive Tech Badge Field",
-    "tagline": "Mouse-reactive parallax badge system with depth layering",
-    "description": "Created an engaging tech stack visualization using mouse parallax effects and depth-based layering. Each badge floats independently with different parallax intensities based on a configurable depth value, creating a 3D-like effect.\n\nImplemented using anime.js for smooth floating animations and custom mouse tracking for parallax calculations. The system includes click-to-filter functionality that smoothly transitions between states and auto-scrolls to filtered results.\n\nOptimized for performance with requestAnimationFrame-based position updates and CSS transform GPU acceleration. Fully accessible with keyboard navigation and respects prefers-reduced-motion settings.",
+    "id": "3d-blackjack",
+    "title": "3D Blackjack Game",
+    "tagline": "A 3D blackjack game built with React, TypeScript, Three.js (via React Three Fiber), and Zustand.",
+    "description": "3D Blackjack is a TypeScript + React game that renders a fully interactive blackjack table in 3D using React Three Fiber. It uses Zustand for state management and focuses on polished animations, predictable game logic, and performance-friendly rendering. Perfect for demos, learning Three.js with React, or playing a smooth single-player blackjack experience in the browser. Built for a Claude Builder's Club Mini Hackathon, winning 3rd Place.",
     "featured": true,
     "featuredRank": 2,
     "featuredLabel": "Most Interactive",
-    "techStack": ["react", "nextjs", "javascript", "animejs"],
-    "category": "frontend",
+    "techStack": ["vite", "react", "typescript", "threejs", "zustand"],
+    "category": "game",
     "links": {
-      "github": "https://github.com/calebhan/portfolio",
-      "live": "https://calebhan.com/code",
+      "github": "https://github.com/calebyhan/3d-blackjack",
+      "live": "https://3d-blackjack.vercel.app/",
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/badge-field/thumb.png",
+      "thumbnail": "/projects/3d-blackjack/thumb.png",
       "screenshots": [
-        "/projects/badge-field/screen1.png"
+        "/projects/3d-blackjack/screen1.png"
       ]
     },
     "metadata": {
-      "year": 2024,
-      "status": "active",
-      "complexity": "medium"
+      "year": 2025,
+      "status": "completed",
+      "complexity": "easy"
     }
   },
   {
-    "id": "photo-location-admin",
-    "title": "Photography Admin Dashboard",
-    "tagline": "Secure admin panel for managing photo metadata and locations",
-    "description": "Built a protected admin interface for managing photography portfolio metadata. Features authentication-based route protection, bulk metadata editing, and an interactive map for assigning GPS coordinates to photos.\n\nImplemented secure admin routes with middleware-based authentication and CSRF protection. The dashboard includes real-time preview of metadata changes, batch operations for tagging multiple photos, and validation to ensure data integrity.\n\nDesigned with a focus on efficient workflows - common operations like adding tags or updating locations can be done in seconds across multiple photos. Includes undo functionality and automatic backup of changes.",
+    "id": "good-studio",
+    "title": "Good Studio",
+    "tagline": "AI-powered microsite builder for small nonprofits and community organizations",
+    "description": "Good Studio helps tiny nonprofits, mutual-aid pods, and community organizers create beautiful, accessible websites without hiring a developer. Just provide your mission statement and logo — our multi-agent AI system handles the rest, streaming real-time progress as it works. Built for HackNC 2025, winning Best Use of Gemini API.",
     "featured": true,
     "featuredRank": 3,
     "featuredLabel": "Best UX Design",
-    "techStack": ["react", "nextjs", "javascript", "nodejs"],
+    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python"],
     "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/portfolio",
+      "github": "https://github.com/calebyhan/hacknc25",
       "live": null,
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/admin-panel/thumb.png",
+      "thumbnail": "/projects/good-studio/thumb.png",
       "screenshots": [
-        "/projects/admin-panel/screen1.png",
-        "/projects/admin-panel/screen2.png"
+        "/projects/good-studio/screen1.png",
+        "/projects/good-studio/screen2.png"
       ]
     },
     "metadata": {
-      "year": 2024,
-      "status": "active",
+      "year": 2025,
+      "status": "completed",
       "complexity": "medium"
     }
   },
   {
-    "id": "realtime-chat-app",
-    "title": "Real-time Chat Application",
-    "tagline": "WebSocket-based chat with presence detection and message history",
-    "description": "Developed a full-stack real-time messaging application using WebSockets for instant message delivery. Features include user presence detection, typing indicators, message history with pagination, and emoji reactions.\n\nBuilt with Node.js and Socket.io on the backend, PostgreSQL for message persistence, and React for a responsive frontend. Implemented connection pooling and message queueing to handle high concurrent user loads.\n\nKey features include end-to-end message encryption, file sharing with drag-and-drop, user authentication with JWT tokens, and mobile-responsive design. Handles network disconnections gracefully with automatic reconnection and message synchronization.",
+    "id": "nebula",
+    "title": "Nebula",
+    "tagline": "Wasserstein GAN for generating realistic nebula images",
+    "description": "Nebula implements a WGAN pipeline for generating and discriminating astrophotography-style nebula images. The repository contains training scripts (training.py), a Jupyter notebook with experiments and visualizations (training.ipynb), a generation utility (generate.py), and a discriminator test (test_discriminator.py). Image folders at multiple resolutions (64, 128, 256, 512) and example output images are included for experimentation and evaluation.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["react", "nodejs", "postgresql", "socketio", "jwt"],
-    "category": "fullstack",
+    "techStack": ["python", "jupyter notebook", "numpy", "pillow", "matplotlib", "torch"],
+    "category": "machine learning",
     "links": {
-      "github": "https://github.com/calebhan/chat-app",
+      "github": "https://github.com/calebyhan/nebula",
       "live": null,
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/chat/thumb.png",
+      "thumbnail": "/projects/nebula/thumb.png",
       "screenshots": [
-        "/projects/chat/screen1.png",
-        "/projects/chat/screen2.png",
-        "/projects/chat/screen3.png"
+        "/projects/nebula/thumb.png"
       ]
     },
     "metadata": {
-      "year": 2024,
-      "status": "active",
+      "year": 2025,
+      "status": "completed",
       "complexity": "high"
     }
   },
   {
-    "id": "task-automation-bot",
-    "title": "Python Task Automation Framework",
-    "tagline": "Flexible automation framework for repetitive workflows",
-    "description": "Created a Python-based automation framework for handling repetitive tasks like data processing, file organization, and API interactions. Uses a plugin architecture allowing custom task definitions with minimal boilerplate.\n\nIncludes scheduling capabilities using APScheduler, error handling with automatic retries, and logging to track execution history. The framework can run tasks in parallel using multiprocessing for CPU-bound operations and asyncio for I/O-bound tasks.\n\nConfigurable through YAML files with support for environment-based configurations. Includes built-in plugins for common tasks like CSV processing, email notifications, and webhook triggers.",
+    "id": "graphsense",
+    "title": "GraphSense",
+    "tagline": "An AI-powered data visualization platform that automatically analyzes datasets and recommends optimal chart types using a sophisticated 3-agent pipeline powered by Google Gemini 2.0 Flash.",
+    "description": "GraphSense is an intelligent data visualization platform that transforms raw data into meaningful insights through AI-powered analysis.The platform features an advanced infinite canvas where users can drag, organize, and interact with their visualizations. A smart minimap provides instant navigation across large projects, while viewport-aware chart placement ensures new visualizations always appear exactly where you're looking. Built for VTHacks 2025, winning Best Auto Visualization Agent.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["python", "asyncio", "yaml"],
-    "category": "backend",
+    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python"],
+    "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/automation-framework",
+      "github": "https://github.com/calebyhan/vthacks25",
       "live": null,
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/automation/thumb.png",
-      "screenshots": []
+      "thumbnail": "/projects/graphsense/thumb.png",
+      "screenshots": [
+        "/projects/graphsense/screen1.png"
+      ]
     },
     "metadata": {
-      "year": 2023,
-      "status": "active",
+      "year": 2025,
+      "status": "completed",
       "complexity": "medium"
     }
   },
@@ -249,11 +249,11 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["react", "nextjs", "javascript", "tailwind"],
-    "category": "frontend",
+    "techStack": ["react", "nextjs", "javascript", "tailwind", "ai", "animejs"],
+    "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/portfolio",
-      "live": "https://calebhan.com",
+      "github": "https://github.com/calebyhan/calebhan",
+      "live": "https://calebhan.top",
       "demo": null
     },
     "images": {
@@ -264,7 +264,7 @@
       ]
     },
     "metadata": {
-      "year": 2024,
+      "year": 2025,
       "status": "active",
       "complexity": "high"
     }

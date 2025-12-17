@@ -1,12 +1,85 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import PhotoGallery from "@/components/PhotoGallery";
 import FilterPanel from "@/components/FilterPanel";
 import Navbar from "@/components/Navbar";
 import { searchPhotos } from "@/utils/photoSearch";
 
-export default function PhotographyPage() {
+// Default filter values
+const DEFAULT_FILTERS = {
+  camera: null,
+  trip: null,
+  dateRange: null,
+  country: null,
+  iso: [100, 6400],
+  aperture: [1.7, 22],
+  shutterSpeed: [0.00025, 0.067],
+  focalLength: [6, 105],
+};
+
+// Helper function to parse range parameters (e.g., "100-400" -> [100, 400])
+function parseRange(paramValue, defaultRange) {
+  if (!paramValue) return defaultRange;
+  const parts = paramValue.split('-');
+  if (parts.length !== 2) return defaultRange;
+  const min = parseFloat(parts[0]);
+  const max = parseFloat(parts[1]);
+  if (isNaN(min) || isNaN(max)) return defaultRange;
+  return [min, max];
+}
+
+// Helper function to check if a range matches the default
+function rangesEqual(range1, range2) {
+  return range1[0] === range2[0] && range1[1] === range2[1];
+}
+
+// Parse URL parameters into filter state
+function parseURLParams(searchParams) {
+  return {
+    camera: searchParams.get('camera') || null,
+    trip: searchParams.get('trip') || null,
+    country: searchParams.get('country') || null,
+    dateRange: null, // Date range not implemented in URL yet
+    iso: parseRange(searchParams.get('iso'), DEFAULT_FILTERS.iso),
+    aperture: parseRange(searchParams.get('aperture'), DEFAULT_FILTERS.aperture),
+    shutterSpeed: parseRange(searchParams.get('shutterSpeed'), DEFAULT_FILTERS.shutterSpeed),
+    focalLength: parseRange(searchParams.get('focalLength'), DEFAULT_FILTERS.focalLength),
+  };
+}
+
+// Build URL parameters from filter state
+function buildURLParams(filters, searchQuery) {
+  const params = new URLSearchParams();
+
+  // Add single-value filters
+  if (filters.camera) params.set('camera', filters.camera);
+  if (filters.trip) params.set('trip', filters.trip);
+  if (filters.country) params.set('country', filters.country);
+
+  // Add range filters (only if different from defaults)
+  if (!rangesEqual(filters.iso, DEFAULT_FILTERS.iso)) {
+    params.set('iso', `${filters.iso[0]}-${filters.iso[1]}`);
+  }
+  if (!rangesEqual(filters.aperture, DEFAULT_FILTERS.aperture)) {
+    params.set('aperture', `${filters.aperture[0]}-${filters.aperture[1]}`);
+  }
+  if (!rangesEqual(filters.shutterSpeed, DEFAULT_FILTERS.shutterSpeed)) {
+    params.set('shutterSpeed', `${filters.shutterSpeed[0]}-${filters.shutterSpeed[1]}`);
+  }
+  if (!rangesEqual(filters.focalLength, DEFAULT_FILTERS.focalLength)) {
+    params.set('focalLength', `${filters.focalLength[0]}-${filters.focalLength[1]}`);
+  }
+
+  // Add search query
+  if (searchQuery) params.set('q', searchQuery);
+
+  return params;
+}
+
+function PhotographyPageContent() {
+  const searchParams = useSearchParams();
   const [photos, setPhotos] = useState([]);
   const [filteredPhotos, setFilteredPhotos] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -35,6 +108,43 @@ export default function PhotographyPage() {
     }
     loadPhotos();
   }, []);
+
+  // Initialize filters from URL parameters after photos load
+  useEffect(() => {
+    if (!photos.length || !searchParams) return;
+
+    const urlFilters = parseURLParams(searchParams);
+    const urlSearchQuery = searchParams.get('q') || '';
+
+    // Check if there are any URL params to apply
+    const hasURLParams = searchParams.toString().length > 0;
+
+    if (hasURLParams) {
+      setFilters(urlFilters);
+      if (urlSearchQuery) {
+        setSearchQuery(urlSearchQuery);
+      }
+    }
+  }, [photos.length, searchParams]);
+
+  // Update URL when filters or search query change
+  useEffect(() => {
+    if (!photos.length) return; // Don't update URL until photos are loaded
+
+    const debounceTimer = setTimeout(() => {
+      const params = buildURLParams(filters, searchQuery);
+      const newURL = params.toString()
+        ? `${window.location.pathname}?${params.toString()}`
+        : window.location.pathname;
+
+      // Only update if the URL actually changed
+      if (newURL !== window.location.pathname + window.location.search) {
+        window.history.replaceState({}, '', newURL);
+      }
+    }, 300); // 300ms debounce
+
+    return () => clearTimeout(debounceTimer);
+  }, [filters, searchQuery, photos.length]);
 
   // Handle search and filters with debouncing
   useEffect(() => {
@@ -111,5 +221,18 @@ export default function PhotographyPage() {
         </main>
       </div>
     </div>
+  );
+}
+
+// Wrap in Suspense to handle useSearchParams
+export default function PhotographyPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-xl">Loading gallery...</div>
+      </div>
+    }>
+      <PhotographyPageContent />
+    </Suspense>
   );
 }

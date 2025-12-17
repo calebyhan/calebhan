@@ -58,22 +58,40 @@ export default function ProjectModal({ project, onClose, allProjects, embeddings
     return similarities.map(s => s.project);
   }, [project, allProjects, embeddings]);
 
-  const images = project.images?.screenshots?.length > 0
-    ? project.images.screenshots
-    : project.images?.thumbnail
-      ? [project.images.thumbnail]
-      : [];
+  const images = useMemo(() => {
+    const allImages = [];
+
+    // Add thumbnail as the first image
+    if (project.images?.thumbnail) {
+      allImages.push(project.images.thumbnail);
+    }
+
+    // Add screenshots after thumbnail
+    if (project.images?.screenshots?.length > 0) {
+      allImages.push(...project.images.screenshots);
+    }
+
+    return allImages;
+  }, [project]);
+
+  const handleOverlayClick = (e) => {
+    // Only close if clicking directly on the overlay, not on the modal content
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
 
   return (
     <div
       ref={overlayRef}
       className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm overflow-y-auto"
-      onClick={(e) => e.target === overlayRef.current && onClose()}
+      onClick={handleOverlayClick}
     >
-      <div className="min-h-full flex items-start justify-center p-4 py-8">
+      <div className="min-h-full flex items-start justify-center p-4 py-8" onClick={handleOverlayClick}>
         <div
           ref={contentRef}
           className="w-full max-w-4xl bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden"
+          onClick={(e) => e.stopPropagation()}
         >
           {/* Header with close button */}
           <div className="flex items-center justify-between p-6 border-b border-gray-800">

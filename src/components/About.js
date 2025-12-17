@@ -275,7 +275,7 @@ export default function About() {
     return (
         <>
             {/* Hero section - completely separate, no gap */}
-            <SVGScrollReveal />
+            {/* <SVGScrollReveal /> */}
 
             <section
                 ref={sectionRef}
@@ -367,28 +367,29 @@ export default function About() {
                     </h2>
 
                     <div className="grid gap-8">
-                        <div 
-                            className="project-card bg-gray-900/50 border border-gray-800 backdrop-blur-sm p-8 rounded-xl transition-colors cursor-pointer"
+                        <a
+                            href="/code?project=good-studio"
+                            className="project-card bg-gray-900/50 border border-gray-800 backdrop-blur-sm p-8 rounded-xl transition-colors cursor-pointer block hover:border-gray-700"
                             onMouseEnter={handleProjectCardHover}
                             onMouseLeave={handleProjectCardLeave}
                         >
                             <h3 className="text-2xl md:text-3xl font-semibold mb-4 text-white antialiased">
-                                Vitalscope
+                                Good Studio
                             </h3>
                             <p className="text-gray-300 mb-6 text-lg leading-relaxed antialiased">
-                                A full-stack application built with Next.js and Supabase to help connect high school
-                                students with practitioners for shadowing opportunities. Features include user
-                                authentication, synced calendar features, and administrator analytics dashboards.
+                                A full-stack application built with Next.js, FastAPI, Google Gemini, and Supabase to help small nonprofits and community organizations
+                                launch a professional website in under 2 minutes with AI-generated branding, copy, and accessibility checks.
                             </p>
                             <div className="flex flex-wrap gap-3">
-                                <span className="px-4 py-2 bg-blue-600/20 border border-blue-400/30 text-blue-300 text-sm rounded-full">React</span>
-                                <span className="px-4 py-2 bg-green-600/20 border border-green-400/30 text-green-300 text-sm rounded-full">Next.js</span>
+                                <span className="px-4 py-2 bg-blue-600/20 border border-blue-400/30 text-blue-300 text-sm rounded-full">Next.js</span>
+                                <span className="px-4 py-2 bg-green-600/20 border border-green-400/30 text-green-300 text-sm rounded-full">FastAPI</span>
                                 <span className="px-4 py-2 bg-purple-600/20 border border-purple-400/30 text-purple-300 text-sm rounded-full">Supabase</span>
                             </div>
-                        </div>
+                        </a>
 
-                        <div 
-                            className="project-card bg-gray-900/50 border border-gray-800 backdrop-blur-sm p-8 rounded-xl transition-colors cursor-pointer"
+                        <a
+                            href="/photography?trip=Scandinavia+2025"
+                            className="project-card bg-gray-900/50 border border-gray-800 backdrop-blur-sm p-8 rounded-xl transition-colors cursor-pointer block hover:border-gray-700"
                             onMouseEnter={handleProjectCardHover}
                             onMouseLeave={handleProjectCardLeave}
                         >
@@ -402,10 +403,10 @@ export default function About() {
                             </p>
                             <div className="flex flex-wrap gap-3">
                                 <span className="px-4 py-2 bg-amber-600/20 border border-amber-400/30 text-amber-300 text-sm rounded-full">Landscape</span>
-                                <span className="px-4 py-2 bg-teal-600/20 border border-teal-400/30 text-teal-300 text-sm rounded-full">Portraits</span>
-                                <span className="px-4 py-2 bg-red-600/20 border border-red-400/30 text-red-300 text-sm rounded-full">Events</span>
+                                <span className="px-4 py-2 bg-teal-600/20 border border-teal-400/30 text-teal-300 text-sm rounded-full">City</span>
+                                <span className="px-4 py-2 bg-red-600/20 border border-red-400/30 text-red-300 text-sm rounded-full">Travel</span>
                             </div>
-                        </div>
+                        </a>
                     </div>
                 </div>
 

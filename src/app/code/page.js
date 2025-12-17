@@ -62,6 +62,7 @@ function CodePageContent() {
 
     const techParam = searchParams.get('tech');
     const queryParam = searchParams.get('q');
+    const projectParam = searchParams.get('project');
 
     if (techParam) {
       setTechFilters(techParam.split(','));
@@ -69,9 +70,16 @@ function CodePageContent() {
     if (queryParam) {
       setSearchQuery(queryParam);
     }
+    if (projectParam && projects.length > 0) {
+      const project = projects.find(p => p.id === projectParam);
+      if (project) {
+        setSelectedProject(project);
+        document.body.style.overflow = 'hidden';
+      }
+    }
 
     setInitialized(true);
-  }, [loading, searchParams, initialized]);
+  }, [loading, searchParams, initialized, projects]);
 
   // Debounce search query
   useEffect(() => {
@@ -128,11 +136,24 @@ function CodePageContent() {
   const handleProjectClick = useCallback((project) => {
     setSelectedProject(project);
     document.body.style.overflow = 'hidden';
+
+    // Update URL with project parameter
+    const params = new URLSearchParams(window.location.search);
+    params.set('project', project.id);
+    window.history.pushState({}, '', `${window.location.pathname}?${params}`);
   }, []);
 
   const handleCloseModal = useCallback(() => {
     setSelectedProject(null);
     document.body.style.overflow = '';
+
+    // Remove project parameter from URL
+    const params = new URLSearchParams(window.location.search);
+    params.delete('project');
+    const newUrl = params.toString()
+      ? `${window.location.pathname}?${params}`
+      : window.location.pathname;
+    window.history.pushState({}, '', newUrl);
   }, []);
 
   const handleClearFilters = useCallback(() => {

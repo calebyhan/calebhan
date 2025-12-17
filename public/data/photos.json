@@ -1464,5 +1464,146 @@
     "hasManualOverride": false,
     "replaceAI": false,
     "lastProcessed": "2025-12-11T07:49:24.067Z"
+  },
+  {
+    "id": "IMG_3987.jpg",
+    "path": "/photos/IMG_3987.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 200,
+    "aperture": 7.1,
+    "shutterSpeed": 0.00625,
+    "focalLength": 105,
+    "date": "2025-12-13T15:42:58.000Z",
+    "location": {
+      "lat": 40.780298020000004,
+      "lng": -74.18032970666667,
+      "country": "United States",
+      "state": "New Jersey"
+    },
+    "trip": "NYC 2025",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a train on a train track near a building",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-16T15:01:17.087Z"
+  },
+  {
+    "id": "IMG_4001.jpg",
+    "path": "/photos/IMG_4001.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 10000,
+    "aperture": 7.1,
+    "shutterSpeed": 0.00625,
+    "focalLength": 105,
+    "date": "2025-12-13T22:41:32.000Z",
+    "location": {
+      "lat": 40.76212674166667,
+      "lng": -73.98631523666667,
+      "country": "United States",
+      "state": "New York"
+    },
+    "trip": "NYC 2025",
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a man is standing in a doorway with a pair of legs",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-16T15:01:18.650Z"
+  },
+  {
+    "id": "IMG_4010.jpg",
+    "path": "/photos/IMG_4010.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 100,
+    "aperture": 7.1,
+    "shutterSpeed": 0.003125,
+    "focalLength": 85,
+    "date": "2025-12-14T16:42:24.000Z",
+    "location": {
+      "lat": 40.78030602166667,
+      "lng": -74.18026119166667,
+      "country": "United States",
+      "state": "New Jersey"
+    },
+    "trip": "NYC 2025",
+    "aiCaption": "lamp post, snow, snowy, mailbox",
+    "aiTags": [
+      "lamp post",
+      "snow",
+      "snowy",
+      "mailbox"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lamp post",
+        "score": 0.20857006311416626
+      },
+      {
+        "label": "snow",
+        "score": 0.1384640783071518
+      },
+      {
+        "label": "snowy",
+        "score": 0.09270929545164108
+      },
+      {
+        "label": "mailbox",
+        "score": 0.06746912747621536
+      }
+    ],
+    "naturalCaption": "a street sign on a pole with a snow covered street",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-16T15:01:20.228Z"
+  },
+  {
+    "id": "IMG_4064.jpg",
+    "path": "/photos/IMG_4064.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 160,
+    "aperture": 7.1,
+    "shutterSpeed": 0.008,
+    "focalLength": 102,
+    "date": "2025-12-15T22:06:05.000Z",
+    "location": {
+      "lat": 40.75949661166667,
+      "lng": -73.98516135666667,
+      "country": "United States",
+      "state": "New York"
+    },
+    "trip": "NYC 2025",
+    "aiCaption": "city",
+    "aiTags": [
+      "city"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "city",
+        "score": 0.1020708680152893
+      }
+    ],
+    "naturalCaption": "a city street with a large group of people walking",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2025-12-16T15:01:21.748Z"
   }
 ]
