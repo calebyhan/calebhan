@@ -62,7 +62,7 @@
     "featured": true,
     "featuredRank": 3,
     "featuredLabel": "Best UX Design",
-    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python"],
+    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python", "tailwind"],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebyhan/hacknc25",
@@ -100,7 +100,6 @@
     "images": {
       "thumbnail": "/projects/nebula/thumb.png",
       "screenshots": [
-        "/projects/nebula/thumb.png"
       ]
     },
     "metadata": {
@@ -117,7 +116,7 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python"],
+    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python", "tailwind"],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebyhan/vthacks25",
@@ -137,29 +136,40 @@
     }
   },
   {
-    "id": "weather-dashboard",
-    "title": "Weather Analytics Dashboard",
-    "tagline": "Interactive weather visualization with historical data analysis",
-    "description": "Built a comprehensive weather dashboard that aggregates data from multiple APIs to provide detailed weather analytics and forecasts. Features interactive charts showing temperature trends, precipitation patterns, and wind patterns over time.\n\nImplemented using React with D3.js for data visualizations, allowing users to explore weather patterns across different time ranges and locations. Includes predictive analytics using historical data to identify seasonal trends.\n\nOptimized API usage with intelligent caching and request batching. Supports multiple locations with saved preferences, weather alerts, and comparison views to analyze weather differences across regions.",
+    "id": "ml-drift-detection",
+    "title": "ML Drift Detection Learning Project",
+    "tagline": "Interactive exploration of statistical drift detection for production ML monitoring",
+    "description": "A hands-on learning project exploring statistical drift detection for production ML systems using the UCI Bike Sharing Dataset. Demonstrates when drift detection works, when it fails, and how to combine it with performance-based monitoring.\n\nIncludes four Jupyter notebooks covering data exploration, natural drift analysis (63% ridership increase between 2011-2012), synthetic experiments, and a 2×2 detection matrix for diagnosing drift types. Implements Population Stability Index (PSI) to measure distribution shifts across features.\n\nFeatures an interactive Next.js web interface with D3.js visualizations for exploring drift detection concepts without requiring Python. Includes animated histograms, real-time PSI gauges, an interactive drift simulator, and step-by-step explainer pages. Demonstrates three key insights: PSI alone is insufficient, feature importance matters, and combining statistical and performance metrics is essential for robust monitoring.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["react", "d3js", "javascript", "api"],
-    "category": "frontend",
+    "techStack": [
+      "python",
+      "jupyter",
+      "scikit-learn",
+      "pandas",
+      "numpy",
+      "next.js",
+      "typescript",
+      "react",
+      "d3.js",
+      "framer motion",
+      "tailwind"
+    ],
+    "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/weather-dashboard",
-      "live": "https://weather.calebhan.com",
+      "github": "https://github.com/calebyhan/ml-drift-detection",
+      "live": "https://ml-drift-detection.vercel.app",
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/weather/thumb.png",
+      "thumbnail": "/projects/ml-drift/thumb.png",
       "screenshots": [
-        "/projects/weather/screen1.png"
       ]
     },
     "metadata": {
-      "year": 2023,
-      "status": "archived",
+      "year": 2025,
+      "status": "completed",
       "complexity": "medium"
     }
   },
@@ -171,7 +181,7 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["python", "fastapi", "ml", "docker", "transformers"],
+    "techStack": [],
     "category": "ai",
     "links": {
       "github": "https://github.com/calebhan/sentiment-api",
@@ -196,7 +206,7 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["react", "nextjs", "mongodb", "openai", "javascript"],
+    "techStack": [],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebhan/recipe-manager",
@@ -224,7 +234,7 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["electron", "javascript", "sqlite", "vscode-extension"],
+    "techStack": [],
     "category": "tools",
     "links": {
       "github": "https://github.com/calebhan/snippet-manager",
