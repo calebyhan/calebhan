@@ -165,6 +165,8 @@
     "images": {
       "thumbnail": "/projects/ml-drift/thumb.png",
       "screenshots": [
+        "/projects/ml-drift/screen1.png",
+        "/projects/ml-drift/screen2.png"
       ]
     },
     "metadata": {
