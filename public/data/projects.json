@@ -156,7 +156,7 @@
       "framer motion",
       "tailwind"
     ],
-    "category": "fullstack",
+    "category": "machine learning",
     "links": {
       "github": "https://github.com/calebyhan/ml-drift-detection",
       "live": "https://ml-drift-detection.vercel.app",
@@ -176,28 +176,30 @@
     }
   },
   {
-    "id": "ml-sentiment-analyzer",
-    "title": "Sentiment Analysis API",
-    "tagline": "REST API for analyzing text sentiment using transformer models",
-    "description": "Developed a high-performance sentiment analysis API using pre-trained transformer models. The service analyzes text input and returns sentiment scores (positive, negative, neutral) along with confidence levels and key phrases.\n\nBuilt with FastAPI for async request handling and HuggingFace Transformers for the ML models. Implemented model caching and batched inference to optimize throughput, achieving sub-100ms response times for typical requests.\n\nIncludes support for multiple languages, custom fine-tuning endpoints for domain-specific sentiment analysis, and detailed analytics showing sentiment distribution over time. Deployed using Docker with auto-scaling based on load.",
+    "id": "vault",
+    "title": "Vault",
+    "tagline": "Personal desktop app for analyzing credit card spending patterns",
+    "description": "Engineered Vault, a privacy-first personal finance desktop application for analyzing credit card spending patterns and optimizing rewards. Designed with a local-only philosophy, ensuring financial data is stored securely in a local SQLite database with zero cloud dependencies or data sharing.\n\nBuilt using Next.js 15, Electron, and TypeScript to deliver a high-performance desktop experience. Integrated the Google Gemini 2.5 Flash API to perform intelligent batch categorization of transactions and implemented a Jaro-Winkler fuzzy matching algorithm for advanced vendor name normalization and bulk updates.\n\nFeatures a sophisticated data ingestion pipeline capable of parsing CSV, XLSX, and PDF formats with automatic column mapping and duplicate detection. Includes dynamic spending analytics visualized through Recharts, multi-currency support for 12 global currencies, and comprehensive export capabilities for HTML and CSV reporting.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": [],
-    "category": "ai",
+    "techStack": ["nextjs", "react", "electron", "typescript", "sqlite", "google-gemini", "recharts", "radix-ui", "tailwind", "pdf-parse", "xlsx", "papaparse", "jaro-winkler"],
+    "category": "tools",
     "links": {
-      "github": "https://github.com/calebhan/sentiment-api",
+      "github": "https://github.com/calebhan/vault",
       "live": null,
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/sentiment/thumb.png",
-      "screenshots": []
+      "thumbnail": "/projects/vault/thumb.png",
+      "screenshots": [
+        "/projects/vault/screen1.png"
+      ]
     },
     "metadata": {
-      "year": 2024,
+      "year": 2026,
       "status": "active",
-      "complexity": "high"
+      "complexity": "medium"
     }
   },
   {
