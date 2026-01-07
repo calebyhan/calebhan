@@ -9,7 +9,7 @@
   { "id": "mongodb", "label": "MongoDB", "category": "database", "depth": 0.5 },
   { "id": "sqlite", "label": "SQLite", "category": "database", "depth": 0.5 },
   { "id": "docker", "label": "Docker", "category": "devops", "depth": 0.6 },
-  { "id": "openai", "label": "OpenAI/GPT", "category": "ai", "depth": 1.3 },
+  { "id": "google-gemini", "label": "Google Gemini", "category": "ai", "depth": 1.3 },
   { "id": "ml", "label": "Machine Learning", "category": "ai", "depth": 1.3 },
   { "id": "transformers", "label": "Transformers", "category": "ai", "depth": 1.2 },
   { "id": "tailwind", "label": "Tailwind CSS", "category": "frontend", "depth": 0.7 },

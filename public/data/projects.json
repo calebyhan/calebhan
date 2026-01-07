@@ -10,7 +10,7 @@
     "techStack": ["react", "nextjs", "javascript", "openai", "ml"],
     "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/portfolio",
+      "github": "https://github.com/calebhan/chess-bot",
       "live": "https://calebhan.com/photography",
       "demo": null
     },
@@ -30,8 +30,8 @@
   {
     "id": "3d-blackjack",
     "title": "3D Blackjack Game",
-    "tagline": "A 3D blackjack game built with React, TypeScript, Three.js (via React Three Fiber), and Zustand.",
-    "description": "3D Blackjack is a TypeScript + React game that renders a fully interactive blackjack table in 3D using React Three Fiber. It uses Zustand for state management and focuses on polished animations, predictable game logic, and performance-friendly rendering. Perfect for demos, learning Three.js with React, or playing a smooth single-player blackjack experience in the browser. Built for a Claude Builder's Club Mini Hackathon, winning 3rd Place.",
+    "tagline": "A 3D blackjack game built with React, TypeScript, Three.js, and Zustand.",
+    "description": "Developed a fully interactive 3D blackjack game featuring realistic card physics and smooth animations powered by React Three Fiber and React Spring. Implements complete blackjack game logic with automatic dealer AI that follows casino rules (hits on <17), proper scoring with ace value handling, and win/loss detection.\n\nBuilt with a modular architecture separating game logic (deck creation, shuffling, scoring rules) from rendering concerns. Uses Zustand for predictable state management, enabling clean separation between game state and 3D scene updates. Features physics-based card animations with realistic flip transitions and hand positioning.\n\nKey technical achievements include optimized 3D rendering for smooth 60fps gameplay, custom 3D UNC-themed card components with proper lighting and shadows, and a responsive UI overlay that doesn't interfere with scene interactions. Built for Claude Builder's Club Mini Hackathon, winning 3rd Place.",
     "featured": true,
     "featuredRank": 2,
     "featuredLabel": "Most Interactive",
@@ -57,8 +57,8 @@
   {
     "id": "good-studio",
     "title": "Good Studio",
-    "tagline": "AI-powered microsite builder for small nonprofits and community organizations",
-    "description": "Good Studio helps tiny nonprofits, mutual-aid pods, and community organizers create beautiful, accessible websites without hiring a developer. Just provide your mission statement and logo — our multi-agent AI system handles the rest, streaming real-time progress as it works. Built for HackNC 2025, winning Best Use of Gemini API.",
+    "tagline": "AI-powered microsite builder for small nonprofits and community organizations.",
+    "description": "Engineered an AI-powered website builder that generates complete, accessible microsites for nonprofits in under 2 minutes using a sophisticated 4-agent pipeline powered by Google Gemini 2.5 Flash Lite. The system orchestrates Brand, Copywriter, Accessibility, and Developer agents using LangGraph, with real Server-Sent Events streaming progress to the frontend (not simulated delays).\n\nImplemented a robust visual site editor with a drag-and-drop block system supporting text, images, and flex layouts. Features inline content editing, live preview updates, and AI-powered content regeneration with adjustable tone and audience targeting. Built an event management system with RSVP functionality, capacity tracking, email validation, and IP-based rate limiting to prevent spam.\n\nArchitected with multi-tenant security using Supabase Row Level Security policies for data isolation. Includes comprehensive error handling with deterministic AI fallbacks that never crash the generation pipeline: if the AI fails, production-quality fallback data is used instead. Built for HackNC 2025, winning Best Use of Gemini API.",
     "featured": true,
     "featuredRank": 3,
     "featuredLabel": "Best UX Design",
@@ -85,8 +85,8 @@
   {
     "id": "nebula",
     "title": "Nebula",
-    "tagline": "Wasserstein GAN for generating realistic nebula images",
-    "description": "Nebula implements a WGAN pipeline for generating and discriminating astrophotography-style nebula images. The repository contains training scripts (training.py), a Jupyter notebook with experiments and visualizations (training.ipynb), a generation utility (generate.py), and a discriminator test (test_discriminator.py). Image folders at multiple resolutions (64, 128, 256, 512) and example output images are included for experimentation and evaluation.",
+    "tagline": "Wasserstein GAN for generating realistic nebula images.",
+    "description": "A deep learning project implementing a Wasserstein Generative Adversarial Network (WGAN) to generate synthetic nebula images that capture the complex textures and color gradients of astrophotography. Trained on a curated dataset of real nebula images from Kaggle, exploring how GANs can learn to reproduce natural cosmic phenomena.\n\nDeveloped a progressive training pipeline supporting multiple image resolutions (64px through 512px) to balance training stability with output quality. Implemented Wasserstein loss with gradient penalty to address mode collapse issues common in standard GANs. Includes comprehensive experimentation notebooks documenting training curves, generated sample evolution, and discriminator performance metrics.\n\nFeatures modular architecture with separate training, generation, and testing scripts for reproducible experiments. The discriminator test utility enables quantitative evaluation of generated images versus real samples. Demonstrates practical applications of GANs beyond traditional use cases, showing how generative models can learn complex natural patterns from limited training data. Documented in a Medium blog post exploring the intersection of machine learning and astrophotography.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
@@ -111,8 +111,8 @@
   {
     "id": "graphsense",
     "title": "GraphSense",
-    "tagline": "An AI-powered data visualization platform that automatically analyzes datasets and recommends optimal chart types using a sophisticated 3-agent pipeline powered by Google Gemini 2.0 Flash.",
-    "description": "GraphSense is an intelligent data visualization platform that transforms raw data into meaningful insights through AI-powered analysis.The platform features an advanced infinite canvas where users can drag, organize, and interact with their visualizations. A smart minimap provides instant navigation across large projects, while viewport-aware chart placement ensures new visualizations always appear exactly where you're looking. Built for VTHacks 2025, winning Best Auto Visualization Agent.",
+    "tagline": "An AI-powered data visualization platform.",
+    "description": "Built an intelligent data visualization platform that automatically analyzes datasets and recommends optimal visualizations using a 3-agent AI pipeline powered by Google Gemini 2.5 Flash Lite. The Enhanced Data Profiler performs comprehensive statistical analysis and correlation detection, the Chart Recommender evaluates all 10 supported chart types with confidence scoring, and the Validation Agent refines recommendations with quality assessment and appropriateness validation.\n\nEngineered an advanced infinite canvas system with viewport-aware chart placement, ensuring new visualizations always appear in the user's current view. Implemented a precision coordinate system with smooth zoom (0.1x-5x) and pan controls, integrated with a smart minimap providing 1:1 positional accuracy and instant navigation. Features anti-stacking intelligence with random offsets to prevent chart overlap on creation.\n\nSupports 10 chart types (Bar, Line, Scatter, Pie, Histogram, Box Plot, Heatmap, Area, Treemap, Sankey) with automatic axis field detection and data mapping. Optimized for performance with data sampling for large datasets, memoized rendering, and RAF-throttled updates. Includes real-time system monitoring with backend health checks, connection status indicators, and detailed diagnostics (response times, CPU/memory usage). Processes complete datasets in 20-40 seconds with transparent AI reasoning for all recommendations. Built for VTHacks 2025, winning Best Auto Visualization Agent.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
@@ -137,7 +137,7 @@
   },
   {
     "id": "ml-drift-detection",
-    "title": "ML Drift Detection Learning Project",
+    "title": "ML Drift Detection Learning Project.",
     "tagline": "Interactive exploration of statistical drift detection for production ML monitoring",
     "description": "A hands-on learning project exploring statistical drift detection for production ML systems using the UCI Bike Sharing Dataset. Demonstrates when drift detection works, when it fails, and how to combine it with performance-based monitoring.\n\nIncludes four Jupyter notebooks covering data exploration, natural drift analysis (63% ridership increase between 2011-2012), synthetic experiments, and a 2×2 detection matrix for diagnosing drift types. Implements Population Stability Index (PSI) to measure distribution shifts across features.\n\nFeatures an interactive Next.js web interface with D3.js visualizations for exploring drift detection concepts without requiring Python. Includes animated histograms, real-time PSI gauges, an interactive drift simulator, and step-by-step explainer pages. Demonstrates three key insights: PSI alone is insufficient, feature importance matters, and combining statistical and performance metrics is essential for robust monitoring.",
     "featured": false,
@@ -149,7 +149,7 @@
       "scikit-learn",
       "pandas",
       "numpy",
-      "next.js",
+      "nextjs",
       "typescript",
       "react",
       "d3.js",
@@ -178,7 +178,7 @@
   {
     "id": "vault",
     "title": "Vault",
-    "tagline": "Personal desktop app for analyzing credit card spending patterns",
+    "tagline": "Personal desktop app for analyzing credit card spending patterns.",
     "description": "Engineered Vault, a privacy-first personal finance desktop application for analyzing credit card spending patterns and optimizing rewards. Designed with a local-only philosophy, ensuring financial data is stored securely in a local SQLite database with zero cloud dependencies or data sharing.\n\nBuilt using Next.js 15, Electron, and TypeScript to deliver a high-performance desktop experience. Integrated the Google Gemini 2.5 Flash API to perform intelligent batch categorization of transactions and implemented a Jaro-Winkler fuzzy matching algorithm for advanced vendor name normalization and bulk updates.\n\nFeatures a sophisticated data ingestion pipeline capable of parsing CSV, XLSX, and PDF formats with automatic column mapping and duplicate detection. Includes dynamic spending analytics visualized through Recharts, multi-currency support for 12 global currencies, and comprehensive export capabilities for HTML and CSV reporting.",
     "featured": false,
     "featuredRank": null,
@@ -203,31 +203,31 @@
     }
   },
   {
-    "id": "recipe-manager",
-    "title": "Smart Recipe Manager",
-    "tagline": "Recipe organization app with AI-powered meal planning",
+    "id": "rescored",
+    "title": "Rescored",
+    "tagline": "Convert YouTube videos into editable sheet music using AI.",
     "description": "Created a recipe management application that helps users organize recipes, plan meals, and generate shopping lists. Uses AI to suggest recipes based on available ingredients and dietary preferences.\n\nBuilt with Next.js and MongoDB for flexible recipe storage. The AI meal planner uses GPT-4 to generate weekly meal plans considering nutritional balance, ingredient overlap to minimize waste, and user preferences.\n\nFeatures include recipe import from URLs with automatic parsing, nutritional information calculation, serving size adjustment, and ingredient substitution suggestions. Mobile-responsive design optimized for kitchen use.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": [],
+    "techStack": ["vite", "react", "typescript", "tailwind", "fastapi", "python", "celery", "redis", "vexflow", "tonejs", "bs-roformer", "demucs", "yourmt3+", "bytedance"],
     "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/recipe-manager",
-      "live": null,
+      "github": "https://github.com/calebhan/rescored",
+      "live": "https://rescored.vercel.app/",
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/recipes/thumb.png",
+      "thumbnail": "/projects/rescored/thumb.png",
       "screenshots": [
-        "/projects/recipes/screen1.png",
-        "/projects/recipes/screen2.png"
+        "/projects/rescored/screen1.png",
+        "/projects/rescored/screen2.png"
       ]
     },
     "metadata": {
-      "year": 2024,
+      "year": 2026,
       "status": "active",
-      "complexity": "medium"
+      "complexity": "high"
     }
   },
   {

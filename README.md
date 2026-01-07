@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Portfolio
+
+Personal portfolio website showcasing coding projects and photography. Features semantic search for projects, an interactive photo gallery with location-based filtering, and a custom admin interface.
+
+## Tech Stack
+
+- **Framework** - Next.js 15 (App Router)
+- **Styling** - Tailwind CSS
+- **Search** - Custom BM25 implementation for semantic project search
+- **Data** - JSON-based storage with pre-computed embeddings
 
 ## Getting Started
 
-First, run the development server:
-
+Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Run the development server:
+```bash
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Project Structure
 
-## Learn More
+- `/src/app` - Next.js app router pages
+  - `/code` - Projects page with search
+  - `/photography` - Photo gallery
+  - `/admin` - Admin panel for photo management
+- `/src/components` - React components
+- `/src/utils` - Search algorithms and utilities
+- `/scripts` - Data processing scripts
+- `/public/data` - JSON data files and embeddings
 
-To learn more about Next.js, take a look at the following resources:
+## Features
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Project Showcase
+- Browse coding projects with detailed information
+- Semantic search using BM25 ranking algorithm
+- Filter by technologies and categories
+- Modal view with project details and links
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Photography Gallery
+- Interactive photo grid with lightbox
+- Location-based filtering with visual map
+- Photo metadata and captions
+- Country-based organization
 
-## Deploy on Vercel
+### Admin Panel
+- Edit photo captions and descriptions
+- Save changes directly to data files
+- Preview photos before publishing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Process and generate data:
+- `node scripts/process-photos.js` - Process photo metadata and generate embeddings
+- `node scripts/process-projects.js` - Generate project search embeddings
+- `node scripts/regenerate-captions.js` - Regenerate photo captions
+- `node scripts/view-descriptions.js` - View current photo descriptions
+
+## Development
+
+The site uses JSON files in `/public/data` for content management:
+- `projects.json` - Project information and metadata
+- `photos.json` - Photo metadata and locations
+- `project-embeddings.json` - Pre-computed search embeddings
+- `techStack.json` - Technology badges and information

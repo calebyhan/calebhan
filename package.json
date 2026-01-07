@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "process-photos": "node scripts/process-photos.js",
+    "compress-photos": "node scripts/compress-large-photos.js",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
