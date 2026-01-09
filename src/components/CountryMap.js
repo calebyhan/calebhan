@@ -26,8 +26,12 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
   const [mapMode, setMapMode] = useState(hasUSPhotos ? "usa" : "world");
 
   // Zoom state for world map
-  const [zoom, setZoom] = useState(1);
-  const [center, setCenter] = useState([0, 20]);
+  const [worldZoom, setWorldZoom] = useState(1);
+  const [worldCenter, setWorldCenter] = useState([0, 20]);
+
+  // Zoom state for USA map (center around the middle of the US)
+  const [usaZoom, setUsaZoom] = useState(1);
+  const [usaCenter, setUsaCenter] = useState([-96, 38]);
 
   // Use states array if provided, otherwise empty
   const availableStates = states || [];
@@ -35,21 +39,34 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
   // Reset zoom when switching map modes
   const handleMapModeChange = (mode) => {
     setMapMode(mode);
-    setZoom(1);
-    setCenter([0, 20]);
   };
 
-  const handleZoomIn = () => {
-    if (zoom < 4) setZoom(zoom * 1.5);
+  // World map zoom handlers
+  const handleWorldZoomIn = () => {
+    if (worldZoom < 4) setWorldZoom(worldZoom * 1.5);
   };
 
-  const handleZoomOut = () => {
-    if (zoom > 1) setZoom(zoom / 1.5);
+  const handleWorldZoomOut = () => {
+    if (worldZoom > 1) setWorldZoom(worldZoom / 1.5);
   };
 
-  const handleResetZoom = () => {
-    setZoom(1);
-    setCenter([0, 20]);
+  const handleWorldResetZoom = () => {
+    setWorldZoom(1);
+    setWorldCenter([0, 20]);
+  };
+
+  // USA map zoom handlers
+  const handleUsaZoomIn = () => {
+    if (usaZoom < 4) setUsaZoom(usaZoom * 1.5);
+  };
+
+  const handleUsaZoomOut = () => {
+    if (usaZoom > 1) setUsaZoom(usaZoom / 1.5);
+  };
+
+  const handleUsaResetZoom = () => {
+    setUsaZoom(1);
+    setUsaCenter([-96, 38]);
   };
 
   return (
@@ -81,42 +98,40 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
         </button>
       </div>
 
-      {/* Zoom Controls - Only show for World mode */}
-      {mapMode === "world" && (
-        <div className="flex gap-2 mb-3">
-          <button
-            onClick={handleZoomIn}
-            disabled={zoom >= 4}
-            className="flex-1 px-4 py-2.5 md:px-3 md:py-1.5 text-sm md:text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] md:min-h-0"
-            title="Zoom In"
-            aria-label="Zoom In"
-          >
-            <svg className="w-5 h-5 md:w-3.5 md:h-3.5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-            </svg>
-          </button>
-          <button
-            onClick={handleZoomOut}
-            disabled={zoom <= 1}
-            className="flex-1 px-4 py-2.5 md:px-3 md:py-1.5 text-sm md:text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] md:min-h-0"
-            title="Zoom Out"
-            aria-label="Zoom Out"
-          >
-            <svg className="w-5 h-5 md:w-3.5 md:h-3.5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
-            </svg>
-          </button>
-          <button
-            onClick={handleResetZoom}
-            disabled={zoom === 1}
-            className="flex-1 px-4 py-2.5 md:px-3 md:py-1.5 text-sm md:text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] md:min-h-0"
-            title="Reset View"
-            aria-label="Reset View"
-          >
-            Reset
-          </button>
-        </div>
-      )}
+      {/* Zoom Controls */}
+      <div className="flex gap-2 mb-3">
+        <button
+          onClick={mapMode === "world" ? handleWorldZoomIn : handleUsaZoomIn}
+          disabled={(mapMode === "world" ? worldZoom : usaZoom) >= 4}
+          className="flex-1 px-4 py-2.5 md:px-3 md:py-1.5 text-sm md:text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] md:min-h-0"
+          title="Zoom In"
+          aria-label="Zoom In"
+        >
+          <svg className="w-5 h-5 md:w-3.5 md:h-3.5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+          </svg>
+        </button>
+        <button
+          onClick={mapMode === "world" ? handleWorldZoomOut : handleUsaZoomOut}
+          disabled={(mapMode === "world" ? worldZoom : usaZoom) <= 1}
+          className="flex-1 px-4 py-2.5 md:px-3 md:py-1.5 text-sm md:text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] md:min-h-0"
+          title="Zoom Out"
+          aria-label="Zoom Out"
+        >
+          <svg className="w-5 h-5 md:w-3.5 md:h-3.5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
+          </svg>
+        </button>
+        <button
+          onClick={mapMode === "world" ? handleWorldResetZoom : handleUsaResetZoom}
+          disabled={(mapMode === "world" ? worldZoom : usaZoom) === 1}
+          className="flex-1 px-4 py-2.5 md:px-3 md:py-1.5 text-sm md:text-xs bg-gray-800/30 border border-gray-700/30 text-gray-400 hover:bg-gray-700/30 rounded transition-colors disabled:opacity-50 disabled:cursor-not-allowed min-h-[44px] md:min-h-0"
+          title="Reset View"
+          aria-label="Reset View"
+        >
+          Reset
+        </button>
+      </div>
 
       {mapMode === "world" ? (
         <ComposableMap
@@ -133,11 +148,11 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
           }}
         >
           <ZoomableGroup
-            zoom={zoom}
-            center={center}
+            zoom={worldZoom}
+            center={worldCenter}
             onMoveEnd={({ coordinates, zoom: newZoom }) => {
-              setCenter(coordinates);
-              setZoom(newZoom);
+              setWorldCenter(coordinates);
+              setWorldZoom(newZoom);
             }}
             minZoom={1}
             maxZoom={4}
@@ -210,6 +225,16 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
             backgroundColor: "rgba(0, 0, 0, 0.4)"
           }}
         >
+          <ZoomableGroup
+            zoom={usaZoom}
+            center={usaCenter}
+            onMoveEnd={({ coordinates, zoom: newZoom }) => {
+              setUsaCenter(coordinates);
+              setUsaZoom(newZoom);
+            }}
+            minZoom={1}
+            maxZoom={4}
+          >
           <Geographies geography={usaStatesGeoUrl}>
             {({ geographies }) =>
               geographies.map((geo) => {
@@ -266,6 +291,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
               })
             }
           </Geographies>
+          </ZoomableGroup>
         </ComposableMap>
       )}
 
@@ -329,7 +355,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
 
       <p className="text-[10px] text-gray-500 text-center mt-3">
         {mapMode === "usa"
-          ? "Click a state to filter photos by location"
+          ? "Click a state to filter • Drag to pan • Scroll to zoom"
           : "Click countries to filter • Drag to pan • Scroll to zoom"}
       </p>
     </div>
