@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const PHOTOS_DIR = path.join(__dirname, '../public/photos');
-const MAX_SIZE_MB = 10;
+const MAX_SIZE_MB = 4;
 const MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024;
 
 // Check if ImageMagick is installed
