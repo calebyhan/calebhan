@@ -156,16 +156,28 @@ export default function About() {
     };
 
     return (
-        <section className="min-h-screen bg-black text-white relative overflow-hidden">
+        <section className="min-h-screen text-white relative overflow-hidden">
+            {/* Background Image for entire section */}
+            <div className="absolute inset-0 overflow-hidden">
+                <Image
+                    src="/photos/IMG_5067.jpg"
+                    alt="Background"
+                    fill
+                    className="object-cover blur-sm"
+                    priority
+                />
+                <div className="absolute inset-0 bg-black/40" />
+            </div>
+
             {/* Decorative background elements */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none z-10">
                 <div className="absolute top-1/4 left-10 w-2 h-2 bg-blue-400/30 rounded-full animate-pulse" />
                 <div className="absolute top-1/3 right-20 w-1 h-1 bg-cyan-400/40 rounded-full animate-bounce" />
                 <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-purple-400/20 rounded-full animate-ping" />
             </div>
 
             {/* Section 1: Introduction */}
-            <section id="about" ref={introRef} className="py-16 px-6">
+            <section id="about" ref={introRef} className="py-16 px-6 relative z-10">
                 <div className="max-w-2xl mx-auto text-center">
                     {/* Headshot Image */}
                     <div className="flex justify-center mb-8 opacity-0" data-animate="headshot">
@@ -189,7 +201,7 @@ export default function About() {
             </section>
 
             {/* Section 2: Featured Work */}
-            <section ref={featuredRef} className="py-24 px-6 border-y border-gray-800/50">
+            <section ref={featuredRef} className="py-24 px-6 relative z-10">
                 <div className="max-w-6xl mx-auto">
                     <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 antialiased opacity-0">
                         Featured Work
@@ -280,7 +292,7 @@ export default function About() {
             </section>
 
             {/* Section 3: Connect */}
-            <section ref={connectRef} className="py-16 px-6">
+            <section ref={connectRef} className="py-16 px-6 relative z-10">
                 <div className="max-w-4xl mx-auto text-center">
                     <h2 className="text-3xl md:text-4xl font-bold mb-12 antialiased opacity-0">
                         Let&apos;s Connect

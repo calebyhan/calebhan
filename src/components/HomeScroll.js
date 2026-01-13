@@ -97,7 +97,7 @@ export default function HomeScroll() {
     }, [prefersReducedMotion]);
 
     return (
-        <section ref={containerRef} className="relative h-[150vh] overflow-hidden">
+        <section ref={containerRef} className="relative h-screen overflow-hidden">
             <div className="sticky top-0 h-screen w-full">
                 <div ref={particlesRef} className="absolute inset-0 pointer-events-none" />
 
