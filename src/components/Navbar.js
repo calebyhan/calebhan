@@ -23,7 +23,7 @@ export default function Navbar() {
             <a href="/photography" className="text-white hover:text-gray-300 transition-colors">
               Photography
             </a>
-            <a href="/about" className="text-white hover:text-gray-300 transition-colors">
+            <a href="/#about" className="text-white hover:text-gray-300 transition-colors">
               About Me
             </a>
           </div>
@@ -65,7 +65,7 @@ export default function Navbar() {
                 Photography
               </a>
               <a
-                href="/about"
+                href="/#about"
                 className="text-white hover:text-gray-300 transition-colors py-2 px-2 hover:bg-white/5 rounded"
                 onClick={() => setMobileMenuOpen(false)}
               >
