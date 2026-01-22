@@ -1,7 +1,7 @@
 [
   {
-    "id": "ai-portfolio-search",
-    "title": "AI-Powered Portfolio Search",
+    "id": "chess-bot",
+    "title": "Chess Bot",
     "tagline": "Semantic search for photography portfolio using ML embeddings",
     "description": "Built a sophisticated search system for my photography portfolio that understands natural language queries. Uses Xenova's multilingual-e5-small model to generate embeddings for photos, combining semantic search with BM25 keyword matching through reciprocal rank fusion.\n\nThe system processes metadata (location, tags, camera settings) into searchable vectors, allowing queries like 'sunset beaches' or 'urban architecture' to find relevant photos beyond simple keyword matching. Implemented client-side for instant results with no backend dependencies.\n\nKey technical challenges included optimizing embedding generation for ~1000 photos, implementing efficient cosine similarity search in the browser, and balancing semantic vs keyword relevance through tuned RRF weights.",
     "featured": true,
@@ -83,6 +83,87 @@
     }
   },
   {
+    "id": "rescored",
+    "title": "Rescored",
+    "tagline": "Convert YouTube videos into editable sheet music using AI.",
+    "description": "Created a recipe management application that helps users organize recipes, plan meals, and generate shopping lists. Uses AI to suggest recipes based on available ingredients and dietary preferences.\n\nBuilt with Next.js and MongoDB for flexible recipe storage. The AI meal planner uses GPT-4 to generate weekly meal plans considering nutritional balance, ingredient overlap to minimize waste, and user preferences.\n\nFeatures include recipe import from URLs with automatic parsing, nutritional information calculation, serving size adjustment, and ingredient substitution suggestions. Mobile-responsive design optimized for kitchen use.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["vite", "react", "typescript", "tailwind", "fastapi", "python", "celery", "redis", "vexflow", "tonejs", "bs-roformer", "demucs", "yourmt3+", "bytedance"],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebhan/rescored",
+      "live": "https://rescored.vercel.app/",
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/rescored/thumb.png",
+      "screenshots": [
+        "/projects/rescored/screen1.png",
+        "/projects/rescored/screen2.png"
+      ]
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "active",
+      "complexity": "high"
+    }
+  },
+  {
+    "id": "vault",
+    "title": "Vault",
+    "tagline": "Personal desktop app for analyzing credit card spending patterns.",
+    "description": "Engineered Vault, a privacy-first personal finance desktop application for analyzing credit card spending patterns and optimizing rewards. Designed with a local-only philosophy, ensuring financial data is stored securely in a local SQLite database with zero cloud dependencies or data sharing.\n\nBuilt using Next.js 15, Electron, and TypeScript to deliver a high-performance desktop experience. Integrated the Google Gemini 2.5 Flash API to perform intelligent batch categorization of transactions and implemented a Jaro-Winkler fuzzy matching algorithm for advanced vendor name normalization and bulk updates.\n\nFeatures a sophisticated data ingestion pipeline capable of parsing CSV, XLSX, and PDF formats with automatic column mapping and duplicate detection. Includes dynamic spending analytics visualized through Recharts, multi-currency support for 12 global currencies, and comprehensive export capabilities for HTML and CSV reporting.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["nextjs", "react", "electron", "typescript", "sqlite", "google-gemini", "recharts", "radix-ui", "tailwind", "pdf-parse", "xlsx", "papaparse", "jaro-winkler"],
+    "category": "tools",
+    "links": {
+      "github": "https://github.com/calebhan/vault",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/vault/thumb.png",
+      "screenshots": [
+        "/projects/vault/screen1.png"
+      ]
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "active",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "smart-charge",
+    "title":  "Smart Charge",
+    "tagline": "A native macOS menu bar application for battery health.",
+    "description": "Developed a native macOS menu bar application that implements intelligent battery charging algorithms to maximize battery lifespan while ensuring device availability.  Features real-time power monitoring, customizable charging rules, and beautiful visualizations of system energy flow with an \"Availability First\" philosophy.\n\nBuilt with Swift and SwiftUI for a lightweight, fast, macOS-native experience. Implements three charging modes: Availability (prioritizes readiness), Longevity (optimizes battery health), and Custom (user-defined rules). Features deterministic time-based and power-draw logic for predictable behavior, avoiding complex pattern learning black boxes.\n\nKey technical achievements include integration with macOS System Management Controller (SMC) for hardware-level charging control via the battery CLI tool, privileged helper implementation for real-time CPU/GPU power metrics monitoring using powermetrics, and comprehensive documentation covering architecture, data flows, and development workflows.  Provides manual control with smart defaults, giving users full transparency and control over charging behavior.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel":  null,
+    "techStack":  ["swift", "swiftui", "xcode", "macos"],
+    "category": "utility",
+    "links": {
+      "github": "https://github.com/calebyhan/smart-charge",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/smart-charge/thumb.png",
+      "screenshots": [
+      ]
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "completed",
+      "complexity": "medium"
+    }
+  },
+  {
     "id": "nebula",
     "title": "Nebula",
     "tagline": "Wasserstein GAN for generating realistic nebula images.",
@@ -137,8 +218,8 @@
   },
   {
     "id": "ml-drift-detection",
-    "title": "ML Drift Detection Learning Project.",
-    "tagline": "Interactive exploration of statistical drift detection for production ML monitoring",
+    "title": "ML Drift Detection Learning Project",
+    "tagline": "Interactive exploration of statistical drift detection for production ML monitoring.",
     "description": "A hands-on learning project exploring statistical drift detection for production ML systems using the UCI Bike Sharing Dataset. Demonstrates when drift detection works, when it fails, and how to combine it with performance-based monitoring.\n\nIncludes four Jupyter notebooks covering data exploration, natural drift analysis (63% ridership increase between 2011-2012), synthetic experiments, and a 2×2 detection matrix for diagnosing drift types. Implements Population Stability Index (PSI) to measure distribution shifts across features.\n\nFeatures an interactive Next.js web interface with D3.js visualizations for exploring drift detection concepts without requiring Python. Includes animated histograms, real-time PSI gauges, an interactive drift simulator, and step-by-step explainer pages. Demonstrates three key insights: PSI alone is insufficient, feature importance matters, and combining statistical and performance metrics is essential for robust monitoring.",
     "featured": false,
     "featuredRank": null,
@@ -176,89 +257,9 @@
     }
   },
   {
-    "id": "vault",
-    "title": "Vault",
-    "tagline": "Personal desktop app for analyzing credit card spending patterns.",
-    "description": "Engineered Vault, a privacy-first personal finance desktop application for analyzing credit card spending patterns and optimizing rewards. Designed with a local-only philosophy, ensuring financial data is stored securely in a local SQLite database with zero cloud dependencies or data sharing.\n\nBuilt using Next.js 15, Electron, and TypeScript to deliver a high-performance desktop experience. Integrated the Google Gemini 2.5 Flash API to perform intelligent batch categorization of transactions and implemented a Jaro-Winkler fuzzy matching algorithm for advanced vendor name normalization and bulk updates.\n\nFeatures a sophisticated data ingestion pipeline capable of parsing CSV, XLSX, and PDF formats with automatic column mapping and duplicate detection. Includes dynamic spending analytics visualized through Recharts, multi-currency support for 12 global currencies, and comprehensive export capabilities for HTML and CSV reporting.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
-    "techStack": ["nextjs", "react", "electron", "typescript", "sqlite", "google-gemini", "recharts", "radix-ui", "tailwind", "pdf-parse", "xlsx", "papaparse", "jaro-winkler"],
-    "category": "tools",
-    "links": {
-      "github": "https://github.com/calebhan/vault",
-      "live": null,
-      "demo": null
-    },
-    "images": {
-      "thumbnail": "/projects/vault/thumb.png",
-      "screenshots": [
-        "/projects/vault/screen1.png"
-      ]
-    },
-    "metadata": {
-      "year": 2026,
-      "status": "active",
-      "complexity": "medium"
-    }
-  },
-  {
-    "id": "rescored",
-    "title": "Rescored",
-    "tagline": "Convert YouTube videos into editable sheet music using AI.",
-    "description": "Created a recipe management application that helps users organize recipes, plan meals, and generate shopping lists. Uses AI to suggest recipes based on available ingredients and dietary preferences.\n\nBuilt with Next.js and MongoDB for flexible recipe storage. The AI meal planner uses GPT-4 to generate weekly meal plans considering nutritional balance, ingredient overlap to minimize waste, and user preferences.\n\nFeatures include recipe import from URLs with automatic parsing, nutritional information calculation, serving size adjustment, and ingredient substitution suggestions. Mobile-responsive design optimized for kitchen use.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
-    "techStack": ["vite", "react", "typescript", "tailwind", "fastapi", "python", "celery", "redis", "vexflow", "tonejs", "bs-roformer", "demucs", "yourmt3+", "bytedance"],
-    "category": "fullstack",
-    "links": {
-      "github": "https://github.com/calebhan/rescored",
-      "live": "https://rescored.vercel.app/",
-      "demo": null
-    },
-    "images": {
-      "thumbnail": "/projects/rescored/thumb.png",
-      "screenshots": [
-        "/projects/rescored/screen1.png",
-        "/projects/rescored/screen2.png"
-      ]
-    },
-    "metadata": {
-      "year": 2026,
-      "status": "active",
-      "complexity": "high"
-    }
-  },
-  {
-    "id": "code-snippet-manager",
-    "title": "Developer Code Snippet Library",
-    "tagline": "Personal knowledge base for code snippets with fuzzy search",
-    "description": "Built a personal code snippet manager for organizing and quickly retrieving reusable code patterns. Features syntax highlighting for 50+ languages, tag-based organization, and fuzzy search to find snippets fast.\n\nImplemented using Electron for cross-platform desktop support with a local-first architecture. All data is stored in SQLite with full-text search capabilities. Includes VS Code extension for quick snippet insertion.\n\nSupports snippet templates with variable interpolation, version history for tracking changes, and export/import for sharing collections. Global keyboard shortcuts allow accessing snippets from any application.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
-    "techStack": [],
-    "category": "tools",
-    "links": {
-      "github": "https://github.com/calebhan/snippet-manager",
-      "live": null,
-      "demo": null
-    },
-    "images": {
-      "thumbnail": "/projects/snippets/thumb.png",
-      "screenshots": []
-    },
-    "metadata": {
-      "year": 2023,
-      "status": "active",
-      "complexity": "medium"
-    }
-  },
-  {
     "id": "portfolio-website",
     "title": "Personal Portfolio Website",
-    "tagline": "Modern portfolio showcasing photography and development work",
+    "tagline": "Modern portfolio showcasing photography and development work.",
     "description": "Designed and built this portfolio website to showcase my photography and development projects. Features a clean, minimal design with smooth animations and transitions that enhance the user experience without overwhelming content.\n\nImplemented with Next.js for optimal performance with static site generation and image optimization. Uses anime.js for scroll-triggered animations and Intersection Observer for lazy loading. Achieved 100/100 Lighthouse scores across all metrics.\n\nIncludes advanced features like AI-powered search, interactive tech visualizations, and adaptive layouts that work seamlessly across devices. Built with accessibility in mind, supporting keyboard navigation and respecting user motion preferences.",
     "featured": false,
     "featuredRank": null,
