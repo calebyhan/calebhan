@@ -1,4 +1,4 @@
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$, '') || 'https://calebhan.top';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/+$/, '') || 'https://calebhan.top';
 
 const routes = ['/', '/code', '/photography'];
 
