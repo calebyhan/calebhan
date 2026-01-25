@@ -23,11 +23,11 @@ export default function About() {
         if (!introRef.current) return;
 
         const headshot = introRef.current.querySelector('[data-animate="headshot"]');
-        const text = introRef.current.querySelector('p');
+        const paragraphs = introRef.current.querySelectorAll('p');
 
         if (prefersReducedMotion) {
             utils.set(headshot, { opacity: 1, scale: 1 });
-            utils.set(text, { opacity: 1, translateY: 0 });
+            utils.set(paragraphs, { opacity: 1, translateY: 0 });
             return;
         }
 
@@ -38,11 +38,11 @@ export default function About() {
             easing: 'easeOutBack'
         });
 
-        animate(text, {
+        animate(paragraphs, {
             opacity: [0, 1],
             translateY: [30, 0],
             duration: 800,
-            delay: 200,
+            delay: stagger(150, { start: 200 }),
             easing: 'easeOutCubic'
         });
     }, [prefersReducedMotion]);
@@ -196,6 +196,12 @@ export default function About() {
                         (class of 2028) passionate about photography and coding. I enjoy capturing
                         with my Canon EOS R8 (previously EOS R50) and drones (DJI Mini 4 Pro and
                         DJI Avata 2).
+                    </p>
+
+                    <p className="text-xl text-gray-300 leading-relaxed antialiased opacity-0 mt-6">
+                        I'm currently exploring AI/ML and full stack web development. I like to
+                        build projects that combine my interests in technology and creativity.
+                        Check out my <a href="/code" className="text-cyan-400 hover:text-cyan-300 transition-colors">projects</a> or <a href="https://github.com/calebyhan" className="text-cyan-400 hover:text-cyan-300 transition-colors">GitHub</a> to learn more!
                     </p>
                 </div>
             </section>
