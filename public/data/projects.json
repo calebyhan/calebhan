@@ -111,6 +111,34 @@
     }
   },
   {
+    "id": "bible-rag",
+    "title": "Bible RAG",
+    "tagline": "Multilingual Bible study platform powered by semantic search and RAG.",
+    "description": "Developed Bible RAG, a Retrieval-Augmented Generation (RAG) system for intelligent Bible study supporting English and Korean with deep integration of original biblical languages (Hebrew, Greek, Aramaic). Features natural language semantic search across 10+ translations including NIV, ESV, KJV, 개역한글, and 새번역.\n\nBuilt using FastAPI, PostgreSQL with pgvector for vector similarity search, and Next.js 15 with TypeScript. Integrated the multilingual-e5-large embedding model (1024-dim) for semantic search and Google Gemini 2.5 Flash API for contextual LLM responses with Groq fallback.\n\nIngested 442,413 original language words with Strong's Concordance numbers (99.9% Greek coverage, 98.1% Hebrew coverage, 98.0% Aramaic coverage) providing morphological parsing, transliteration, and interlinear word-by-word analysis. Implemented Redis caching layer achieving <500ms response times for cached queries and <2s for initial searches. Features parallel translation view, cross-reference discovery with 63,779+ verse connections, Korean-specific typography with Hanja display, and automatic query intent detection with code-switching support.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": ["fastapi", "nextjs", "typescript", "python", "postgresql", "pgvector", "redis", "google-gemini", "groq", "multilingual-e5-large", "tailwind"],
+    "category": "tools",
+    "links": {
+      "github": "https://github.com/calebyhan/bible-rag",
+      "live": "https://bible-rag-two.vercel.app/",
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/bible-rag/thumb.png",
+      "screenshots": [
+        "/projects/bible-rag/screen1.png",
+        "/projects/bible-rag/screen2.png"
+      ]
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "completed",
+      "complexity": "high"
+    }
+  },
+  {
     "id": "vault",
     "title": "Vault",
     "tagline": "Personal desktop app for analyzing credit card spending patterns.",
