@@ -7,7 +7,13 @@
     "featured": true,
     "featuredRank": 1,
     "featuredLabel": "Most Technically Complex",
-    "techStack": ["react", "nextjs", "javascript", "openai", "ml"],
+    "techStack": [
+      "react",
+      "nextjs",
+      "javascript",
+      "openai",
+      "ml"
+    ],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebhan/chess-bot",
@@ -35,7 +41,13 @@
     "featured": true,
     "featuredRank": 2,
     "featuredLabel": "Most Interactive",
-    "techStack": ["vite", "react", "typescript", "threejs", "zustand"],
+    "techStack": [
+      "vite",
+      "react",
+      "typescript",
+      "threejs",
+      "zustand"
+    ],
     "category": "game",
     "links": {
       "github": "https://github.com/calebyhan/3d-blackjack",
@@ -62,7 +74,16 @@
     "featured": true,
     "featuredRank": 3,
     "featuredLabel": "Best UX Design",
-    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python", "tailwind"],
+    "techStack": [
+      "react",
+      "nextjs",
+      "fastapi",
+      "google-gemini",
+      "supabase",
+      "typescript",
+      "python",
+      "tailwind"
+    ],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebyhan/hacknc25",
@@ -90,7 +111,22 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["vite", "react", "typescript", "tailwind", "fastapi", "python", "celery", "redis", "vexflow", "tonejs", "bs-roformer", "demucs", "yourmt3+", "bytedance"],
+    "techStack": [
+      "vite",
+      "react",
+      "typescript",
+      "tailwind",
+      "fastapi",
+      "python",
+      "celery",
+      "redis",
+      "vexflow",
+      "tonejs",
+      "bs-roformer",
+      "demucs",
+      "yourmt3+",
+      "bytedance"
+    ],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebhan/rescored",
@@ -114,11 +150,23 @@
     "id": "bible-rag",
     "title": "Bible RAG",
     "tagline": "Multilingual Bible study platform powered by semantic search and RAG.",
-    "description": "Developed Bible RAG, a Retrieval-Augmented Generation (RAG) system for intelligent Bible study supporting English and Korean with deep integration of original biblical languages (Hebrew, Greek, Aramaic). Features natural language semantic search across 10+ translations including NIV, ESV, KJV, 개역한글, and 새번역.\n\nBuilt using FastAPI, PostgreSQL with pgvector for vector similarity search, and Next.js 15 with TypeScript. Integrated the multilingual-e5-large embedding model (1024-dim) for semantic search and Google Gemini 2.5 Flash API for contextual LLM responses with Groq fallback.\n\nIngested 442,413 original language words with Strong's Concordance numbers (99.9% Greek coverage, 98.1% Hebrew coverage, 98.0% Aramaic coverage) providing morphological parsing, transliteration, and interlinear word-by-word analysis. Implemented Redis caching layer achieving <500ms response times for cached queries and <2s for initial searches. Features parallel translation view, cross-reference discovery with 63,779+ verse connections, Korean-specific typography with Hanja display, and automatic query intent detection with code-switching support.",
+    "description": "Developed Bible RAG, a Retrieval-Augmented Generation (RAG) system for intelligent Bible study supporting English and Korean with deep integration of original biblical languages (Hebrew, Greek, Aramaic). Features natural language semantic search across 10+ translations including NIV, ESV, KJV, 개역한글, and 새번역.\n\nBuilt using FastAPI, PostgreSQL with pgvector for vector similarity search, and Next.js 15 with TypeScript. Integrated the multilingual-e5-large embedding model (1024-dim) for semantic search and Groq Llama 3.3 70B API for contextual LLM responses with Gemini fallback.\n\nIngested 442,413 original language words with Strong's Concordance numbers (99.9% Greek coverage, 98.1% Hebrew coverage, 98.0% Aramaic coverage) providing morphological parsing, transliteration, and interlinear word-by-word analysis. Implemented Redis caching layer achieving <500ms response times for cached queries and <2s for initial searches. Features parallel translation view, cross-reference discovery with 63,779+ verse connections, Korean-specific typography with Hanja display, and automatic query intent detection with code-switching support.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["fastapi", "nextjs", "typescript", "python", "postgresql", "pgvector", "redis", "google-gemini", "groq", "multilingual-e5-large", "tailwind"],
+    "techStack": [
+      "fastapi",
+      "nextjs",
+      "typescript",
+      "python",
+      "postgresql",
+      "pgvector",
+      "redis",
+      "google-gemini",
+      "groq",
+      "multilingual-e5-large",
+      "tailwind"
+    ],
     "category": "tools",
     "links": {
       "github": "https://github.com/calebyhan/bible-rag",
@@ -146,7 +194,21 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["nextjs", "react", "electron", "typescript", "sqlite", "google-gemini", "recharts", "radix-ui", "tailwind", "pdf-parse", "xlsx", "papaparse", "jaro-winkler"],
+    "techStack": [
+      "nextjs",
+      "react",
+      "electron",
+      "typescript",
+      "sqlite",
+      "google-gemini",
+      "recharts",
+      "radix-ui",
+      "tailwind",
+      "pdf-parse",
+      "xlsx",
+      "papaparse",
+      "jaro-winkler"
+    ],
     "category": "tools",
     "links": {
       "github": "https://github.com/calebhan/vault",
@@ -167,13 +229,18 @@
   },
   {
     "id": "smart-charge",
-    "title":  "Smart Charge",
+    "title": "Smart Charge",
     "tagline": "A native macOS menu bar application for battery health.",
     "description": "Developed a native macOS menu bar application that implements intelligent battery charging algorithms to maximize battery lifespan while ensuring device availability.  Features real-time power monitoring, customizable charging rules, and beautiful visualizations of system energy flow with an \"Availability First\" philosophy.\n\nBuilt with Swift and SwiftUI for a lightweight, fast, macOS-native experience. Implements three charging modes: Availability (prioritizes readiness), Longevity (optimizes battery health), and Custom (user-defined rules). Features deterministic time-based and power-draw logic for predictable behavior, avoiding complex pattern learning black boxes.\n\nKey technical achievements include integration with macOS System Management Controller (SMC) for hardware-level charging control via the battery CLI tool, privileged helper implementation for real-time CPU/GPU power metrics monitoring using powermetrics, and comprehensive documentation covering architecture, data flows, and development workflows.  Provides manual control with smart defaults, giving users full transparency and control over charging behavior.",
     "featured": false,
     "featuredRank": null,
-    "featuredLabel":  null,
-    "techStack":  ["swift", "swiftui", "xcode", "macos"],
+    "featuredLabel": null,
+    "techStack": [
+      "swift",
+      "swiftui",
+      "xcode",
+      "macos"
+    ],
     "category": "utility",
     "links": {
       "github": "https://github.com/calebyhan/smart-charge",
@@ -182,8 +249,7 @@
     },
     "images": {
       "thumbnail": "/projects/smart-charge/thumb.png",
-      "screenshots": [
-      ]
+      "screenshots": []
     },
     "metadata": {
       "year": 2026,
@@ -199,7 +265,14 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["python", "jupyter notebook", "numpy", "pillow", "matplotlib", "torch"],
+    "techStack": [
+      "python",
+      "jupyter notebook",
+      "numpy",
+      "pillow",
+      "matplotlib",
+      "torch"
+    ],
     "category": "machine learning",
     "links": {
       "github": "https://github.com/calebyhan/nebula",
@@ -208,8 +281,7 @@
     },
     "images": {
       "thumbnail": "/projects/nebula/thumb.png",
-      "screenshots": [
-      ]
+      "screenshots": []
     },
     "metadata": {
       "year": 2025,
@@ -225,7 +297,16 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["react", "nextjs", "fastapi", "google-gemini", "supabase", "typescript", "python", "tailwind"],
+    "techStack": [
+      "react",
+      "nextjs",
+      "fastapi",
+      "google-gemini",
+      "supabase",
+      "typescript",
+      "python",
+      "tailwind"
+    ],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebyhan/vthacks25",
@@ -292,7 +373,14 @@
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
-    "techStack": ["react", "nextjs", "javascript", "tailwind", "ai", "animejs"],
+    "techStack": [
+      "react",
+      "nextjs",
+      "javascript",
+      "tailwind",
+      "ai",
+      "animejs"
+    ],
     "category": "fullstack",
     "links": {
       "github": "https://github.com/calebyhan/calebhan",
