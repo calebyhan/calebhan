@@ -1,34 +1,43 @@
 [
   {
-    "id": "chess-bot",
-    "title": "Chess Bot",
-    "tagline": "Semantic search for photography portfolio using ML embeddings",
-    "description": "Built a sophisticated search system for my photography portfolio that understands natural language queries. Uses Xenova's multilingual-e5-small model to generate embeddings for photos, combining semantic search with BM25 keyword matching through reciprocal rank fusion.\n\nThe system processes metadata (location, tags, camera settings) into searchable vectors, allowing queries like 'sunset beaches' or 'urban architecture' to find relevant photos beyond simple keyword matching. Implemented client-side for instant results with no backend dependencies.\n\nKey technical challenges included optimizing embedding generation for ~1000 photos, implementing efficient cosine similarity search in the browser, and balancing semantic vs keyword relevance through tuned RRF weights.",
+    "id": "rescored",
+    "title": "Rescored",
+    "tagline": "Convert YouTube videos into editable sheet music using AI.",
+    "description": "Created a recipe management application that helps users organize recipes, plan meals, and generate shopping lists. Uses AI to suggest recipes based on available ingredients and dietary preferences.\n\nBuilt with Next.js and MongoDB for flexible recipe storage. The AI meal planner uses GPT-4 to generate weekly meal plans considering nutritional balance, ingredient overlap to minimize waste, and user preferences.\n\nFeatures include recipe import from URLs with automatic parsing, nutritional information calculation, serving size adjustment, and ingredient substitution suggestions. Mobile-responsive design optimized for kitchen use.",
     "featured": true,
     "featuredRank": 1,
     "featuredLabel": "Most Technically Complex",
     "techStack": [
+      "vite",
       "react",
-      "nextjs",
-      "javascript",
-      "openai",
-      "ml"
+      "typescript",
+      "tailwind",
+      "fastapi",
+      "python",
+      "celery",
+      "redis",
+      "vexflow",
+      "tonejs",
+      "bs-roformer",
+      "demucs",
+      "yourmt3+",
+      "bytedance"
     ],
     "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/chess-bot",
-      "live": "https://calebhan.com/photography",
+      "github": "https://github.com/calebhan/rescored",
+      "live": "https://rescored.vercel.app/",
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/ai-search/thumb.png",
+      "thumbnail": "/projects/rescored/thumb.png",
       "screenshots": [
-        "/projects/ai-search/screen1.png",
-        "/projects/ai-search/screen2.png"
+        "/projects/rescored/screen1.png",
+        "/projects/rescored/screen2.png"
       ]
     },
     "metadata": {
-      "year": 2024,
+      "year": 2026,
       "status": "active",
       "complexity": "high"
     }
@@ -104,44 +113,35 @@
     }
   },
   {
-    "id": "rescored",
-    "title": "Rescored",
-    "tagline": "Convert YouTube videos into editable sheet music using AI.",
-    "description": "Created a recipe management application that helps users organize recipes, plan meals, and generate shopping lists. Uses AI to suggest recipes based on available ingredients and dietary preferences.\n\nBuilt with Next.js and MongoDB for flexible recipe storage. The AI meal planner uses GPT-4 to generate weekly meal plans considering nutritional balance, ingredient overlap to minimize waste, and user preferences.\n\nFeatures include recipe import from URLs with automatic parsing, nutritional information calculation, serving size adjustment, and ingredient substitution suggestions. Mobile-responsive design optimized for kitchen use.",
+    "id": "chess-bot",
+    "title": "Chess Bot",
+    "tagline": "Semantic search for photography portfolio using ML embeddings",
+    "description": "Built a sophisticated search system for my photography portfolio that understands natural language queries. Uses Xenova's multilingual-e5-small model to generate embeddings for photos, combining semantic search with BM25 keyword matching through reciprocal rank fusion.\n\nThe system processes metadata (location, tags, camera settings) into searchable vectors, allowing queries like 'sunset beaches' or 'urban architecture' to find relevant photos beyond simple keyword matching. Implemented client-side for instant results with no backend dependencies.\n\nKey technical challenges included optimizing embedding generation for ~1000 photos, implementing efficient cosine similarity search in the browser, and balancing semantic vs keyword relevance through tuned RRF weights.",
     "featured": false,
     "featuredRank": null,
     "featuredLabel": null,
     "techStack": [
-      "vite",
       "react",
-      "typescript",
-      "tailwind",
-      "fastapi",
-      "python",
-      "celery",
-      "redis",
-      "vexflow",
-      "tonejs",
-      "bs-roformer",
-      "demucs",
-      "yourmt3+",
-      "bytedance"
+      "nextjs",
+      "javascript",
+      "openai",
+      "ml"
     ],
     "category": "fullstack",
     "links": {
-      "github": "https://github.com/calebhan/rescored",
-      "live": "https://rescored.vercel.app/",
+      "github": "https://github.com/calebhan/chess-bot",
+      "live": "https://calebhan.com/photography",
       "demo": null
     },
     "images": {
-      "thumbnail": "/projects/rescored/thumb.png",
+      "thumbnail": "/projects/ai-search/thumb.png",
       "screenshots": [
-        "/projects/rescored/screen1.png",
-        "/projects/rescored/screen2.png"
+        "/projects/ai-search/screen1.png",
+        "/projects/ai-search/screen2.png"
       ]
     },
     "metadata": {
-      "year": 2026,
+      "year": 2024,
       "status": "active",
       "complexity": "high"
     }
