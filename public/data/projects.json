@@ -113,40 +113,6 @@
     }
   },
   {
-    "id": "chess-bot",
-    "title": "Chess Bot",
-    "tagline": "Semantic search for photography portfolio using ML embeddings",
-    "description": "Built a sophisticated search system for my photography portfolio that understands natural language queries. Uses Xenova's multilingual-e5-small model to generate embeddings for photos, combining semantic search with BM25 keyword matching through reciprocal rank fusion.\n\nThe system processes metadata (location, tags, camera settings) into searchable vectors, allowing queries like 'sunset beaches' or 'urban architecture' to find relevant photos beyond simple keyword matching. Implemented client-side for instant results with no backend dependencies.\n\nKey technical challenges included optimizing embedding generation for ~1000 photos, implementing efficient cosine similarity search in the browser, and balancing semantic vs keyword relevance through tuned RRF weights.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
-    "techStack": [
-      "react",
-      "nextjs",
-      "javascript",
-      "openai",
-      "ml"
-    ],
-    "category": "fullstack",
-    "links": {
-      "github": "https://github.com/calebhan/chess-bot",
-      "live": "https://calebhan.com/photography",
-      "demo": null
-    },
-    "images": {
-      "thumbnail": "/projects/ai-search/thumb.png",
-      "screenshots": [
-        "/projects/ai-search/screen1.png",
-        "/projects/ai-search/screen2.png"
-      ]
-    },
-    "metadata": {
-      "year": 2024,
-      "status": "active",
-      "complexity": "high"
-    }
-  },
-  {
     "id": "bible-rag",
     "title": "Bible RAG",
     "tagline": "Multilingual Bible study platform powered by semantic search and RAG.",
