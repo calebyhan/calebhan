@@ -153,6 +153,75 @@
     }
   },
   {
+    "id": "VISUAL911",
+    "title": "VISUAL911",
+    "tagline": "A community-aware emergency response system.",
+    "description": "Developed VISUAL911, a community-aware emergency response system that turns a single iPhone SOS into a coordinated, real-time incident signal for dispatchers and nearby bystanders. Instead of treating 911 as a private one-to-one call, VISUAL911 surfaces shared situational awareness—live video, location, corroborating reports, and automated triage—so help can be routed faster and communities can respond intelligently when seconds matter.\n\nBuilt a full-stack pipeline spanning an iOS caller app, a dispatcher web dashboard, and a Python async backend running on a Vultr VPS. On SOS, the iOS app performs a 15-second contactless vitals scan (heart rate + breathing rate via Presage SmartSpectra, no wearable), starts a WebRTC video call directly to the dispatcher's browser, streams audio to Gemini 2.5 Flash for triage summaries every 10 seconds, and sends GPS + biometrics to the dashboard. The server clusters calls into incidents (50m radius), broadcasts community alerts over a persistent `/ws/alerts` WebSocket to nearby idle iPhones, and relays live incident metrics (report counts, severity, active incidents) to the dispatcher UI.\n\nKey technical achievements include a multi-WebSocket design (signaling, audio/video frame transport, vitals JSON, plus broadcast alerts), TURN-assisted WebRTC connectivity (coturn + HMAC-SHA1 credential generation), real-time AI triage using buffered WAV audio + latest frame for cumulative context, and a dispatcher dashboard that consolidates live video, vitals, AI summary + severity score, map pin, and corroboration counts into a single operational view. Built with Swift/SwiftUI on iOS, Python asyncio/aiohttp + google-genai on the backend, and a lightweight HTML/CSS/JS + Leaflet dispatcher frontend. Built for PearlHacks 2026, winning Best Use of Presage and 3rd for Best Hack for Emergency Support.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": [
+      "swift",
+      "swiftui",
+      "xcode",
+      "macos",
+      "webrtc",
+      "python",
+      "aiohttp",
+      "asyncio",
+      "google-gemini",
+      "leaflet",
+      "vultr",
+      "presage",
+      "coturn"
+    ],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebyhan/pearlhacks26",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/VISUAL911/thumb.png",
+      "screenshots": []
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "completed",
+      "complexity": "medium"
+    }
+  },
+  {
+    "id": "smart-charge",
+    "title": "Smart Charge",
+    "tagline": "A native macOS menu bar application for battery health.",
+    "description": "Developed a native macOS menu bar application that implements intelligent battery charging algorithms to maximize battery lifespan while ensuring device availability.  Features real-time power monitoring, customizable charging rules, and beautiful visualizations of system energy flow with an \"Availability First\" philosophy.\n\nBuilt with Swift and SwiftUI for a lightweight, fast, macOS-native experience. Implements three charging modes: Availability (prioritizes readiness), Longevity (optimizes battery health), and Custom (user-defined rules). Features deterministic time-based and power-draw logic for predictable behavior, avoiding complex pattern learning black boxes.\n\nKey technical achievements include integration with macOS System Management Controller (SMC) for hardware-level charging control via the battery CLI tool, privileged helper implementation for real-time CPU/GPU power metrics monitoring using powermetrics, and comprehensive documentation covering architecture, data flows, and development workflows.  Provides manual control with smart defaults, giving users full transparency and control over charging behavior.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": [
+      "swift",
+      "swiftui",
+      "xcode",
+      "macos"
+    ],
+    "category": "utility",
+    "links": {
+      "github": "https://github.com/calebyhan/smart-charge",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/smart-charge/thumb.png",
+      "screenshots": []
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "completed",
+      "complexity": "medium"
+    }
+  },
+  {
     "id": "vault",
     "title": "Vault",
     "tagline": "Personal desktop app for analyzing credit card spending patterns.",
@@ -190,36 +259,6 @@
     "metadata": {
       "year": 2026,
       "status": "active",
-      "complexity": "medium"
-    }
-  },
-  {
-    "id": "smart-charge",
-    "title": "Smart Charge",
-    "tagline": "A native macOS menu bar application for battery health.",
-    "description": "Developed a native macOS menu bar application that implements intelligent battery charging algorithms to maximize battery lifespan while ensuring device availability.  Features real-time power monitoring, customizable charging rules, and beautiful visualizations of system energy flow with an \"Availability First\" philosophy.\n\nBuilt with Swift and SwiftUI for a lightweight, fast, macOS-native experience. Implements three charging modes: Availability (prioritizes readiness), Longevity (optimizes battery health), and Custom (user-defined rules). Features deterministic time-based and power-draw logic for predictable behavior, avoiding complex pattern learning black boxes.\n\nKey technical achievements include integration with macOS System Management Controller (SMC) for hardware-level charging control via the battery CLI tool, privileged helper implementation for real-time CPU/GPU power metrics monitoring using powermetrics, and comprehensive documentation covering architecture, data flows, and development workflows.  Provides manual control with smart defaults, giving users full transparency and control over charging behavior.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
-    "techStack": [
-      "swift",
-      "swiftui",
-      "xcode",
-      "macos"
-    ],
-    "category": "utility",
-    "links": {
-      "github": "https://github.com/calebyhan/smart-charge",
-      "live": null,
-      "demo": null
-    },
-    "images": {
-      "thumbnail": "/projects/smart-charge/thumb.png",
-      "screenshots": []
-    },
-    "metadata": {
-      "year": 2026,
-      "status": "completed",
       "complexity": "medium"
     }
   },
