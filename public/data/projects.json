@@ -47,9 +47,9 @@
     "title": "3D Blackjack Game",
     "tagline": "A 3D blackjack game built with React, TypeScript, Three.js, and Zustand.",
     "description": "Developed a fully interactive 3D blackjack game featuring realistic card physics and smooth animations powered by React Three Fiber and React Spring. Implements complete blackjack game logic with automatic dealer AI that follows casino rules (hits on <17), proper scoring with ace value handling, and win/loss detection.\n\nBuilt with a modular architecture separating game logic (deck creation, shuffling, scoring rules) from rendering concerns. Uses Zustand for predictable state management, enabling clean separation between game state and 3D scene updates. Features physics-based card animations with realistic flip transitions and hand positioning.\n\nKey technical achievements include optimized 3D rendering for smooth 60fps gameplay, custom 3D UNC-themed card components with proper lighting and shadows, and a responsive UI overlay that doesn't interfere with scene interactions. Built for Claude Builder's Club Mini Hackathon, winning 3rd Place.",
-    "featured": true,
-    "featuredRank": 2,
-    "featuredLabel": "Most Interactive",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
     "techStack": [
       "vite",
       "react",
@@ -80,9 +80,9 @@
     "title": "Good Studio",
     "tagline": "AI-powered microsite builder for small nonprofits and community organizations.",
     "description": "Engineered an AI-powered website builder that generates complete, accessible microsites for nonprofits in under 2 minutes using a sophisticated 4-agent pipeline powered by Google Gemini 2.5 Flash Lite. The system orchestrates Brand, Copywriter, Accessibility, and Developer agents using LangGraph, with real Server-Sent Events streaming progress to the frontend (not simulated delays).\n\nImplemented a robust visual site editor with a drag-and-drop block system supporting text, images, and flex layouts. Features inline content editing, live preview updates, and AI-powered content regeneration with adjustable tone and audience targeting. Built an event management system with RSVP functionality, capacity tracking, email validation, and IP-based rate limiting to prevent spam.\n\nArchitected with multi-tenant security using Supabase Row Level Security policies for data isolation. Includes comprehensive error handling with deterministic AI fallbacks that never crash the generation pipeline: if the AI fails, production-quality fallback data is used instead. Built for HackNC 2025, winning Best Use of Gemini API.",
-    "featured": true,
-    "featuredRank": 3,
-    "featuredLabel": "Best UX Design",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
     "techStack": [
       "react",
       "nextjs",
@@ -117,9 +117,9 @@
     "title": "Bible RAG",
     "tagline": "Multilingual Bible study platform powered by semantic search and RAG.",
     "description": "Developed Bible RAG, a Retrieval-Augmented Generation (RAG) system for intelligent Bible study supporting English and Korean with deep integration of original biblical languages (Hebrew, Greek, Aramaic). Features natural language semantic search across 10+ translations including NIV, ESV, KJV, 개역한글, and 새번역.\n\nBuilt using FastAPI, PostgreSQL with pgvector for vector similarity search, and Next.js 15 with TypeScript. Integrated the multilingual-e5-large embedding model (1024-dim) for semantic search and Groq Llama 3.3 70B API for contextual LLM responses with Gemini fallback.\n\nIngested 442,413 original language words with Strong's Concordance numbers (99.9% Greek coverage, 98.1% Hebrew coverage, 98.0% Aramaic coverage) providing morphological parsing, transliteration, and interlinear word-by-word analysis. Implemented Redis caching layer achieving <500ms response times for cached queries and <2s for initial searches. Features parallel translation view, cross-reference discovery with 63,779+ verse connections, Korean-specific typography with Hanja display, and automatic query intent detection with code-switching support.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
+    "featured": true,
+    "featuredRank": 2,
+    "featuredLabel": "Most Data-Intensive",
     "techStack": [
       "fastapi",
       "nextjs",
@@ -196,9 +196,9 @@
     "title": "Smart Charge",
     "tagline": "A native macOS menu bar application for battery health.",
     "description": "Developed a native macOS menu bar application that implements intelligent battery charging algorithms to maximize battery lifespan while ensuring device availability.  Features real-time power monitoring, customizable charging rules, and beautiful visualizations of system energy flow with an \"Availability First\" philosophy.\n\nBuilt with Swift and SwiftUI for a lightweight, fast, macOS-native experience. Implements three charging modes: Availability (prioritizes readiness), Longevity (optimizes battery health), and Custom (user-defined rules). Features deterministic time-based and power-draw logic for predictable behavior, avoiding complex pattern learning black boxes.\n\nKey technical achievements include integration with macOS System Management Controller (SMC) for hardware-level charging control via the battery CLI tool, privileged helper implementation for real-time CPU/GPU power metrics monitoring using powermetrics, and comprehensive documentation covering architecture, data flows, and development workflows.  Provides manual control with smart defaults, giving users full transparency and control over charging behavior.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
+    "featured": true,
+    "featuredRank": 3,
+    "featuredLabel": "Most Useful",
     "techStack": [
       "swift",
       "swiftui",
@@ -272,11 +272,11 @@
     "featuredLabel": null,
     "techStack": [
       "python",
-      "jupyter notebook",
+      "jupyter",
       "numpy",
       "pillow",
       "matplotlib",
-      "torch"
+      "pytorch"
     ],
     "category": "machine learning",
     "links": {
@@ -347,7 +347,7 @@
       "nextjs",
       "typescript",
       "react",
-      "d3.js",
+      "d3js",
       "framer motion",
       "tailwind"
     ],
