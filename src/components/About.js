@@ -142,16 +142,8 @@ export default function About() {
             await navigator.clipboard.writeText('calebhan@unc.edu');
             setEmailCopied(true);
             setTimeout(() => setEmailCopied(false), 2000);
-        } catch (err) {
-            console.error('Failed to copy email:', err);
-            const textArea = document.createElement('textarea');
-            textArea.value = 'calebhan@unc.edu';
-            document.body.appendChild(textArea);
-            textArea.select();
-            document.execCommand('copy');
-            document.body.removeChild(textArea);
-            setEmailCopied(true);
-            setTimeout(() => setEmailCopied(false), 2000);
+        } catch {
+            // Clipboard API unavailable
         }
     };
 
@@ -161,7 +153,7 @@ export default function About() {
             <div className="absolute inset-0 overflow-hidden">
                 <Image
                     src="/photos/IMG_5067.jpg"
-                    alt="Background"
+                    alt=""
                     fill
                     className="object-cover blur-sm"
                     priority
@@ -271,7 +263,7 @@ export default function About() {
                             <div className="aspect-square relative overflow-hidden">
                                 <Image
                                     src="/img/about.jpg"
-                                    alt="Featured Photo"
+                                    alt="KASA Mountain Trip"
                                     fill
                                     className="object-cover transition-transform duration-500
                                              group-hover:scale-105"
@@ -279,7 +271,7 @@ export default function About() {
                                 <div className="absolute inset-0 bg-black/70 opacity-0
                                               group-hover:opacity-100 transition-opacity duration-300
                                               flex flex-col items-center justify-center p-6">
-                                    <p className="text-white-300 text-sm text-center mb-4">
+                                    <p className="text-gray-300 text-sm text-center mb-4">
                                         KASA MT
                                     </p>
                                     <p className="text-cyan-400 text-sm flex items-center gap-1">

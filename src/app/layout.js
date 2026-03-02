@@ -8,8 +8,17 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 
 export const metadata = {
-    title: "Caleb Han",
-    description: "Developer & Photographer",
+    title: { default: "Caleb Han", template: "%s | Caleb Han" },
+    description: "Developer & Photographer — UNC Chapel Hill '28",
+    metadataBase: new URL("https://calebhan.top"),
+    openGraph: {
+        title: "Caleb Han",
+        description: "Developer & Photographer",
+        url: "https://calebhan.top",
+        siteName: "Caleb Han",
+        images: [{ url: "/img/og-image.jpg", width: 1200, height: 630 }],
+        type: "website",
+    },
 };
 
 export default function RootLayout({ children }) {
