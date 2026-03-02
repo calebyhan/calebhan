@@ -140,12 +140,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
             scale: 120,
             center: [0, 20]
           }}
-          className="w-full h-auto"
-          style={{
-            width: "100%",
-            height: "auto",
-            backgroundColor: "rgba(0, 0, 0, 0.4)"
-          }}
+          className="w-full h-auto bg-black/40"
         >
           <ZoomableGroup
             zoom={worldZoom}
@@ -218,12 +213,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
       ) : (
         <ComposableMap
           projection="geoAlbersUsa"
-          className="w-full h-auto"
-          style={{
-            width: "100%",
-            height: "auto",
-            backgroundColor: "rgba(0, 0, 0, 0.4)"
-          }}
+          className="w-full h-auto bg-black/40"
         >
           <ZoomableGroup
             zoom={usaZoom}

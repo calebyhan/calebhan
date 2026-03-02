@@ -99,19 +99,11 @@ export default function FilterPanel({ filters, setFilters, searchQuery, setSearc
         className={`
           fixed lg:sticky top-16 left-0 z-50 lg:z-auto
           w-80 bg-gray-900/70 backdrop-blur-lg border-r border-gray-800/70 p-6
-          overflow-y-auto h-[calc(100vh-4rem)]
+          overflow-y-auto h-[calc(100vh-4rem)] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden
           transition-transform duration-300 ease-in-out
           ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
         `}
-        style={{
-          scrollbarWidth: 'none'
-        }}
       >
-        <style jsx>{`
-          aside::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
 
         {/* Close button for mobile */}
         <div className="flex items-center justify-between mb-4 lg:mb-0">

@@ -103,19 +103,12 @@ export default function HomeScroll() {
 
                 <div
                     ref={heroRef}
-                    className="absolute inset-0 opacity-0"
-                    style={{
-                        backgroundImage: "url(/img/home.jpg)",
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                        backgroundRepeat: "no-repeat",
-                    }}
+                    className="absolute inset-0 opacity-0 bg-[url('/img/home.jpg')] bg-cover bg-center bg-no-repeat"
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
                     <div className="absolute top-20 right-20 w-32 h-32 border border-white/20 rotate-45 animate-pulse" />
                     <div
-                        className="absolute bottom-40 left-20 w-20 h-20 bg-blue-500/10 rounded-full animate-bounce"
-                        style={{ animationDelay: "1s", animationDuration: "3s" }}
+                        className="absolute bottom-40 left-20 w-20 h-20 bg-blue-500/10 rounded-full animate-bounce [animation-delay:1s] [animation-duration:3s]"
                     />
                 </div>
 
@@ -142,8 +135,7 @@ export default function HomeScroll() {
                             <div className="flex flex-col items-center space-y-2">
                                 <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center relative">
                                     <div
-                                        className="w-1 h-3 bg-white/80 rounded-full mt-2"
-                                        style={{ animation: "bounce 2s infinite" }}
+                                        className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-bounce"
                                     />
                                 </div>
                                 
