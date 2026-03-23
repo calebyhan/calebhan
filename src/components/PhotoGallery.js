@@ -68,6 +68,7 @@ export default function PhotoGallery({ photos }) {
               alt={`Photo ${index + 1}`}
               width={photo.width}
               height={photo.height}
+              priority
               className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
             />
 
