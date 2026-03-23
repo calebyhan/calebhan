@@ -113,6 +113,42 @@
     }
   },
   {
+    "id": "graphsense",
+    "title": "GraphSense",
+    "tagline": "An AI-powered data visualization platform.",
+    "description": "Built an intelligent data visualization platform that automatically analyzes datasets and recommends optimal visualizations using a 3-agent AI pipeline powered by Google Gemini 2.5 Flash Lite. The Enhanced Data Profiler performs comprehensive statistical analysis and correlation detection, the Chart Recommender evaluates all 10 supported chart types with confidence scoring, and the Validation Agent refines recommendations with quality assessment and appropriateness validation.\n\nEngineered an advanced infinite canvas system with viewport-aware chart placement, ensuring new visualizations always appear in the user's current view. Implemented a precision coordinate system with smooth zoom (0.1x-5x) and pan controls, integrated with a smart minimap providing 1:1 positional accuracy and instant navigation. Features anti-stacking intelligence with random offsets to prevent chart overlap on creation.\n\nSupports 10 chart types (Bar, Line, Scatter, Pie, Histogram, Box Plot, Heatmap, Area, Treemap, Sankey) with automatic axis field detection and data mapping. Optimized for performance with data sampling for large datasets, memoized rendering, and RAF-throttled updates. Includes real-time system monitoring with backend health checks, connection status indicators, and detailed diagnostics (response times, CPU/memory usage). Processes complete datasets in 20-40 seconds with transparent AI reasoning for all recommendations. Built for VTHacks 2025, winning Best Auto Visualization Agent.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": [
+      "react",
+      "nextjs",
+      "fastapi",
+      "google-gemini",
+      "supabase",
+      "typescript",
+      "python",
+      "tailwind"
+    ],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebyhan/graphsense",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/graphsense/thumb.png",
+      "screenshots": [
+        "/projects/graphsense/screen1.png"
+      ]
+    },
+    "metadata": {
+      "year": 2025,
+      "status": "completed",
+      "complexity": "medium"
+    }
+  },
+  {
     "id": "3d-blackjack",
     "title": "3D Blackjack Game",
     "tagline": "A 3D blackjack game built with React, TypeScript, Three.js, and Zustand.",
@@ -222,6 +258,45 @@
     }
   },
   {
+    "id": "gridghost",
+    "title": "GridGhost",
+    "tagline": "Real-time carbon intelligence for the home.",
+    "description": "Built GridGhost, a full-stack carbon-intelligent home energy scheduler that visualizes real-time marginal grid emissions and helps households shift flexible appliance loads into cleaner windows. The product centers on a 24-hour MOER timeline, appliance schedule controls, and a one-click optimization flow that reduces emissions without reducing total energy use.\n\nImplemented a React + Vite frontend with Command, Grid Analytics, and Community views, plus a FastAPI backend that proxies external grid and weather APIs and serves optimization + narrative endpoints. The optimizer uses constrained scheduling to move loads while respecting user constraints and dependencies, then computes baseline versus optimized CO2 impact and demand-response readiness signals.\n\nIntegrated Gemini 2.5 Flash for structured, plain-English carbon briefs generated from optimization output, with strict JSON schema validation and deterministic fallbacks when upstream services fail. Additional system work includes WattTime token refresh handling, EIA generation mix integration, Open-Meteo weather/air-quality ingestion, and fixture-mode support so the full experience still works during API outages.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": [
+      "react",
+      "vite",
+      "typescript",
+      "tailwind",
+      "python",
+      "fastapi",
+      "google-gemini",
+      "recharts",
+      "framer-motion"
+    ],
+    "category": "fullstack",
+    "links": {
+      "github": "https://github.com/calebyhan/hackduke26",
+      "live": "https://hackduke26.vercel.app/",
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/gridghost/thumb.png",
+      "screenshots": [
+        "/projects/gridghost/screen1.png",
+        "/projects/gridghost/screen2.png",
+        "/projects/gridghost/screen3.png"
+      ]
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "completed",
+      "complexity": "medium"
+    }
+  },
+  {
     "id": "vault",
     "title": "Vault",
     "tagline": "Personal desktop app for analyzing credit card spending patterns.",
@@ -292,42 +367,6 @@
       "year": 2025,
       "status": "completed",
       "complexity": "high"
-    }
-  },
-  {
-    "id": "graphsense",
-    "title": "GraphSense",
-    "tagline": "An AI-powered data visualization platform.",
-    "description": "Built an intelligent data visualization platform that automatically analyzes datasets and recommends optimal visualizations using a 3-agent AI pipeline powered by Google Gemini 2.5 Flash Lite. The Enhanced Data Profiler performs comprehensive statistical analysis and correlation detection, the Chart Recommender evaluates all 10 supported chart types with confidence scoring, and the Validation Agent refines recommendations with quality assessment and appropriateness validation.\n\nEngineered an advanced infinite canvas system with viewport-aware chart placement, ensuring new visualizations always appear in the user's current view. Implemented a precision coordinate system with smooth zoom (0.1x-5x) and pan controls, integrated with a smart minimap providing 1:1 positional accuracy and instant navigation. Features anti-stacking intelligence with random offsets to prevent chart overlap on creation.\n\nSupports 10 chart types (Bar, Line, Scatter, Pie, Histogram, Box Plot, Heatmap, Area, Treemap, Sankey) with automatic axis field detection and data mapping. Optimized for performance with data sampling for large datasets, memoized rendering, and RAF-throttled updates. Includes real-time system monitoring with backend health checks, connection status indicators, and detailed diagnostics (response times, CPU/memory usage). Processes complete datasets in 20-40 seconds with transparent AI reasoning for all recommendations. Built for VTHacks 2025, winning Best Auto Visualization Agent.",
-    "featured": false,
-    "featuredRank": null,
-    "featuredLabel": null,
-    "techStack": [
-      "react",
-      "nextjs",
-      "fastapi",
-      "google-gemini",
-      "supabase",
-      "typescript",
-      "python",
-      "tailwind"
-    ],
-    "category": "fullstack",
-    "links": {
-      "github": "https://github.com/calebyhan/vthacks25",
-      "live": null,
-      "demo": null
-    },
-    "images": {
-      "thumbnail": "/projects/graphsense/thumb.png",
-      "screenshots": [
-        "/projects/graphsense/screen1.png"
-      ]
-    },
-    "metadata": {
-      "year": 2025,
-      "status": "completed",
-      "complexity": "medium"
     }
   },
   {
