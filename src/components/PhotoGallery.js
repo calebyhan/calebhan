@@ -68,7 +68,8 @@ export default function PhotoGallery({ photos }) {
               alt={`Photo ${index + 1}`}
               width={photo.width}
               height={photo.height}
-              priority
+              unoptimized
+              priority={index < 4}
               className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
             />
 
@@ -94,6 +95,7 @@ export default function PhotoGallery({ photos }) {
                 alt={selectedPhoto.id}
                 width={selectedPhoto.width}
                 height={selectedPhoto.height}
+                unoptimized
                 className="max-w-full max-h-[50vh] lg:max-h-[80vh] w-auto h-auto object-contain"
               />
             </div>
