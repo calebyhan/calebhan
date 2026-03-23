@@ -10,7 +10,7 @@ const contentSecurityPolicy = [
 	"font-src 'self' https://fonts.gstatic.com",
 	"style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
 	"script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com",
-	"connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com",
+	"connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://cdn.jsdelivr.net",
 	"upgrade-insecure-requests",
 ].join("; ");
 
