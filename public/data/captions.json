@@ -1,0 +1,658 @@
+{
+  "20240907_234338000_iOS.jpg": {
+    "aiCaption": "sunset, HDR",
+    "aiTags": [
+      "sunset",
+      "HDR"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunset",
+        "score": 0.11202725768089294
+      },
+      {
+        "label": "HDR",
+        "score": 0.09629303216934204
+      }
+    ],
+    "naturalCaption": "a sunset over a beach with a lighthouse",
+    "lastModified": 1768250820264.2915,
+    "generatedAt": "2026-03-23T04:29:11.944Z"
+  },
+  "20241005_223906000_iOS.jpg": {
+    "aiCaption": "kayaking, aerial view",
+    "aiTags": [
+      "kayaking",
+      "aerial view"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "kayaking",
+        "score": 0.17959566414356232
+      },
+      {
+        "label": "aerial view",
+        "score": 0.16813434660434723
+      }
+    ],
+    "naturalCaption": "a kite flying through the air with a kite in the air",
+    "lastModified": 1768250820746.8508,
+    "generatedAt": "2026-03-23T04:29:13.407Z"
+  },
+  "20241005_224410000_iOS.jpg": {
+    "aiCaption": "kayaking",
+    "aiTags": [
+      "kayaking"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "kayaking",
+        "score": 0.3923034965991974
+      }
+    ],
+    "naturalCaption": "people are in the water with surfboards",
+    "lastModified": 1768250821207.6897,
+    "generatedAt": "2026-03-23T04:29:14.663Z"
+  },
+  "DJI_20250120173102_0003_D.jpg": {
+    "aiCaption": "sunrise, sunset, morning",
+    "aiTags": [
+      "sunrise",
+      "sunset",
+      "morning"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunrise",
+        "score": 0.2826167345046997
+      },
+      {
+        "label": "sunset",
+        "score": 0.17558351159095764
+      },
+      {
+        "label": "morning",
+        "score": 0.07695837318897247
+      }
+    ],
+    "naturalCaption": "a sunset with a city and a lighthouse",
+    "lastModified": 1768250821666.3765,
+    "generatedAt": "2026-03-23T04:29:15.964Z"
+  },
+  "DJI_20250120173221_0012_D.jpg": {
+    "aiCaption": "drone photography, HDR, aerial view",
+    "aiTags": [
+      "drone photography",
+      "HDR",
+      "aerial view"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "drone photography",
+        "score": 0.07592938095331192
+      },
+      {
+        "label": "HDR",
+        "score": 0.07250083982944489
+      },
+      {
+        "label": "aerial view",
+        "score": 0.06930374354124069
+      }
+    ],
+    "naturalCaption": "a city with a large building and a street",
+    "lastModified": 1767819981344.4592,
+    "generatedAt": "2026-03-23T04:29:17.214Z"
+  },
+  "DJI_20250605105944_0006_D.jpg": {
+    "aiCaption": "aerial view, lake",
+    "aiTags": [
+      "aerial view",
+      "lake"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "aerial view",
+        "score": 0.26901721954345703
+      },
+      {
+        "label": "lake",
+        "score": 0.10227017104625702
+      }
+    ],
+    "naturalCaption": "a large body of water with a couple of boats",
+    "lastModified": 1767819981916.543,
+    "generatedAt": "2026-03-23T04:29:18.512Z"
+  },
+  "IMG_0260.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a person standing on a hill with a horse",
+    "lastModified": 1768250822074.399,
+    "generatedAt": "2026-03-23T04:29:19.759Z"
+  },
+  "IMG_1381.jpg": {
+    "aiCaption": "dog, sandy beach, swimming, beach",
+    "aiTags": [
+      "dog",
+      "sandy beach",
+      "swimming",
+      "beach"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "dog",
+        "score": 0.10810074955224991
+      },
+      {
+        "label": "sandy beach",
+        "score": 0.10642480105161667
+      },
+      {
+        "label": "swimming",
+        "score": 0.09301694482564926
+      },
+      {
+        "label": "beach",
+        "score": 0.07668444514274597
+      }
+    ],
+    "naturalCaption": "a herd of sheep laying on top of a beach",
+    "lastModified": 1768250822481.44,
+    "generatedAt": "2026-03-23T04:29:21.041Z"
+  },
+  "IMG_1402.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a house with a building on the side of it",
+    "lastModified": 1768250822880.0667,
+    "generatedAt": "2026-03-23T04:29:22.334Z"
+  },
+  "IMG_1424.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "two people standing on a beach near the ocean",
+    "lastModified": 1768250823307.3582,
+    "generatedAt": "2026-03-23T04:29:23.571Z"
+  },
+  "IMG_1445.jpg": {
+    "aiCaption": "sandy beach, beach, sand dunes",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "sand dunes"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.09532725811004639
+      },
+      {
+        "label": "beach",
+        "score": 0.0730973333120346
+      },
+      {
+        "label": "sand dunes",
+        "score": 0.06338922679424286
+      }
+    ],
+    "naturalCaption": "people sitting on a hillside",
+    "lastModified": 1767819982340.4336,
+    "generatedAt": "2026-03-23T04:29:24.711Z"
+  },
+  "IMG_1536.jpg": {
+    "aiCaption": "sandy beach, beach, seagull",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "seagull"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.11644863337278366
+      },
+      {
+        "label": "beach",
+        "score": 0.11627484858036041
+      },
+      {
+        "label": "seagull",
+        "score": 0.07547641545534134
+      }
+    ],
+    "naturalCaption": "a beach with a couple people walking on it",
+    "lastModified": 1767819982767.8948,
+    "generatedAt": "2026-03-23T04:29:25.951Z"
+  },
+  "IMG_2009.jpg": {
+    "aiCaption": "lake, fishing boat, pond",
+    "aiTags": [
+      "lake",
+      "fishing boat",
+      "pond"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.16094602644443512
+      },
+      {
+        "label": "fishing boat",
+        "score": 0.13071398437023163
+      },
+      {
+        "label": "pond",
+        "score": 0.06305886805057526
+      }
+    ],
+    "naturalCaption": "a bird is flying over a body of water",
+    "lastModified": 1768250823684.1323,
+    "generatedAt": "2026-03-23T04:29:27.293Z"
+  },
+  "IMG_3183.jpg": {
+    "aiCaption": "lake",
+    "aiTags": [
+      "lake"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.11767450720071793
+      }
+    ],
+    "naturalCaption": "a person on a surfboard in the water",
+    "lastModified": 1768250823823.9321,
+    "generatedAt": "2026-03-23T04:29:28.658Z"
+  },
+  "IMG_3215.jpg": {
+    "aiCaption": "fishing boat, boat",
+    "aiTags": [
+      "fishing boat",
+      "boat"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "fishing boat",
+        "score": 0.1904287487268448
+      },
+      {
+        "label": "boat",
+        "score": 0.060583699494600296
+      }
+    ],
+    "naturalCaption": "a small boat is in the water near a large body of water",
+    "lastModified": 1767819983202.3533,
+    "generatedAt": "2026-03-23T04:29:29.998Z"
+  },
+  "IMG_3218.jpg": {
+    "aiCaption": "silhouette, sunset",
+    "aiTags": [
+      "silhouette",
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "silhouette",
+        "score": 0.07909034937620163
+      },
+      {
+        "label": "sunset",
+        "score": 0.06878595799207687
+      }
+    ],
+    "naturalCaption": "two people standing on a pier looking at the water",
+    "lastModified": 1768250824177.9482,
+    "generatedAt": "2026-03-23T04:29:31.523Z"
+  },
+  "IMG_3396.jpg": {
+    "aiCaption": "sandy beach, beach, sand",
+    "aiTags": [
+      "sandy beach",
+      "beach",
+      "sand"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sandy beach",
+        "score": 0.1386602520942688
+      },
+      {
+        "label": "beach",
+        "score": 0.0989198237657547
+      },
+      {
+        "label": "sand",
+        "score": 0.06927259266376495
+      }
+    ],
+    "naturalCaption": "a person walking on the beach near the water",
+    "lastModified": 1768250824577.7832,
+    "generatedAt": "2026-03-23T04:29:32.887Z"
+  },
+  "IMG_3987.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a train on a train track near a street",
+    "lastModified": 1767819983652.8584,
+    "generatedAt": "2026-03-23T04:29:34.111Z"
+  },
+  "IMG_4001.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a man is standing in a doorway with a rail",
+    "lastModified": 1768250824959.3318,
+    "generatedAt": "2026-03-23T04:29:35.359Z"
+  },
+  "IMG_4010.jpg": {
+    "aiCaption": "lamp post, snow, snowy",
+    "aiTags": [
+      "lamp post",
+      "snow",
+      "snowy"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lamp post",
+        "score": 0.2712695896625519
+      },
+      {
+        "label": "snow",
+        "score": 0.09890313446521759
+      },
+      {
+        "label": "snowy",
+        "score": 0.08680588752031326
+      }
+    ],
+    "naturalCaption": "a street sign on a pole with a snow covered street",
+    "lastModified": 1767819984102.416,
+    "generatedAt": "2026-03-23T04:29:36.686Z"
+  },
+  "IMG_4064.jpg": {
+    "aiCaption": "city",
+    "aiTags": [
+      "city"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "city",
+        "score": 0.0983130931854248
+      }
+    ],
+    "naturalCaption": "a city street with a large group of people walking",
+    "lastModified": 1768250825389.6455,
+    "generatedAt": "2026-03-23T04:29:37.989Z"
+  },
+  "IMG_4779.jpg": {
+    "aiCaption": "sunset",
+    "aiTags": [
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunset",
+        "score": 0.07861161231994629
+      }
+    ],
+    "naturalCaption": "two people sitting on a beach with a sunset",
+    "lastModified": 1774239883981.4443,
+    "generatedAt": "2026-03-23T04:29:39.267Z"
+  },
+  "IMG_4785.jpg": {
+    "aiCaption": "sunset, sunrise",
+    "aiTags": [
+      "sunset",
+      "sunrise"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunset",
+        "score": 0.19368326663970947
+      },
+      {
+        "label": "sunrise",
+        "score": 0.14104914665222168
+      }
+    ],
+    "naturalCaption": "a sunset with a clear blue sky",
+    "lastModified": 1774240125486.1294,
+    "generatedAt": "2026-03-23T04:29:40.500Z"
+  },
+  "IMG_4908.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a bench in a grassy area near a tree",
+    "lastModified": 1767819984533.6418,
+    "generatedAt": "2026-03-23T04:29:41.821Z"
+  },
+  "IMG_4913.jpg": {
+    "aiCaption": "shadow, building, house",
+    "aiTags": [
+      "shadow",
+      "building",
+      "house"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "shadow",
+        "score": 0.08540216833353043
+      },
+      {
+        "label": "building",
+        "score": 0.07718048244714737
+      },
+      {
+        "label": "house",
+        "score": 0.0734141618013382
+      }
+    ],
+    "naturalCaption": "a large tree is in front of a large building",
+    "lastModified": 1767819984938.1052,
+    "generatedAt": "2026-03-23T04:29:43.085Z"
+  },
+  "IMG_5007.jpg": {
+    "aiCaption": "trees",
+    "aiTags": [
+      "trees"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "trees",
+        "score": 0.09173467755317688
+      }
+    ],
+    "naturalCaption": "a window sill with a window with a plant in it",
+    "lastModified": 1767819985446.933,
+    "generatedAt": "2026-03-23T04:29:44.656Z"
+  },
+  "IMG_5013.jpg": {
+    "aiCaption": "lake",
+    "aiTags": [
+      "lake"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.12542694807052612
+      }
+    ],
+    "naturalCaption": "a small red building with a red roof",
+    "lastModified": 1768250825746.4753,
+    "generatedAt": "2026-03-23T04:29:45.893Z"
+  },
+  "IMG_5014.jpg": {
+    "aiCaption": "cycling, bicycle",
+    "aiTags": [
+      "cycling",
+      "bicycle"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "cycling",
+        "score": 0.1898440718650818
+      },
+      {
+        "label": "bicycle",
+        "score": 0.1610531359910965
+      }
+    ],
+    "naturalCaption": "a bicycle is parked next to a window",
+    "lastModified": 1767819985916.927,
+    "generatedAt": "2026-03-23T04:29:47.115Z"
+  },
+  "IMG_5052.jpg": {
+    "aiCaption": "lake, fishing boat, pond",
+    "aiTags": [
+      "lake",
+      "fishing boat",
+      "pond"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "lake",
+        "score": 0.32601651549339294
+      },
+      {
+        "label": "fishing boat",
+        "score": 0.19395063817501068
+      },
+      {
+        "label": "pond",
+        "score": 0.06354992091655731
+      }
+    ],
+    "naturalCaption": "a boat is going down the river",
+    "lastModified": 1767819986401.4282,
+    "generatedAt": "2026-03-23T04:29:48.369Z"
+  },
+  "IMG_5057.jpg": {
+    "aiCaption": "water, lake, ocean",
+    "aiTags": [
+      "water",
+      "lake",
+      "ocean"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "water",
+        "score": 0.18519385159015656
+      },
+      {
+        "label": "lake",
+        "score": 0.09738743305206299
+      },
+      {
+        "label": "ocean",
+        "score": 0.06153734400868416
+      }
+    ],
+    "naturalCaption": "a bird is standing on a surfboard in the water",
+    "lastModified": 1768250826109.3638,
+    "generatedAt": "2026-03-23T04:29:49.794Z"
+  },
+  "IMG_5067.jpg": {
+    "aiCaption": "monument, bench, park",
+    "aiTags": [
+      "monument",
+      "bench",
+      "park"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "monument",
+        "score": 0.09018401056528091
+      },
+      {
+        "label": "bench",
+        "score": 0.07072510570287704
+      },
+      {
+        "label": "park",
+        "score": 0.0689115896821022
+      }
+    ],
+    "naturalCaption": "a man sitting on a bench next to a statue of a man",
+    "lastModified": 1768250826594.5903,
+    "generatedAt": "2026-03-23T04:29:51.279Z"
+  },
+  "IMG_5092.jpg": {
+    "aiCaption": "garden",
+    "aiTags": [
+      "garden"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "garden",
+        "score": 0.1048087328672409
+      }
+    ],
+    "naturalCaption": "a bench is near a fence and a building",
+    "lastModified": 1767819986859.9595,
+    "generatedAt": "2026-03-23T04:29:52.526Z"
+  },
+  "IMG_5127.jpg": {
+    "aiCaption": "HDR",
+    "aiTags": [
+      "HDR"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "HDR",
+        "score": 0.12408825010061264
+      }
+    ],
+    "naturalCaption": "a large building with a large window",
+    "lastModified": 1768250827033.8132,
+    "generatedAt": "2026-03-23T04:29:53.679Z"
+  },
+  "IMG_5153.jpg": {
+    "aiCaption": "HDR, architecture",
+    "aiTags": [
+      "HDR",
+      "architecture"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "HDR",
+        "score": 0.15316873788833618
+      },
+      {
+        "label": "architecture",
+        "score": 0.08797267824411392
+      }
+    ],
+    "naturalCaption": "a large building with a clock on top",
+    "lastModified": 1768250827479.3745,
+    "generatedAt": "2026-03-23T04:29:54.976Z"
+  },
+  "IMG_5157.jpg": {
+    "aiCaption": "tower",
+    "aiTags": [
+      "tower"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "tower",
+        "score": 0.11803964525461197
+      }
+    ],
+    "naturalCaption": "a large building with a large clock on it",
+    "lastModified": 1767819987383.3933,
+    "generatedAt": "2026-03-23T04:29:56.311Z"
+  },
+  "IMG_5161.jpg": {
+    "aiCaption": "",
+    "aiTags": [],
+    "aiTagsWithScores": [],
+    "naturalCaption": "a large group of people are standing in the middle of a street",
+    "lastModified": 1767819987872.672,
+    "generatedAt": "2026-03-23T04:29:57.719Z"
+  }
+}

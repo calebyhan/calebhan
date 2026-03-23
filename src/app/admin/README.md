@@ -52,3 +52,25 @@ This means:
 ## API Routes
 
 - `POST /api/admin/save-photos` - Saves photo metadata to `public/data/photos.json` (dev only)
+
+## Photo Processing Workflow
+
+When you add new photos, follow this checklist:
+
+1. Place new images in `public/photos`.
+  - The processing script reads from `public/photos` (not `public/img/photos`).
+2. Optional: compress large files before processing.
+  - Run `npm run compress-photos`
+  - Requires ImageMagick (`brew install imagemagick`)
+3. Process metadata, AI tags/captions, and embeddings.
+  - Run `npm run process-photos`
+4. Review and edit metadata in Admin.
+  - Start dev server: `npm run dev`
+  - Open `/admin` and save edits (writes to `public/data/photos.json` in development)
+
+### Optional: Regenerate all AI captions
+
+Use this if you want fresh captions for every photo:
+
+1. Run `node scripts/regenerate-captions.js`
+2. Run `npm run process-photos`

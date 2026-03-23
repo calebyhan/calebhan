@@ -18,26 +18,26 @@
       "state": "North Carolina"
     },
     "trip": "NC Beaches",
-    "aiCaption": "HDR, sunset",
+    "aiCaption": "sunset, HDR",
     "aiTags": [
-      "HDR",
-      "sunset"
+      "sunset",
+      "HDR"
     ],
     "aiTagsWithScores": [
       {
-        "label": "HDR",
-        "score": 0.11174747347831726
+        "label": "sunset",
+        "score": 0.11202725768089294
       },
       {
-        "label": "sunset",
-        "score": 0.08486136049032211
+        "label": "HDR",
+        "score": 0.09629303216934204
       }
     ],
     "naturalCaption": "a sunset over a beach with a lighthouse",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:12.147Z"
+    "lastProcessed": "2026-03-23T04:29:11.944Z"
   },
   {
     "id": "20241005_223906000_iOS.jpg",
@@ -66,18 +66,18 @@
     "aiTagsWithScores": [
       {
         "label": "kayaking",
-        "score": 0.1873684823513031
+        "score": 0.17959566414356232
       },
       {
         "label": "aerial view",
-        "score": 0.17775796353816986
+        "score": 0.16813434660434723
       }
     ],
-    "naturalCaption": "a kite is flying through the air",
+    "naturalCaption": "a kite flying through the air with a kite in the air",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:12.183Z"
+    "lastProcessed": "2026-03-23T04:29:13.407Z"
   },
   {
     "id": "20241005_224410000_iOS.jpg",
@@ -105,14 +105,14 @@
     "aiTagsWithScores": [
       {
         "label": "kayaking",
-        "score": 0.33427342772483826
+        "score": 0.3923034965991974
       }
     ],
-    "naturalCaption": "people are in the water on a raft",
+    "naturalCaption": "people are in the water with surfboards",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:12.198Z"
+    "lastProcessed": "2026-03-23T04:29:14.663Z"
   },
   {
     "id": "DJI_20250120173102_0003_D.jpg",
@@ -133,26 +133,31 @@
       "state": "North Carolina"
     },
     "trip": "UNC",
-    "aiCaption": "sunrise, sunset",
+    "aiCaption": "sunrise, sunset, morning",
     "aiTags": [
       "sunrise",
-      "sunset"
+      "sunset",
+      "morning"
     ],
     "aiTagsWithScores": [
       {
         "label": "sunrise",
-        "score": 0.20087209343910217
+        "score": 0.2826167345046997
       },
       {
         "label": "sunset",
-        "score": 0.1998528689146042
+        "score": 0.17558351159095764
+      },
+      {
+        "label": "morning",
+        "score": 0.07695837318897247
       }
     ],
-    "naturalCaption": "a sunset with a person standing on a balcony",
+    "naturalCaption": "a sunset with a city and a lighthouse",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:12.213Z"
+    "lastProcessed": "2026-03-23T04:29:15.964Z"
   },
   {
     "id": "DJI_20250120173221_0012_D.jpg",
@@ -173,14 +178,31 @@
       "state": "North Carolina"
     },
     "trip": "UNC",
-    "aiCaption": "",
-    "aiTags": [],
-    "aiTagsWithScores": [],
-    "naturalCaption": "a city with a large building and a large building",
+    "aiCaption": "drone photography, HDR, aerial view",
+    "aiTags": [
+      "drone photography",
+      "HDR",
+      "aerial view"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "drone photography",
+        "score": 0.07592938095331192
+      },
+      {
+        "label": "HDR",
+        "score": 0.07250083982944489
+      },
+      {
+        "label": "aerial view",
+        "score": 0.06930374354124069
+      }
+    ],
+    "naturalCaption": "a city with a large building and a street",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:12.230Z"
+    "lastProcessed": "2026-03-23T04:29:17.214Z"
   },
   {
     "id": "DJI_20250309163901_0014_D.JPG",
@@ -250,36 +272,26 @@
       "country": "Sweden"
     },
     "trip": "Scandinavia 2025",
-    "aiCaption": "aerial view, lake, drone photography, aerial",
+    "aiCaption": "aerial view, lake",
     "aiTags": [
       "aerial view",
-      "lake",
-      "drone photography",
-      "aerial"
+      "lake"
     ],
     "aiTagsWithScores": [
       {
         "label": "aerial view",
-        "score": 0.340223103761673
+        "score": 0.26901721954345703
       },
       {
         "label": "lake",
-        "score": 0.0830136239528656
-      },
-      {
-        "label": "drone photography",
-        "score": 0.07148854434490204
-      },
-      {
-        "label": "aerial",
-        "score": 0.06798987090587616
+        "score": 0.10227017104625702
       }
     ],
-    "naturalCaption": "a large body of water with a large group of birds",
+    "naturalCaption": "a large body of water with a couple of boats",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:12.259Z"
+    "lastProcessed": "2026-03-23T04:29:18.512Z"
   },
   {
     "id": "IMG_0040 2024-08-12 02_10_07.jpg",
@@ -393,11 +405,11 @@
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
-    "naturalCaption": "a lone horse stands in the middle of a field",
+    "naturalCaption": "a person standing on a hill with a horse",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:12.304Z"
+    "lastProcessed": "2026-03-23T04:29:19.759Z"
   },
   {
     "id": "IMG_2009.jpg",
@@ -427,22 +439,22 @@
     "aiTagsWithScores": [
       {
         "label": "lake",
-        "score": 0.16623322665691376
+        "score": 0.16094602644443512
       },
       {
         "label": "fishing boat",
-        "score": 0.11205291002988815
+        "score": 0.13071398437023163
       },
       {
         "label": "pond",
-        "score": 0.06222935765981674
+        "score": 0.06305886805057526
       }
     ],
     "naturalCaption": "a bird is flying over a body of water",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:19.742Z"
+    "lastProcessed": "2026-03-23T04:29:27.293Z"
   },
   {
     "id": "IMG_2706.jpg",
@@ -607,22 +619,22 @@
     "aiTagsWithScores": [
       {
         "label": "sandy beach",
-        "score": 0.16486680507659912
+        "score": 0.1386602520942688
       },
       {
         "label": "beach",
-        "score": 0.08526334166526794
+        "score": 0.0989198237657547
       },
       {
         "label": "sand",
-        "score": 0.0618550106883049
+        "score": 0.06927259266376495
       }
     ],
-    "naturalCaption": "a bird standing on a beach near the water",
+    "naturalCaption": "a person walking on the beach near the water",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.097Z"
+    "lastProcessed": "2026-03-23T04:29:32.887Z"
   },
   {
     "id": "IMG_3458.jpg",
@@ -689,7 +701,7 @@
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.112Z"
+    "lastProcessed": "2026-03-23T04:29:41.821Z"
   },
   {
     "id": "IMG_4913.jpg",
@@ -709,26 +721,31 @@
       "country": "Norway"
     },
     "trip": "Scandinavia 2025",
-    "aiCaption": "building, house",
+    "aiCaption": "shadow, building, house",
     "aiTags": [
+      "shadow",
       "building",
       "house"
     ],
     "aiTagsWithScores": [
       {
+        "label": "shadow",
+        "score": 0.08540216833353043
+      },
+      {
         "label": "building",
-        "score": 0.09375815838575363
+        "score": 0.07718048244714737
       },
       {
         "label": "house",
-        "score": 0.079892098903656
+        "score": 0.0734141618013382
       }
     ],
-    "naturalCaption": "a tree is in the middle of a large building",
+    "naturalCaption": "a large tree is in front of a large building",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.118Z"
+    "lastProcessed": "2026-03-23T04:29:43.085Z"
   },
   {
     "id": "IMG_5007.jpg",
@@ -748,26 +765,21 @@
       "country": "Sweden"
     },
     "trip": "Scandinavia 2025",
-    "aiCaption": "trees, reflection",
+    "aiCaption": "trees",
     "aiTags": [
-      "trees",
-      "reflection"
+      "trees"
     ],
     "aiTagsWithScores": [
       {
         "label": "trees",
-        "score": 0.0821782723069191
-      },
-      {
-        "label": "reflection",
-        "score": 0.07059377431869507
+        "score": 0.09173467755317688
       }
     ],
-    "naturalCaption": "a window sill with a large window with plants",
+    "naturalCaption": "a window sill with a window with a plant in it",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.125Z"
+    "lastProcessed": "2026-03-23T04:29:44.656Z"
   },
   {
     "id": "IMG_5013.jpg",
@@ -787,26 +799,21 @@
       "country": "Sweden"
     },
     "trip": "Scandinavia 2025",
-    "aiCaption": "lake, house",
+    "aiCaption": "lake",
     "aiTags": [
-      "lake",
-      "house"
+      "lake"
     ],
     "aiTagsWithScores": [
       {
         "label": "lake",
-        "score": 0.09163302183151245
-      },
-      {
-        "label": "house",
-        "score": 0.06394917517900467
+        "score": 0.12542694807052612
       }
     ],
     "naturalCaption": "a small red building with a red roof",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.134Z"
+    "lastProcessed": "2026-03-23T04:29:45.893Z"
   },
   {
     "id": "IMG_5014.jpg",
@@ -834,18 +841,18 @@
     "aiTagsWithScores": [
       {
         "label": "cycling",
-        "score": 0.24584607779979706
+        "score": 0.1898440718650818
       },
       {
         "label": "bicycle",
-        "score": 0.16428343951702118
+        "score": 0.1610531359910965
       }
     ],
-    "naturalCaption": "a bicycle is parked outside a window with a red handlebar",
+    "naturalCaption": "a bicycle is parked next to a window",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.140Z"
+    "lastProcessed": "2026-03-23T04:29:47.115Z"
   },
   {
     "id": "IMG_5052.jpg",
@@ -874,22 +881,22 @@
     "aiTagsWithScores": [
       {
         "label": "lake",
-        "score": 0.37869706749916077
+        "score": 0.32601651549339294
       },
       {
         "label": "fishing boat",
-        "score": 0.08810291439294815
+        "score": 0.19395063817501068
       },
       {
         "label": "pond",
-        "score": 0.08510772138834
+        "score": 0.06354992091655731
       }
     ],
-    "naturalCaption": "a boat is going down the river near a forest",
+    "naturalCaption": "a boat is going down the river",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.150Z"
+    "lastProcessed": "2026-03-23T04:29:48.369Z"
   },
   {
     "id": "IMG_5057.jpg",
@@ -909,36 +916,31 @@
       "country": "Sweden"
     },
     "trip": "Scandinavia 2025",
-    "aiCaption": "water, lake, ocean, swimming",
+    "aiCaption": "water, lake, ocean",
     "aiTags": [
       "water",
       "lake",
-      "ocean",
-      "swimming"
+      "ocean"
     ],
     "aiTagsWithScores": [
       {
         "label": "water",
-        "score": 0.16704650223255157
+        "score": 0.18519385159015656
       },
       {
         "label": "lake",
-        "score": 0.08585509657859802
+        "score": 0.09738743305206299
       },
       {
         "label": "ocean",
-        "score": 0.06378456950187683
-      },
-      {
-        "label": "swimming",
-        "score": 0.06373908370733261
+        "score": 0.06153734400868416
       }
     ],
-    "naturalCaption": "a person is standing on a surfboard in the water",
+    "naturalCaption": "a bird is standing on a surfboard in the water",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.159Z"
+    "lastProcessed": "2026-03-23T04:29:49.794Z"
   },
   {
     "id": "IMG_5067.jpg",
@@ -958,31 +960,31 @@
       "country": "Sweden"
     },
     "trip": "Scandinavia 2025",
-    "aiCaption": "monument, statue, park",
+    "aiCaption": "monument, bench, park",
     "aiTags": [
       "monument",
-      "statue",
+      "bench",
       "park"
     ],
     "aiTagsWithScores": [
       {
         "label": "monument",
-        "score": 0.1164994016289711
+        "score": 0.09018401056528091
       },
       {
-        "label": "statue",
-        "score": 0.08218280971050262
+        "label": "bench",
+        "score": 0.07072510570287704
       },
       {
         "label": "park",
-        "score": 0.06579737365245819
+        "score": 0.0689115896821022
       }
     ],
-    "naturalCaption": "a man sitting on a bench next to a statue of a man on a horse",
+    "naturalCaption": "a man sitting on a bench next to a statue of a man",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.166Z"
+    "lastProcessed": "2026-03-23T04:29:51.279Z"
   },
   {
     "id": "IMG_5092.jpg",
@@ -1009,14 +1011,14 @@
     "aiTagsWithScores": [
       {
         "label": "garden",
-        "score": 0.08398254215717316
+        "score": 0.1048087328672409
       }
     ],
-    "naturalCaption": "a bench is near a fence and a tree",
+    "naturalCaption": "a bench is near a fence and a building",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.176Z"
+    "lastProcessed": "2026-03-23T04:29:52.526Z"
   },
   {
     "id": "IMG_5127.jpg",
@@ -1044,14 +1046,14 @@
     "aiTagsWithScores": [
       {
         "label": "HDR",
-        "score": 0.09370521456003189
+        "score": 0.12408825010061264
       }
     ],
     "naturalCaption": "a large building with a large window",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.184Z"
+    "lastProcessed": "2026-03-23T04:29:53.679Z"
   },
   {
     "id": "IMG_5153.jpg",
@@ -1080,18 +1082,18 @@
     "aiTagsWithScores": [
       {
         "label": "HDR",
-        "score": 0.12575572729110718
+        "score": 0.15316873788833618
       },
       {
         "label": "architecture",
-        "score": 0.08817089349031448
+        "score": 0.08797267824411392
       }
     ],
     "naturalCaption": "a large building with a clock on top",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.190Z"
+    "lastProcessed": "2026-03-23T04:29:54.976Z"
   },
   {
     "id": "IMG_5157.jpg",
@@ -1119,14 +1121,14 @@
     "aiTagsWithScores": [
       {
         "label": "tower",
-        "score": 0.08862894773483276
+        "score": 0.11803964525461197
       }
     ],
     "naturalCaption": "a large building with a large clock on it",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.197Z"
+    "lastProcessed": "2026-03-23T04:29:56.311Z"
   },
   {
     "id": "IMG_5161.jpg",
@@ -1150,11 +1152,11 @@
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
-    "naturalCaption": "a large fountain with a large group of people standing in it",
+    "naturalCaption": "a large group of people are standing in the middle of a street",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.203Z"
+    "lastProcessed": "2026-03-23T04:29:57.719Z"
   },
   {
     "id": "IMG_1381.jpg",
@@ -1175,36 +1177,36 @@
       "state": "North Carolina"
     },
     "trip": "NC Beaches",
-    "aiCaption": "swimming, sandy beach, beach, dog",
+    "aiCaption": "dog, sandy beach, swimming, beach",
     "aiTags": [
-      "swimming",
+      "dog",
       "sandy beach",
-      "beach",
-      "dog"
+      "swimming",
+      "beach"
     ],
     "aiTagsWithScores": [
       {
-        "label": "swimming",
-        "score": 0.12046347558498383
+        "label": "dog",
+        "score": 0.10810074955224991
       },
       {
         "label": "sandy beach",
-        "score": 0.11306140571832657
+        "score": 0.10642480105161667
+      },
+      {
+        "label": "swimming",
+        "score": 0.09301694482564926
       },
       {
         "label": "beach",
-        "score": 0.10228849947452545
-      },
-      {
-        "label": "dog",
-        "score": 0.06594222784042358
+        "score": 0.07668444514274597
       }
     ],
-    "naturalCaption": "a herd of sheep are laying on the beach",
+    "naturalCaption": "a herd of sheep laying on top of a beach",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:14.008Z"
+    "lastProcessed": "2026-03-23T04:29:21.041Z"
   },
   {
     "id": "IMG_1402.jpg",
@@ -1228,11 +1230,11 @@
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
-    "naturalCaption": "a house with a building and a street",
+    "naturalCaption": "a house with a building on the side of it",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:15.398Z"
+    "lastProcessed": "2026-03-23T04:29:22.334Z"
   },
   {
     "id": "IMG_1424.jpg",
@@ -1256,11 +1258,11 @@
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
-    "naturalCaption": "two people standing on a beach near the water",
+    "naturalCaption": "two people standing on a beach near the ocean",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:16.885Z"
+    "lastProcessed": "2026-03-23T04:29:23.571Z"
   },
   {
     "id": "IMG_1445.jpg",
@@ -1281,36 +1283,31 @@
       "state": "North Carolina"
     },
     "trip": "NC Beaches",
-    "aiCaption": "sand dunes, sandy beach, beach, boardwalk",
+    "aiCaption": "sandy beach, beach, sand dunes",
     "aiTags": [
-      "sand dunes",
       "sandy beach",
       "beach",
-      "boardwalk"
+      "sand dunes"
     ],
     "aiTagsWithScores": [
       {
-        "label": "sand dunes",
-        "score": 0.09918510913848877
-      },
-      {
         "label": "sandy beach",
-        "score": 0.0868976041674614
+        "score": 0.09532725811004639
       },
       {
         "label": "beach",
-        "score": 0.07737977802753448
+        "score": 0.0730973333120346
       },
       {
-        "label": "boardwalk",
-        "score": 0.06056233495473862
+        "label": "sand dunes",
+        "score": 0.06338922679424286
       }
     ],
-    "naturalCaption": "people sitting on a hill",
+    "naturalCaption": "people sitting on a hillside",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:18.251Z"
+    "lastProcessed": "2026-03-23T04:29:24.711Z"
   },
   {
     "id": "IMG_1536.jpg",
@@ -1340,22 +1337,22 @@
     "aiTagsWithScores": [
       {
         "label": "sandy beach",
-        "score": 0.1478874832391739
+        "score": 0.11644863337278366
       },
       {
         "label": "beach",
-        "score": 0.13037016987800598
+        "score": 0.11627484858036041
       },
       {
         "label": "seagull",
-        "score": 0.07033881545066833
+        "score": 0.07547641545534134
       }
     ],
-    "naturalCaption": "a beach with a couple of people on it",
+    "naturalCaption": "a beach with a couple people walking on it",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:19.735Z"
+    "lastProcessed": "2026-03-23T04:29:25.951Z"
   },
   {
     "id": "IMG_3183.jpg",
@@ -1376,26 +1373,21 @@
       "state": "North Carolina"
     },
     "trip": "KASA MT",
-    "aiCaption": "lake, harbor",
+    "aiCaption": "lake",
     "aiTags": [
-      "lake",
-      "harbor"
+      "lake"
     ],
     "aiTagsWithScores": [
       {
         "label": "lake",
-        "score": 0.1114676222205162
-      },
-      {
-        "label": "harbor",
-        "score": 0.07210644334554672
+        "score": 0.11767450720071793
       }
     ],
-    "naturalCaption": "a person on a surf board in the water",
+    "naturalCaption": "a person on a surfboard in the water",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:21.068Z"
+    "lastProcessed": "2026-03-23T04:29:28.658Z"
   },
   {
     "id": "IMG_3215.jpg",
@@ -1424,18 +1416,18 @@
     "aiTagsWithScores": [
       {
         "label": "fishing boat",
-        "score": 0.17404304444789886
+        "score": 0.1904287487268448
       },
       {
         "label": "boat",
-        "score": 0.06268209218978882
+        "score": 0.060583699494600296
       }
     ],
     "naturalCaption": "a small boat is in the water near a large body of water",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:22.615Z"
+    "lastProcessed": "2026-03-23T04:29:29.998Z"
   },
   {
     "id": "IMG_3218.jpg",
@@ -1456,14 +1448,26 @@
       "state": "North Carolina"
     },
     "trip": "KASA MT",
-    "aiCaption": "",
-    "aiTags": [],
-    "aiTagsWithScores": [],
+    "aiCaption": "silhouette, sunset",
+    "aiTags": [
+      "silhouette",
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "silhouette",
+        "score": 0.07909034937620163
+      },
+      {
+        "label": "sunset",
+        "score": 0.06878595799207687
+      }
+    ],
     "naturalCaption": "two people standing on a pier looking at the water",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-11T07:49:24.067Z"
+    "lastProcessed": "2026-03-23T04:29:31.523Z"
   },
   {
     "id": "IMG_3987.jpg",
@@ -1487,11 +1491,11 @@
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
-    "naturalCaption": "a train on a train track near a building",
+    "naturalCaption": "a train on a train track near a street",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-16T15:01:17.087Z"
+    "lastProcessed": "2026-03-23T04:29:34.111Z"
   },
   {
     "id": "IMG_4001.jpg",
@@ -1515,11 +1519,11 @@
     "aiCaption": "",
     "aiTags": [],
     "aiTagsWithScores": [],
-    "naturalCaption": "a man is standing in a doorway with a pair of legs",
+    "naturalCaption": "a man is standing in a doorway with a rail",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-16T15:01:18.650Z"
+    "lastProcessed": "2026-03-23T04:29:35.359Z"
   },
   {
     "id": "IMG_4010.jpg",
@@ -1540,36 +1544,31 @@
       "state": "New Jersey"
     },
     "trip": "NYC 2025",
-    "aiCaption": "lamp post, snow, snowy, mailbox",
+    "aiCaption": "lamp post, snow, snowy",
     "aiTags": [
       "lamp post",
       "snow",
-      "snowy",
-      "mailbox"
+      "snowy"
     ],
     "aiTagsWithScores": [
       {
         "label": "lamp post",
-        "score": 0.20857006311416626
+        "score": 0.2712695896625519
       },
       {
         "label": "snow",
-        "score": 0.1384640783071518
+        "score": 0.09890313446521759
       },
       {
         "label": "snowy",
-        "score": 0.09270929545164108
-      },
-      {
-        "label": "mailbox",
-        "score": 0.06746912747621536
+        "score": 0.08680588752031326
       }
     ],
     "naturalCaption": "a street sign on a pole with a snow covered street",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-16T15:01:20.228Z"
+    "lastProcessed": "2026-03-23T04:29:36.686Z"
   },
   {
     "id": "IMG_4064.jpg",
@@ -1597,13 +1596,88 @@
     "aiTagsWithScores": [
       {
         "label": "city",
-        "score": 0.1020708680152893
+        "score": 0.0983130931854248
       }
     ],
     "naturalCaption": "a city street with a large group of people walking",
     "manualTags": [],
     "hasManualOverride": false,
     "replaceAI": false,
-    "lastProcessed": "2025-12-16T15:01:21.748Z"
+    "lastProcessed": "2026-03-23T04:29:37.989Z"
+  },
+  {
+    "id": "IMG_4779.jpg",
+    "path": "/photos/IMG_4779.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 125,
+    "aperture": 6.3,
+    "shutterSpeed": 0.008,
+    "focalLength": 70,
+    "date": "2026-03-14T11:26:18.000Z",
+    "location": {
+      "lat": 34.013625,
+      "lng": -77.899343,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "NC Beaches",
+    "aiCaption": "sunset",
+    "aiTags": [
+      "sunset"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunset",
+        "score": 0.07861161231994629
+      }
+    ],
+    "naturalCaption": "two people sitting on a beach with a sunset",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2026-03-23T04:29:39.267Z"
+  },
+  {
+    "id": "IMG_4785.jpg",
+    "path": "/photos/IMG_4785.jpg",
+    "width": 1920,
+    "height": 1080,
+    "camera": "Canon EOS R8",
+    "lens": "RF24-105mm F4-7.1 IS STM",
+    "iso": 125,
+    "aperture": 7.1,
+    "shutterSpeed": 0.005,
+    "focalLength": 105,
+    "date": "2026-03-14T11:27:24.000Z",
+    "location": {
+      "lat": 34.013625,
+      "lng": -77.899343,
+      "country": "United States",
+      "state": "North Carolina"
+    },
+    "trip": "NC Beaches",
+    "aiCaption": "sunset, sunrise",
+    "aiTags": [
+      "sunset",
+      "sunrise"
+    ],
+    "aiTagsWithScores": [
+      {
+        "label": "sunset",
+        "score": 0.19368326663970947
+      },
+      {
+        "label": "sunrise",
+        "score": 0.14104914665222168
+      }
+    ],
+    "naturalCaption": "a sunset with a clear blue sky",
+    "manualTags": [],
+    "hasManualOverride": false,
+    "replaceAI": false,
+    "lastProcessed": "2026-03-23T04:29:40.500Z"
   }
 ]
