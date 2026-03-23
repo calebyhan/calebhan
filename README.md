@@ -4,7 +4,7 @@ Personal portfolio website showcasing coding projects and photography. Features 
 
 ## Tech Stack
 
-- **Framework** - Next.js 15 (App Router)
+- **Framework** - Next.js 16 (App Router)
 - **Styling** - Tailwind CSS
 - **Search** - Custom BM25 implementation for semantic project search
 - **Data** - JSON-based storage with pre-computed embeddings
@@ -52,6 +52,16 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 - Edit photo captions and descriptions
 - Save changes directly to data files
 - Preview photos before publishing
+- Optional shared-secret auth for admin access
+
+## Security Notes
+
+- Production admin routes are disabled by default.
+- Optional auth hardening:
+  - `ADMIN_TOKEN=<long-random-secret>` enforces token auth for `/admin` and `/api/admin/*`.
+  - Open `/admin?token=<ADMIN_TOKEN>` once to establish an HttpOnly admin cookie.
+- Optional production admin override (not recommended unless needed):
+  - `ADMIN_ALLOW_PROD=true` plus a valid `ADMIN_TOKEN`.
 
 ## Scripts
 

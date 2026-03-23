@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { animate, utils, stagger } from "animejs";
 import Image from "next/image";
+import Link from "next/link";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
 export default function About() {
@@ -191,9 +192,9 @@ export default function About() {
                     </p>
 
                     <p className="text-xl text-gray-300 leading-relaxed antialiased opacity-0 mt-6">
-                        I'm currently exploring AI/ML and full stack web development. I like to
+                        I&apos;m currently exploring AI/ML and full stack web development. I like to
                         build projects that combine my interests in technology and creativity.
-                        Check out my <a href="/code" className="text-cyan-400 hover:text-cyan-300 transition-colors">projects</a> or <a href="https://github.com/calebyhan" className="text-cyan-400 hover:text-cyan-300 transition-colors">GitHub</a> to learn more!
+                        Check out my <Link href="/code" className="text-cyan-400 hover:text-cyan-300 transition-colors">projects</Link> or <a href="https://github.com/calebyhan" className="text-cyan-400 hover:text-cyan-300 transition-colors">GitHub</a> to learn more!
                     </p>
                 </div>
             </section>

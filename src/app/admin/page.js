@@ -719,7 +719,7 @@ export default function AdminPage() {
                                 }}
                                 className="w-full text-left px-3 py-2 hover:bg-gray-700 text-cyan-400 text-sm"
                               >
-                                + Create "{tripSearchQuery}"
+                                + Create &quot;{tripSearchQuery}&quot;
                               </button>
                             ) : (
                               <div className="px-3 py-2 text-gray-500 text-sm">

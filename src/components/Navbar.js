@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,22 +11,22 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 md:px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="text-white font-bold text-xl">
-            <a href="/">
+            <Link href="/">
               Caleb Han
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-4 md:space-x-8">
-            <a href="/code" className="text-white hover:text-gray-300 transition-colors">
+            <Link href="/code" className="text-white hover:text-gray-300 transition-colors">
               Code
-            </a>
-            <a href="/photography" className="text-white hover:text-gray-300 transition-colors">
+            </Link>
+            <Link href="/photography" className="text-white hover:text-gray-300 transition-colors">
               Photography
-            </a>
-            <a href="/#about" className="text-white hover:text-gray-300 transition-colors">
+            </Link>
+            <Link href="/#about" className="text-white hover:text-gray-300 transition-colors">
               About Me
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Hamburger Button */}
@@ -50,27 +51,27 @@ export default function Navbar() {
         {mobileMenuOpen && (
           <div className="md:hidden mt-4 py-4 border-t border-gray-700/50">
             <div className="flex flex-col space-y-4">
-              <a
+              <Link
                 href="/code"
                 className="text-white hover:text-gray-300 transition-colors py-2 px-2 hover:bg-white/5 rounded"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Code
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/photography"
                 className="text-white hover:text-gray-300 transition-colors py-2 px-2 hover:bg-white/5 rounded"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Photography
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#about"
                 className="text-white hover:text-gray-300 transition-colors py-2 px-2 hover:bg-white/5 rounded"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About Me
-              </a>
+              </Link>
             </div>
           </div>
         )}

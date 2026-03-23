@@ -1,6 +1,6 @@
 # Admin Panel
 
-**Development Only** - This admin panel is blocked in production via middleware.
+By default, this admin panel is development-only and blocked in production.
 
 ## Access
 
@@ -18,12 +18,44 @@
 ## Security
 
 The `/admin` route and API endpoints are protected by:
-1. **Proxy** ([src/proxy.js](../../proxy.js)) - Blocks `/admin` page access in production
-2. **API Protection** ([src/app/api/admin/save-photos/route.js](../api/admin/save-photos/route.js)) - Returns 403 for admin API calls in production
+1. **Proxy** ([src/proxy.js](../../proxy.js))
+  - Blocks `/admin` and `/api/admin/*` by default in production
+  - Optionally enforces token auth with `ADMIN_TOKEN`
+2. **API Protection** ([src/app/api/admin/save-photos/route.js](../api/admin/save-photos/route.js))
+  - Blocks production writes unless `ADMIN_ALLOW_PROD=true`
+  - Validates auth token, origin, payload size, and schema
+  - Uses atomic writes to avoid partial file corruption
+
+### Optional Token Auth
+
+Set an admin shared secret to require authentication for admin pages and API calls:
+
+```bash
+ADMIN_TOKEN=your-long-random-token
+```
+
+Then open:
+
+```text
+/admin?token=your-long-random-token
+```
+
+This sets a short-lived, HttpOnly `admin_token` cookie.
+
+### Optional Production Admin Access
+
+Production access is disabled by default. To explicitly enable it:
+
+```bash
+ADMIN_ALLOW_PROD=true
+ADMIN_TOKEN=your-long-random-token
+```
+
+Without both variables, production admin access remains blocked.
 
 ## Deployment
 
-The admin code is committed to GitHub but **not accessible in production** thanks to multiple protection layers:
+The admin code is committed to GitHub and protected by multiple layers:
 
 **Proxy Protection** (for page routes):
 ```javascript
@@ -42,16 +74,16 @@ if (process.env.NODE_ENV === "production") {
 }
 ```
 
-This means:
+By default this means:
 - ✅ Code is version controlled
 - ✅ Available in development
 - ✅ Page access blocked in production (redirects to homepage)
 - ✅ API access blocked in production (returns 403)
-- ✅ No security risk
+- ✅ Optional token auth can be enabled for local and production admin access
 
 ## API Routes
 
-- `POST /api/admin/save-photos` - Saves photo metadata to `public/data/photos.json` (dev only)
+- `POST /api/admin/save-photos` - Saves photo metadata to `public/data/photos.json`
 
 ## Photo Processing Workflow
 

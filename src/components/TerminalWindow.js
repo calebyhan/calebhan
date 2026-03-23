@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { animate, stagger, utils } from "animejs";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
@@ -74,7 +75,7 @@ export default function TerminalWindow() {
             <span className="text-white">:</span>
             <span className="text-blue-400">~</span>
             <span className="text-white">$ </span>
-            <span className="text-cyan-300">find . -name "page"</span>
+            <span className="text-cyan-300">find . -name &quot;page&quot;</span>
           </div>
 
           {/* Line 4: Comment */}
@@ -122,7 +123,7 @@ export default function TerminalWindow() {
             ref={el => lineRefs.current[7] = el}
             className="mb-6 opacity-0"
           >
-            <span className="text-yellow-400">The page you're looking for seems to have wandered off...</span>
+            <span className="text-yellow-400">The page you&apos;re looking for seems to have wandered off...</span>
             <span className="inline-block w-2 h-4 bg-white ml-1 cursor-blink"></span>
           </div>
 
@@ -133,7 +134,7 @@ export default function TerminalWindow() {
           >
             <div className="text-gray-500 text-xs uppercase tracking-wider mb-4">Try these instead:</div>
             <div className="flex flex-wrap gap-3">
-              <a
+              <Link
                 href="/"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-700 rounded-md text-white hover:border-green-400 hover:bg-green-400/5 transition-all duration-200"
               >
@@ -142,8 +143,8 @@ export default function TerminalWindow() {
                   <polyline points="9 22 9 12 15 12 15 22"/>
                 </svg>
                 ~/home
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/code"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-700 rounded-md text-white hover:border-green-400 hover:bg-green-400/5 transition-all duration-200"
               >
@@ -152,8 +153,8 @@ export default function TerminalWindow() {
                   <polyline points="8 6 2 12 8 18"/>
                 </svg>
                 /code
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/photography"
                 className="inline-flex items-center gap-2 px-4 py-2 bg-transparent border border-gray-700 rounded-md text-white hover:border-green-400 hover:bg-green-400/5 transition-all duration-200"
               >
@@ -162,7 +163,7 @@ export default function TerminalWindow() {
                   <circle cx="12" cy="13" r="4"/>
                 </svg>
                 /photos
-              </a>
+              </Link>
             </div>
           </div>
         </div>

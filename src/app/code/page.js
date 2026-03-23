@@ -180,7 +180,7 @@ function CodePageContent() {
             Projects
           </h1>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            A collection of things I've built — from full-stack applications to experiments with AI
+            A collection of things I&apos;ve built — from full-stack applications to experiments with AI
           </p>
         </div>
       </section>

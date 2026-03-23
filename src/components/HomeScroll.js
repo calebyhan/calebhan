@@ -10,7 +10,6 @@ export default function HomeScroll() {
     const textRef = useRef(null);
     const subtitleRef = useRef(null);
     const particlesRef = useRef(null);
-    const [isLoaded, setIsLoaded] = useState(false);
     const [scrollIndicatorOpacity, setScrollIndicatorOpacity] = useState(1);
     const prefersReducedMotion = usePrefersReducedMotion();
 
@@ -21,7 +20,6 @@ export default function HomeScroll() {
             // Show content immediately without animations
             utils.set(heroRef.current, { opacity: 1 });
             utils.set(subtitleRef.current, { opacity: 1, translateY: 0 });
-            setIsLoaded(true);
             return;
         }
 
@@ -87,7 +85,6 @@ export default function HomeScroll() {
         };
 
         window.addEventListener("scroll", handleScroll);
-        setIsLoaded(true);
 
         return () => {
             window.removeEventListener("scroll", handleScroll);
@@ -127,23 +124,21 @@ export default function HomeScroll() {
                         Developer & Photographer
                     </p>
 
-                    {isLoaded && (
-                        <div 
-                            className="absolute -bottom-32 left-1/2 -translate-x-1/2 transition-opacity duration-300"
-                            style={{ opacity: scrollIndicatorOpacity }}
-                        >
-                            <div className="flex flex-col items-center space-y-2">
-                                <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center relative">
-                                    <div
-                                        className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-bounce"
-                                    />
-                                </div>
-                                
-                                <div className="w-4 h-4 border-r-2 border-b-2 border-white/60 transform rotate-[45deg] animate-pulse" />
+                    <div
+                        className="absolute -bottom-32 left-1/2 -translate-x-1/2 transition-opacity duration-300"
+                        style={{ opacity: scrollIndicatorOpacity }}
+                    >
+                        <div className="flex flex-col items-center space-y-2">
+                            <div className="w-6 h-10 border-2 border-white/60 rounded-full flex justify-center relative">
+                                <div
+                                    className="w-1 h-3 bg-white/80 rounded-full mt-2 animate-bounce"
+                                />
                             </div>
-                            <p className="text-white/60 text-sm mt-3 text-center">Scroll</p>
+
+                            <div className="w-4 h-4 border-r-2 border-b-2 border-white/60 transform rotate-[45deg] animate-pulse" />
                         </div>
-                    )}
+                        <p className="text-white/60 text-sm mt-3 text-center">Scroll</p>
+                    </div>
                 </div>
 
                 <div className="absolute top-0 left-0 w-full h-full pointer-events-none">

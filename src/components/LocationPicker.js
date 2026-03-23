@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
@@ -13,10 +13,10 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
-function LocationMarker({ position, setPosition }) {
+function LocationMarker({ position, onLocationChange }) {
   useMapEvents({
     click(e) {
-      setPosition([e.latlng.lat, e.latlng.lng]);
+      onLocationChange?.(e.latlng.lat, e.latlng.lng);
     },
   });
 
@@ -24,34 +24,9 @@ function LocationMarker({ position, setPosition }) {
 }
 
 export default function LocationPicker({ lat, lng, onLocationChange }) {
-  const [position, setPosition] = useState(
-    lat && lng ? [lat, lng] : [37.7749, -122.4194] // Default to San Francisco
-  );
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (lat && lng) {
-      setPosition([lat, lng]);
-    }
+  const position = useMemo(() => {
+    return lat && lng ? [lat, lng] : [37.7749, -122.4194];
   }, [lat, lng]);
-
-  useEffect(() => {
-    if (position && onLocationChange) {
-      onLocationChange(position[0], position[1]);
-    }
-  }, [position, onLocationChange]);
-
-  if (!mounted) {
-    return (
-      <div className="w-full h-64 bg-gray-800 rounded flex items-center justify-center">
-        <p className="text-gray-400">Loading map...</p>
-      </div>
-    );
-  }
 
   return (
     <div className="w-full h-64 rounded overflow-hidden border border-gray-700">
@@ -64,7 +39,7 @@ export default function LocationPicker({ lat, lng, onLocationChange }) {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <LocationMarker position={position} setPosition={setPosition} />
+        <LocationMarker position={position} onLocationChange={onLocationChange} />
       </MapContainer>
     </div>
   );
