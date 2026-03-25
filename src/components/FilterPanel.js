@@ -1,7 +1,9 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import CountryMap from "./CountryMap";
+import { useState, useRef, useEffect, useMemo } from "react";
+import dynamic from "next/dynamic";
+
+const CountryMap = dynamic(() => import("./CountryMap"), { ssr: false });
 
 // Custom Dropdown Component
 function CustomDropdown({ value, onChange, options, placeholder, label }) {
@@ -69,21 +71,18 @@ function CustomDropdown({ value, onChange, options, placeholder, label }) {
 export default function FilterPanel({ filters, setFilters, searchQuery, setSearchQuery, photos, isOpen, setIsOpen }) {
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  // Extract unique values for dropdowns
-  const cameras = [...new Set(photos.map(p => p.camera).filter(Boolean))];
-  const trips = [...new Set(photos.map(p => p.trip).filter(Boolean))];
-  // Only include countries from photos that have valid location data (lat/lng)
-  const countries = [...new Set(
+  const cameras = useMemo(() => [...new Set(photos.map(p => p.camera).filter(Boolean))], [photos]);
+  const trips = useMemo(() => [...new Set(photos.map(p => p.trip).filter(Boolean))], [photos]);
+  const countries = useMemo(() => [...new Set(
     photos
       .filter(p => p.location && p.location.lat && p.location.lng && p.location.country)
       .map(p => p.location.country)
-  )];
-  // Extract unique states from photos that have state data
-  const states = [...new Set(
+  )], [photos]);
+  const states = useMemo(() => [...new Set(
     photos
       .filter(p => p.location && p.location.state)
       .map(p => p.location.state)
-  )];
+  )], [photos]);
 
   return (
     <>

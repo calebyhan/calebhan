@@ -68,7 +68,7 @@ export default function PhotoGallery({ photos }) {
               alt={`Photo ${index + 1}`}
               width={photo.width}
               height={photo.height}
-              unoptimized
+              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
               priority={index < 4}
               className="w-full h-auto transition-transform duration-300 group-hover:scale-105"
             />
@@ -95,7 +95,7 @@ export default function PhotoGallery({ photos }) {
                 alt={selectedPhoto.id}
                 width={selectedPhoto.width}
                 height={selectedPhoto.height}
-                unoptimized
+                sizes="(max-width: 1024px) 100vw, 75vw"
                 className="max-w-full max-h-[50vh] lg:max-h-[80vh] w-auto h-auto object-contain"
               />
             </div>

@@ -1,4 +1,12 @@
 let embedModel = null;
+let embeddingsPromise = null;
+
+function loadEmbeddings() {
+  if (!embeddingsPromise) {
+    embeddingsPromise = fetch('/data/embeddings.json').then(r => r.json()).catch(() => ({}));
+  }
+  return embeddingsPromise;
+}
 
 // Expanded synonym map for better search matching (100+ mappings)
 const SYNONYM_MAP = {
@@ -262,7 +270,7 @@ export async function searchPhotos(query, filters, allPhotos) {
 
   // TIER 3: Hybrid BM25 + Semantic search (if query provided)
   if (query && query.trim()) {
-    const embeddings = await fetch('/data/embeddings.json').then(r => r.json()).catch(() => ({}));
+    const embeddings = await loadEmbeddings();
 
     // Expand the query with related terms for better matching
     const expandedQuery = expandQuery(query);
@@ -412,4 +420,11 @@ export async function searchPhotos(query, filters, allPhotos) {
   }
 
   return results;
+}
+
+export function initSearchModel() {
+  // Pre-fetch embeddings so the first search query hits the cache.
+  // Model init is intentionally left lazy (triggered on first search)
+  // because @xenova/transformers fails if initialized before user interaction.
+  loadEmbeddings();
 }
