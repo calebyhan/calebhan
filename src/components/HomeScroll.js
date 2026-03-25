@@ -103,9 +103,9 @@ export default function HomeScroll() {
                     className="absolute inset-0 opacity-0 bg-[url('/img/home.jpg')] bg-cover bg-center bg-no-repeat"
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-transparent to-black/60" />
-                    <div className="absolute top-20 right-20 w-32 h-32 border border-white/20 rotate-45 animate-pulse" />
+                    <div className="absolute top-8 right-8 sm:top-20 sm:right-20 w-20 h-20 sm:w-32 sm:h-32 border border-white/20 rotate-45 animate-pulse" />
                     <div
-                        className="absolute bottom-40 left-20 w-20 h-20 bg-blue-500/10 rounded-full animate-bounce [animation-delay:1s] [animation-duration:3s]"
+                        className="absolute bottom-20 left-8 sm:bottom-40 sm:left-20 w-14 h-14 sm:w-20 sm:h-20 bg-blue-500/10 rounded-full animate-bounce [animation-delay:1s] [animation-duration:3s]"
                     />
                 </div>
 

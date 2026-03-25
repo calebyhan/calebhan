@@ -207,7 +207,7 @@ export default function ProjectModal({ project, onClose, allProjects, embeddings
             {similarProjects.length > 0 && (
               <div className="pt-6 border-t border-gray-800">
                 <h3 className="text-sm font-medium text-gray-400 mb-4">Similar Projects</h3>
-                <div className="grid grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   {similarProjects.map(p => (
                     <button
                       key={p.id}

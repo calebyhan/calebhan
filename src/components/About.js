@@ -206,7 +206,7 @@ export default function About() {
                         Featured Work
                     </h2>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                         {/* Featured Project Card */}
                         <a
                             href="/code?project=rescored"

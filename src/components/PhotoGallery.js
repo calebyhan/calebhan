@@ -101,7 +101,7 @@ export default function PhotoGallery({ photos }) {
             </div>
 
             {/* Photo Details Sidebar */}
-            <div className="lg:w-80 bg-gray-900/50 rounded-lg p-4 lg:p-6 overflow-y-auto max-h-[40vh] lg:max-h-full">
+            <div className="lg:w-80 bg-gray-900/50 rounded-lg p-4 lg:p-6 overflow-y-auto max-h-[45vh] lg:max-h-full">
               <h3 className="text-xl font-bold mb-4">Photo Details</h3>
 
               {/* Camera Info */}

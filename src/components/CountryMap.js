@@ -324,7 +324,7 @@ export default function CountryMap({ selectedCountry, onSelectCountry, countries
       {/* Country list for countries with photos - Only show for World mode */}
       {mapMode === "world" && countries.length > 0 && (
         <div className="mt-4 pt-3 border-t border-gray-700/30">
-          <p className="text-xs md:text-[10px] text-gray-500 mb-2">Countries with photos:</p>
+          <p className="text-[10px] md:text-xs text-gray-500 mb-2">Countries with photos:</p>
           <div className="flex flex-wrap gap-2 md:gap-1.5">
             {countries.map((country) => (
               <button
