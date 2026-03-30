@@ -156,6 +156,7 @@ export default function About() {
                     src="/photos/IMG_5067.jpg"
                     alt=""
                     fill
+                    sizes="100vw"
                     className="object-cover blur-sm"
                     priority
                 />
@@ -179,6 +180,7 @@ export default function About() {
                                 src="/img/headshot.JPG"
                                 alt="Caleb Han headshot"
                                 fill
+                                sizes="(max-width: 768px) 192px, 224px"
                                 className="rounded-full object-cover border-4 border-gray-700/50 shadow-2xl transition-transform duration-300 ease-out group-hover:scale-110"
                             />
                         </div>
@@ -219,6 +221,9 @@ export default function About() {
                                     src="/projects/rescored/thumb.png"
                                     alt="Rescored"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority
+                                    loading="eager"
                                     className="object-cover transition-transform duration-500
                                              group-hover:scale-105"
                                 />
@@ -266,6 +271,7 @@ export default function About() {
                                     src="/img/about.jpg"
                                     alt="KASA Mountain Trip"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, 50vw"
                                     className="object-cover transition-transform duration-500
                                              group-hover:scale-105"
                                 />

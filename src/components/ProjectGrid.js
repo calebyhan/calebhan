@@ -55,6 +55,9 @@ export default function ProjectGrid({ projects, onProjectClick }) {
                   src={project.images.thumbnail}
                   alt={project.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  priority={project.images.thumbnail === '/projects/rescored/thumb.png'}
+                  loading={project.images.thumbnail === '/projects/rescored/thumb.png' ? 'eager' : 'lazy'}
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
               ) : (
