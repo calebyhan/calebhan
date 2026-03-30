@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import PhotoGallery from "@/components/PhotoGallery";
 import FilterPanel from "@/components/FilterPanel";
 import Navbar from "@/components/Navbar";
+import ParticleField from '@/components/ParticleField';
 import { searchPhotos, initSearchModel } from "@/utils/photoSearch";
 
 const DEFAULT_FILTERS = {
@@ -131,46 +132,49 @@ export default function PhotographyPageContent({ initialPhotos }) {
   }, [searchQuery, filters, photos]);
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <Navbar />
-      <div className="flex pt-16">
-        <FilterPanel
-          filters={filters}
-          setFilters={setFilters}
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-          photos={photos}
-          isOpen={filterPanelOpen}
-          setIsOpen={setFilterPanelOpen}
-        />
+    <div className="relative isolate min-h-screen overflow-hidden bg-black text-white">
+      <ParticleField />
+      <div className="relative z-10">
+        <Navbar />
+        <div className="flex pt-16">
+          <FilterPanel
+            filters={filters}
+            setFilters={setFilters}
+            searchQuery={searchQuery}
+            setSearchQuery={setSearchQuery}
+            photos={photos}
+            isOpen={filterPanelOpen}
+            setIsOpen={setFilterPanelOpen}
+          />
 
-        <main className="flex-1 p-4 md:p-6 lg:p-8">
-          <div className="mb-6 md:mb-8">
-            <div className="flex items-center gap-3 mb-4 lg:hidden">
-              <button
-                onClick={() => setFilterPanelOpen(true)}
-                className="flex items-center gap-2 px-4 py-2 bg-cyan-600/20 border border-cyan-400/50 text-cyan-300 rounded-lg hover:bg-cyan-600/30 transition-colors"
-                aria-label="Open filters"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
-                </svg>
-                <span className="font-medium">Filters</span>
-              </button>
+          <main className="flex-1 p-4 md:p-6 lg:p-8">
+            <div className="mb-6 md:mb-8">
+              <div className="flex items-center gap-3 mb-4 lg:hidden">
+                <button
+                  onClick={() => setFilterPanelOpen(true)}
+                  className="flex items-center gap-2 px-4 py-2 bg-cyan-600/20 border border-cyan-400/50 text-cyan-300 rounded-lg hover:bg-cyan-600/30 transition-colors"
+                  aria-label="Open filters"
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                  </svg>
+                  <span className="font-medium">Filters</span>
+                </button>
+              </div>
+
+              <h1 className="text-4xl md:text-5xl font-bold mb-2">Photography</h1>
+              <p className="text-gray-400">
+                {searching ? (
+                  <span>Searching...</span>
+                ) : (
+                  <span>{filteredPhotos.length} {filteredPhotos.length === 1 ? 'photo' : 'photos'}</span>
+                )}
+              </p>
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-bold mb-2">Photography</h1>
-            <p className="text-gray-400">
-              {searching ? (
-                <span>Searching...</span>
-              ) : (
-                <span>{filteredPhotos.length} {filteredPhotos.length === 1 ? 'photo' : 'photos'}</span>
-              )}
-            </p>
-          </div>
-
-          <PhotoGallery photos={filteredPhotos} />
-        </main>
+            <PhotoGallery photos={filteredPhotos} />
+          </main>
+        </div>
       </div>
     </div>
   );

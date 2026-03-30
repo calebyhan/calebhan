@@ -7,6 +7,7 @@ import TechBadgeField from '@/components/TechBadgeField';
 import ProjectGrid from '@/components/ProjectGrid';
 import ProjectSearch from '@/components/ProjectSearch';
 import ProjectModal from '@/components/ProjectModal';
+import ParticleField from '@/components/ParticleField';
 import { searchProjects } from '@/utils/projectSearch';
 
 function CodePageContent() {
@@ -163,15 +164,18 @@ function CodePageContent() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="text-gray-400">Loading projects...</div>
+      <div className="relative isolate min-h-screen overflow-hidden bg-black flex items-center justify-center">
+        <ParticleField />
+        <div className="relative z-10 text-gray-400">Loading projects...</div>
       </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-black">
-      <Navbar />
+    <main className="relative isolate min-h-screen overflow-hidden bg-black">
+      <ParticleField />
+      <div className="relative z-10">
+        <Navbar />
 
       {/* Hero section - minimal */}
       <section className="pt-24 pb-8 px-4">
@@ -262,14 +266,15 @@ function CodePageContent() {
       </section>
 
       {/* Modal */}
-      {selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          onClose={handleCloseModal}
-          allProjects={projects}
-          embeddings={embeddings}
-        />
-      )}
+        {selectedProject && (
+          <ProjectModal
+            project={selectedProject}
+            onClose={handleCloseModal}
+            allProjects={projects}
+            embeddings={embeddings}
+          />
+        )}
+      </div>
     </main>
   );
 }
