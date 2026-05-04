@@ -149,6 +149,35 @@
     }
   },
   {
+    "id": "drone-model",
+    "title": "Drone Model",
+    "tagline": "Drone PID controller.",
+    "description": "Built a 6-DOF quadcopter simulation with a three-stage cascaded PID control system running at 100 Hz for a DATA 442 final project. The controller implements a full position-to-rates cascade: XYZ position error drives desired acceleration, small-angle inversion converts that to roll/pitch setpoints, and body-rate PID outputs commanded torques fed through a 4x4 motor allocation matrix.\n\nIntegrated a Dryden atmospheric turbulence model using first-order Ornstein-Uhlenbeck shaping filters that generate spatially correlated wind gusts. Wind feedforward at the position stage lets the drone anticipate aerodynamic drag from current wind velocity rather than waiting for position error to accumulate.\n\nModels a sub-250 g Crazyflie-class quadcopter with RK4 integration. Includes both a batch simulation script for telemetry analysis and an interactive matplotlib UI with real-time target XYZ sliders, 3D environment visualization, per-motor readouts with saturation warnings, scrolling telemetry plots, and a live PID state panel.",
+    "featured": false,
+    "featuredRank": null,
+    "featuredLabel": null,
+    "techStack": [
+      "python",
+      "numpy",
+      "matplotlib"
+    ],
+    "category": "simulation",
+    "links": {
+      "github": "https://github.com/calebyhan/drone-model",
+      "live": null,
+      "demo": null
+    },
+    "images": {
+      "thumbnail": "/projects/drone-model/thumb.png",
+      "screenshots": []
+    },
+    "metadata": {
+      "year": 2026,
+      "status": "completed",
+      "complexity": "medium"
+    }
+  },
+  {
     "id": "3d-blackjack",
     "title": "3D Blackjack Game",
     "tagline": "A 3D blackjack game built with React, TypeScript, Three.js, and Zustand.",
